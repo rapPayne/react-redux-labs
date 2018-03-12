@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    }
+    [contenteditable] {
+      min-width: 1em;
+    }
+    [contenteditable]:focus {
+      background: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Weather</h1>
+  <main>
+    <header>
+      Weather for
+      <span id="latitude"></span>,
+      <span id="longitude"></span> at 
+      <span id="datetime"></span>
+    </header>
+    <section id="map">
+    </section>
+    <section id="forecast">
+      <p id="summary"></p>
+      <div class="dayExtras">
+        <div class="highLowTemp">
+          <span class="highTemp">
+            <span class="temp">51˚</span>
+            <span class="time">10pm</span>
+          </span>
+
+          <span class="arrow">→</span>
+
+          <span class="lowTemp">
+            <span class="temp">62˚</span>
+            <span class="time">12am</span>
+          </span>
+        </div>
+
+        <div class="sunTimes">
+          <span class="sunrise">
+            <img src="/images/sunrise.png" width="28" height="30">
+            <span class="time">6:56am</span>
+          </span>
+          <span class="sunset">
+            <img src="/images/sunset.png" width="28" height="30">
+            <span class="time">6:25pm</span>
+          </span>
+        </div>
+
+        <div class="precipAccum">
+          <span class="label">Rain</span>
+          <span class="val">
+            <span class="num">0.7</span>
+            <span class="unit">in</span>
+          </span>
+        </div>
+      </div>
+
+      <div id="currentDetails">
+        <div class="section">
+          <div class="temperature">
+            <span class="label">Temp:</span>
+            <span class="val">
+              <span class="num">53</span>
+              <span class="unit">˚</span>
+            </span>
+          </div>
+          <div class="precipProbability">
+            <span class="label">Precip:</span>
+            <span class="val">
+              <span class="num">3</span>
+              <span class="unit">%</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="wind">
+            <span class="label">Wind:</span>
+            <span class="val">
+              <span class="num">8</span>
+              <span class="unit">mph</span>
+              <span class="direction"></span>
+            </span>
+          </div>
+          <div class="pressure">
+            <span class="label">Pressure:</span>
+            <span class="val">
+              <span class="num">1037</span>
+              <span class="unit">mb</span>
+            </span>
+          </div>
+        </div>
+        <div class="section">
+          <div class="humidity">
+            <span class="label">Humidity:</span>
+            <span class="val">
+              <span class="num">34</span>
+              <span class="unit">%</span>
+            </span>
+          </div>
+          <div class="dew_point">
+            <span class="label">Dew Pt:</span>
+            <span class="val">
+              <span class="num">43</span>
+              <span class="unit">˚</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="uv_index uv0">
+            <span class="label">UV Index:</span>
+            <span class="val">
+              <span class="num">0</span>
+            </span>
+          </div>
+          <div class="visibility">
+            <span class="label">Visibility:</span>
+            <span class="val">
+              <span class="num">9.85</span>
+              <span class="unit">mi</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+
+</html>

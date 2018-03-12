@@ -1,0 +1,44 @@
+{
+  "latitude": 36.372854,
+  "longitude": -94.2088,
+  "timezone": "America/Chicago",
+  "daily": {
+    "data": [
+      {
+        "time": 1514872800,
+        "summary": "Clear throughout the day.",
+        "icon": "clear-day",
+        "sunriseTime": 1514899789,
+        "sunsetTime": 1514934867,
+        "moonPhase": 0.53,
+        "precipIntensity": 0,
+        "precipIntensityMax": 0,
+        "precipProbability": 0,
+        "temperatureHigh": 20.97,
+        "temperatureHighTime": 1514930400,
+        "temperatureLow": 11.74,
+        "temperatureLowTime": 1514984400,
+        "apparentTemperatureHigh": 20.97,
+        "apparentTemperatureHighTime": 1514930400,
+        "apparentTemperatureLow": 2.19,
+        "apparentTemperatureLowTime": 1514980800,
+        "dewPoint": 2.16,
+        "humidity": 0.56,
+        "pressure": 1037.75,
+        "windSpeed": 1.25,
+        "windBearing": 120,
+        "cloudCover": 0.05,
+        "visibility": 9.85,
+        "temperatureMin": 10.24,
+        "temperatureMinTime": 1514898000,
+        "temperatureMax": 20.97,
+        "temperatureMaxTime": 1514930400,
+        "apparentTemperatureMin": 0.09,
+        "apparentTemperatureMinTime": 1514872800,
+        "apparentTemperatureMax": 20.97,
+        "apparentTemperatureMaxTime": 1514930400
+      }
+    ]
+  },
+  "offset": -6
+}
