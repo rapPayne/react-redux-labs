@@ -89,10 +89,16 @@ export class Register extends Component {
               </div>
             </div>
 
+            <div className="row card-panel teal lighten-5">
+              <button onClick={this.handleClick}>Register</button>
+            </div>
           </form>
         </section>
       </div>
     );
+  }
+
+  handleClick() {
   }
 
   fetchCityAndState() {
