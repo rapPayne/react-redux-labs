@@ -88,11 +88,10 @@ export class Register extends Component {
                 <label htmlFor="nationality" className="active">Nationality</label>
               </div>
             </div>
-
-            <div className="row card-panel teal lighten-5">
-              <button onClick={this.handleClick}>Register</button>
-            </div>
           </form>
+          <div className="row card-panel teal lighten-5">
+            <button onClick={this.handleClick}>Register</button>
+          </div>
         </section>
       </div>
     );
