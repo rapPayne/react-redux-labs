@@ -60,7 +60,7 @@ export class Register extends Component {
                 <label htmlFor="state" className="active">State</label>
               </div>
               <div className="input-field col s2">
-                <input onChange={this.fetchCityAndState} value={this.props.person.location.postcode} id="postcode" type="text" className="validate" />
+                <input onChange={this.changePerson} onBlur={this.fetchCityAndState} value={this.props.person.location.postcode} id="postcode" type="text" className="validate" />
                 <label htmlFor="postcode" className="active">Post code</label>
               </div>
             </div>
