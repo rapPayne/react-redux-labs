@@ -1,0 +1,23 @@
+{
+  "name": "daam-server",
+  "version": "0.0.1",
+  "scripts": {
+    "client": "cd ../client && npm start",
+    "server": "nodemon ./daam-server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "setup": "node load-database"
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "chalk": "^2.4.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.7"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "mongojs": "^2.5.0",
+    "nodemon": "^1.15.1"
+  }
+}
