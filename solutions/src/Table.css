@@ -1,0 +1,40 @@
+.theaterTableWrapper {
+  margin: 50px auto;  /* To center tables and chairs in grid */
+}
+
+.theaterTable {
+  background-color: grey;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 3px 3px 5px grey;
+  min-height: 30px;
+  margin: 10px 10px 0;
+}
+
+.tableNumber {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.theaterTable1 {
+  width: 40px;
+}
+
+.theaterTable2 {
+  width: 80px;
+}
+
+.theaterTable4 {
+  width: 160px;
+}
+
+.theaterTable6 {
+  width: 220px;
+}
+
+.theaterTable8 {
+  width: 240px;
+}
