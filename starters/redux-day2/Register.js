@@ -15,7 +15,7 @@ export class Register extends Component {
             <h6>Location</h6>
             {this.props.person.location.street} <br />
             {this.props.person.location.city},
-          {this.props.person.location.state}
+            {this.props.person.location.state}
             {this.props.person.location.postcode}
           </div>
           <div>
