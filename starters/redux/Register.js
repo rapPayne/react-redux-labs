@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
 
 export class Register extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { ...props };
-  }
   render() {
     return (
       <div>
         <h1>Maintain Account</h1>
-        <section className="">
-          <h4>Current information</h4>
+        <section className="row card-panel teal lighten-5">
+          <h4 className="card-title">Current information</h4>
           <div>
             <h6>Name</h6>
-            <p>{this.state.person.name.title} {this.state.person.name.first} {this.state.person.name.last}</p>
-          </div>
+            {this.props.person.name.title} {this.props.person.name.first} {this.props.person.name.last}</div>
           <div>
             <h6>Location</h6>
-            {this.state.person.location.street} <br />
-            {this.state.person.location.city},
-            {this.state.person.location.state}
-            {this.state.person.location.postcode}
+            {this.props.person.location.street} <br />
+            {this.props.person.location.city},
+            {this.props.person.location.state}
+            {this.props.person.location.postcode}
           </div>
           <div>
             <h6>Contact Info</h6>
-            Email: {this.state.person.email}<br />
-            Cell: {this.state.person.cell}
+            Email: {this.props.person.email}<br />
+            Cell: {this.props.person.cell}
           </div>
         </section>
         <section className="row">
@@ -35,16 +30,16 @@ export class Register extends Component {
             <div className="row card-panel teal lighten-5">
               <div className="card-title">Name</div>
               <div className="input-field col s2">
-                <input onChange={this.changePersonName} value={this.state.person.name.title} id="title" type="text" className="validate" />
+                <input onChange={this.changePerson} value={this.props.person.name.title} id="title" type="text" className="validate" />
                 <label htmlFor="title" className="active">Title</label>
               </div>
               <div className="input-field col s5">
-                <input id="first" onChange={this.changePersonName} value={this.state.person.name.first} type="text" className="validate" />
-                <label htmlFor="first" className="active">First Name</label>
+                <input id="first_name" onChange={this.changePerson} value={this.props.person.name.first} type="text" className="validate" />
+                <label htmlFor="first_name" className="active">First Name</label>
               </div>
               <div className="input-field col s5">
-                <input id="last" onChange={this.changePersonName} value={this.state.person.name.last} type="text" className="validate" />
-                <label htmlFor="last" className="active">Last Name</label>
+                <input id="last_name" onChange={this.changePerson} value={this.props.person.name.last} type="text" className="validate" />
+                <label htmlFor="last_name" className="active">Last Name</label>
               </div>
             </div>
 
@@ -52,19 +47,19 @@ export class Register extends Component {
             <div className="row card-panel teal lighten-5">
               <div className="card-title">Location</div>
               <div className="input-field col s12">
-                <input id="street" onChange={this.changePersonLocation} value={this.state.person.location.street} type="text" className="validate" />
+                <input id="street" onChange={this.changePerson} value={this.props.person.location.street} type="text" className="validate" />
                 <label htmlFor="street" className="active">Street</label>
               </div>
               <div className="input-field col s5">
-                <input id="city" onChange={this.changePersonLocation} value={this.state.person.location.city} type="text" className="validate" />
+                <input id="city" onChange={this.changePerson} value={this.props.person.location.city} type="text" className="validate" />
                 <label htmlFor="city" className="active">City</label>
               </div>
               <div className="input-field col s5">
-                <input id="state" onChange={this.changePersonLocation} value={this.state.person.location.state} type="text" className="validate" />
+                <input id="state" onChange={this.changePerson} value={this.props.person.location.state} type="text" className="validate" />
                 <label htmlFor="state" className="active">State</label>
               </div>
               <div className="input-field col s2">
-                <input onChange={this.changePersonLocation} onBlur={this.fetchCityAndState} value={this.state.person.location.postcode} id="postcode" type="text" className="validate" />
+                <input onChange={this.changePerson} onBlur={this.fetchCityAndState} value={this.props.person.location.postcode} id="postcode" type="text" className="validate" />
                 <label htmlFor="postcode" className="active">Post code</label>
               </div>
             </div>
@@ -73,11 +68,11 @@ export class Register extends Component {
             <div className="row card-panel teal lighten-5">
               <div className="card-title">Contact Information</div>
               <div className="input-field col s12">
-                <input id="email" onChange={this.changePerson} value={this.state.person.email} type="email" className="validate" />
+                <input id="email" onChange={this.changePerson} value={this.props.person.email} type="email" className="validate" />
                 <label htmlFor="email" className="active">Email</label>
               </div>
               <div className="input-field col s12">
-                <input id="cell" onChange={this.changePerson} value={this.state.person.cell} type="text" className="validate" />
+                <input id="cell" onChange={this.changePerson} value={this.props.person.cell} type="text" className="validate" />
                 <label htmlFor="cell" className="active">Cell</label>
               </div>
             </div>
@@ -88,28 +83,29 @@ export class Register extends Component {
     );
   }
 
-  changePersonName = (e) => {
-    const { id, value } = e.target;
-    const obj = { person: { ...this.state.person, name: { ...this.state.person.name } } }
-    obj.person.name[id] = value;
-    this.setState(obj);
-  }
-
-  changePersonLocation = (e) => {
-    const { id, value } = e.target;
-    const obj = { person: { ...this.state.person, location: { ...this.state.person.location } } }
-    obj.person.location[id] = value;
-    this.setState(obj);
-  }
-
   changePerson = (e) => {
-    const { id, value } = e.target;
-    const obj = { person: { ...this.state.person } };
-    obj.person[id] = value;
-    this.setState(obj);
-    console.log("changePerson() ran", obj);
+    switch (e.target.id) {
+      case "title":
+        break;
+      case "first_name":
+        break;
+      case "last_name":
+        break;
+      case "street":
+        break;
+      case "city":
+        break;
+      case "state":
+        break;
+      case "postcode":
+        break;
+      case "email":
+        break;
+      case "cell":
+        break;
+    }
   }
 
-  fetchCityAndState() {
+  fetchCityAndState(e) {
   }
 }
