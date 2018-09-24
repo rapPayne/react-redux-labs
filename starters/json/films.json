@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Chunnel",
+    "homepage": "http://chunnelmovie.com",
+    "release_date": "",
+    "overview": "There's an explosion in the Chunnel. And the U.S. President's daughter gets stuck in there. There is more than meets the eye in this complex, layered film.",
+    "poster_path": "/img/posters/1.jpg",
+    "runtime": 108,
+    "tagline": "There's a war 100 meters below the English Channel",
+    "vote_average": 6.2,
+    "vote_count": 52 
+  },
+  {
+    "id": 2,
+    "title": "Prognosis Negative",
+    "homepage": "http://prognosisnegative.com",
+    "release_date": "",
+    "overview": "A doctor mulls over the consequences of a new miracle cure he has created while balancing his need to test it fully. But should he to it on his family?",
+    "poster_path": "/img/posters/2.jpg",
+    "runtime": 108,
+    "tagline": "How far will a man go to find a cure?",
+    "vote_average": 9.3,
+    "vote_count": 822 
+  },
+  {
+    "id": 3,
+    "title": "Checkmate",
+    "homepage": "http://paramount.com/checkmatemovie",
+    "release_date": "",
+    "overview": "Checkmate is about a king who likes chess... and finds himself in real-life jeopardy when, like in the game, everyone is after the king. According to transcripts, this FANTASTIC dialogue exchange happens in the movie: Man: I didn't know you enjoyed chess, your majesty. King: Why wouldn't I? Man: Because the king is always in jeopardy. King: Yes, but it's only a game. Man: (suspiciously) Yes, of course. Only a game.",
+    "poster_path": "/img/posters/3.jpg",
+    "runtime": 108,
+    "tagline": "Being the king is not a game... or is it?",
+    "vote_average": 4.0,
+    "vote_count": 98 
+  },
+  {
+    "id": 4,
+    "title": "Death Blow",
+    "homepage": "http://deathblowmovie.com",
+    "release_date": "",
+    "overview": "When someone tries to blow you up, not because of who you are, but for different reasons altogether.  Adam is an amnesia patient who has government secrets hidden, but he can't remember where. John Rock is the only one who can protect him from the Soviets.",
+    "poster_path": "/img/posters/4.jpg",
+    "runtime": 108,
+    "tagline": "They're after you",
+    "vote_average": 8.7,
+    "vote_count": 721 
+  },
+  {
+    "id": 5,
+    "title": "Blimp",
+    "homepage": "http://sonypictures/blimp",
+    "release_date": "",
+    "overview": "Based on the true story of the Hindenberg, this docu-drama follows the interactions between five passengers on the ill-fated ... well ... blimp.",
+    "poster_path": "/img/posters/5.jpg",
+    "runtime": 108,
+    "tagline": "The original disaster movie",
+    "vote_average": 2.2,
+    "vote_count": 312 
+  },
+  {
+    "id": 6,
+    "title": "Sack Lunch",
+    "homepage": "http://sacklunch.com",
+    "release_date": "",
+    "overview": "A non-pretentious, lighthearted alternative to the gravitas-filled films of the day.",
+    "poster_path": "/img/posters/6.jpg",
+    "runtime": 108,
+    "tagline": "Pack in the fun",
+    "vote_average": 7.3,
+    "vote_count": 42 
+  }
+]
