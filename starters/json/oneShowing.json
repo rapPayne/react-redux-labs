@@ -1,0 +1,31 @@
+{
+  "reservations": [
+    "5ba6948d4b66490ccd23ffde",
+    "5ba6948d4b66490ccd23ffdf",
+    "5ba6948d4b66490ccd23ffe0",
+    "5ba6948d4b66490ccd23ffe1",
+    "5ba6948d4b66490ccd23ffe2",
+    "5ba6948d4b66490ccd23ffe3",
+    "5ba6948d4b66490ccd23ffe4",
+    "5ba6948d4b66490ccd23ffe5",
+    "5ba6948d4b66490ccd23ffe6",
+    "5ba6948d4b66490ccd23ffe7",
+    "5ba6948d4b66490ccd23ffe8",
+    "5ba6948d4b66490ccd23ffe9",
+    "5ba6948d4b66490ccd23ffea",
+    "5ba6948d4b66490ccd23ffeb",
+    "5ba6948d4b66490ccd23ffec",
+    "5ba6948d4b66490ccd23ffed",
+    "5ba6948d4b66490ccd23ffee",
+    "5ba6948d4b66490ccd23ffef",
+    "5ba6948d4b66490ccd23fff0",
+    "5ba6948d4b66490ccd23fff1",
+    "5ba6948d4b66490ccd23fff2"
+  ],
+  "_id": "5ba6948c4b66490ccd23f731",
+  "id": 126,
+  "film_id": 4,
+  "theater_id": 4,
+  "showing_time": "2018-09-26T01:45:00.000Z",
+  "__v": 1
+}
