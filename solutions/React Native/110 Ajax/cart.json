@@ -1,0 +1,28 @@
+{
+  "seats": [
+    {
+      "_id": "5ba6948c4b66490ccd23f809",
+      "table_id": "5ba6948c4b66490ccd23f7d4",
+      "table_number": 4,
+      "seat_number": 1,
+      "price": 10.75,
+      "__v": 0
+    },
+    {
+      "_id": "5ba6948c4b66490ccd23f80b",
+      "table_id": "5ba6948c4b66490ccd23f7d4",
+      "table_number": 4,
+      "seat_number": 3,
+      "price": 10.75,
+      "__v": 0
+    },
+    {
+      "_id": "5ba6948c4b66490ccd23f80c",
+      "table_id": "5ba6948c4b66490ccd23f7d4",
+      "table_number": 4,
+      "seat_number": 4,
+      "price": 10.75,
+      "__v": 0
+    }
+  ]
+}
