@@ -22,8 +22,6 @@
 - GET /api/showings/:showing_id - The one showing with that id
 - GET /api/showings/:showing_id/reservations - All reservations for that showing
 - GET /api/showings/:film_id/:date - All showings for a film on the given date
-### Reservations
-- GET /api/reservations/:reservation_id - The one reservation for that id
 
 ## Database structure notes
 Each collection (like a traditional database table) has a mongoDB "_id" property. It is an ugly ObjectId string for internal mongo uses. We've also added an "id" property which is an integer purely for human convenience. It can be ignored until we need to do manual queries.

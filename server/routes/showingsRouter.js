@@ -25,14 +25,13 @@ const routes = (showings, reservations) => {
   // All reservations for a given showing_id
   apiRouter.route('/:showing_id/reservations').get((req, res) => {
     const { showing_id } = req.params;
-    console.log(showing_id);
     showings.findOne({ id: showing_id })
     .populate({path: 'reservations', model: reservations})
     .exec( (err, showingAndReservationsEntries) => {
       if (err)
         res.status(500).send(err);
       else
-        res.json(showingAndReservationsEntries)
+        res.json(showingAndReservationsEntries.reservations)
     });
   });
 
