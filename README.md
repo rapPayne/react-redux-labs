@@ -15,6 +15,8 @@ In the labs, you'll create the client portion from scratch.
 1. Node and npm
 
 ## To run
+```bash
 cd server
 npm run dev
+```
 This will run the client AND the server. Both are in watch mode so that if you make any changes to the source, it restarts.
