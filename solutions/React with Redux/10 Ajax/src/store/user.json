@@ -1,0 +1,32 @@
+{
+  "gender": "female",
+  "name": {
+    "title": "ms",
+    "first": "leslie",
+    "last": "knope"
+  },
+  "location": {
+    "street": "7338 church lane",
+    "city": "pawnee",
+    "state": "in",
+    "postcode": 47403
+  },
+  "email": "leslie.knope@parks.pawnee.in.state.us",
+  "login": {
+    "username": "lknope",
+    "password": "a1234567",
+    "salt": "xb6FD8Ag",
+    "md5": "200cd4c1f94da18cd3110ae5186a95e9",
+    "sha1": "ed6e38d26930a4c5ca50e169aee35122f7471b30",
+    "sha256": "5d8bbc7f3b4b17b70e886f6527071f945c72e7e37480b8199b606a759dbaaabe"
+  },
+  "dob": "1977-12-03 01:07:48",
+  "registered": "2016-11-23 00:54:18",
+  "cell": "812-031-6555",
+  "picture": {
+    "large": "https://media.glamour.com/photos/569580c38fa134644ec26260/master/pass/entertainment-2015-01-leslie-knope-final-season-main.jpg",
+    "medium": "http://achalaupendran.com/wp-content/uploads/2017/02/Best-Leslie-Knope-GIFs.jpg",
+    "thumbnail": "https://yt3.ggpht.com/-ddrHUha3GsY/AAAAAAAAAAI/AAAAAAAAAAA/i1OX6Fwn0Ws/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+  },
+  "nat": "US"
+}
