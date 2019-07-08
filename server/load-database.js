@@ -36,27 +36,18 @@ Ready to do all that?
 
 connectToDatabase()
   .then(confirmContinue)
-  //.then((data) => { console.log({ message: "after confirmContinue", data }) })
   .then(dropDatabase)
-  //.then((data) => { console.log({ message: "after dropDatabase", data }) })
   .then(makeFilmsData)
-  //.then((data) => { console.log({ message: "after makeFilmsData", data }) })
   .then(makeTheatersData)
-  //.then((data) => { console.log({ message: "after makeTheatersData", data }) })
   .then(makeShowingsData)
-  //.then((data) => { console.log({ message: "after makeShowingsData", data }) })
   .then(makeTablesData)
-  //.then((data) => { console.log({ message: "after makeTablesData", data }) })
   .then(makeSeatsData)
-  //.then((data) => { console.log({ message: "after MakeSeatsData", data }) })
   .then(makeReservationsData)
-  //.then((data) => { console.log({ message: "after MakeReservationsData", data }) })
   .then(sayGoodbye)
-  //.then((data) => { console.log({ message: "after sayGoodbye", data }) })
-  .catch((err) => console.error(`Error: ${errorMessage}: ${err}`))
+  .catch(err => console.error(`Error: ${errorMessage}: ${err}`))
   .then(closeDatabase)
-  //.then((data) => { console.log({ message: "after closeDatabase", data }) })
   ;
+
 function connectToDatabase() {
   console.log("Connecting to the database");
   errorMessage = `Can't connect to your database server. Please ensure that it is running and try again. Here's the error:`;
@@ -70,7 +61,7 @@ function confirmContinue() {
       input: process.stdin,
       output: process.stdout
     });
-    rl.question(chalk.cyan(prompt), (reply) => {
+    rl.question(chalk.cyan(prompt), reply => {
       if (reply.toLowerCase().split("")[0] !== "y")
         reject("Try another time, maybe?");
       else
@@ -83,7 +74,7 @@ function dropDatabase() {
   errorMessage = `Problem dropping the database`;
   console.log("Dropping the old database");
   return new Promise((resolve, reject) => {
-    mongoose.connection.db.dropDatabase((err) => {
+    mongoose.connection.db.dropDatabase(err => {
       if (err)
         reject(err);
       else
@@ -100,14 +91,14 @@ function makeFilmsData() {
       if (err) reject(err);
       else resolve(data);
     });
-  }).then((data) => {
+  }).then(data => {
     films = JSON.parse(data);
     films = films.map(f => Object.assign({}, f, { running_time: getRandomRunningTimeBetween(90, 150), release_date: getRecentDate(20) }));
     films.forEach(film => {
       const e = new filmsModel(film);
       promiseList.push(e.save());
     });
-  }).catch((err) => {
+  }).catch(err => {
     errorMessage = `Couldn't find the films JSON file.`;
     promiseList.push(new Promise((resolve, reject) => reject({ errorMessage, err })));
   }).then(console.log("finished films"));
@@ -123,7 +114,7 @@ function makeTheatersData() {
     });
   })
     .then(console.log("read theaters file okay"))
-    .then((data) => {
+    .then(data => {
       const promiseList = [];
       const rawTheaters = JSON.parse(data);
       rawTheaters.forEach(entity => {
