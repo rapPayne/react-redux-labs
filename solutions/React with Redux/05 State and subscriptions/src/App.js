@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.css';
+import 'materialize-css';
 import { Register } from './Register';
 import { store } from './store/store';
 import './App.css';
