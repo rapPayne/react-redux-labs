@@ -1,11 +1,14 @@
 {
   "expo": {
-    "name": "daam-react-native",
-    "description": "This project is really great.",
-    "slug": "daam-react-native",
+    "name": "Dinner and a movie",
+    "slug": "daam",
     "privacy": "public",
-    "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
+    "sdkVersion": "33.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
