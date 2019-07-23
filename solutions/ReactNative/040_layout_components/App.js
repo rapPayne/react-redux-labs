@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import { store } from './store/store';
 import { Landing } from './Landing';
+import { Checkout } from './Checkout';
 
 export default class App extends Component {
  constructor() {
@@ -15,13 +16,14 @@ export default class App extends Component {
  }
 
  render() {
-  console.log(this.state);
   return (
    <View style={styles.container}>
+    <StatusBar barStyle="light-content" hidden={true}></StatusBar>
+    {/* <Checkout /> */}
     <Landing {...this.state} />
    </View>
   );
- }
+ } 
 }
 
 const styles = StyleSheet.create({
