@@ -34,7 +34,6 @@ const fetchTablesAndSeatsMiddleware = ({ dispatch, getState }) => next => action
 
 const fetchReservationsMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === "FETCH_RESERVATIONS") {
-    console.log(action);
     fetch(`${server}/api/showings/${action.showing_id}/reservations/`)
       .then(res => res.json())
       .then(reservations => dispatch({ type: "SET_RESERVATIONS", reservations }))
