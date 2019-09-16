@@ -8,9 +8,9 @@ export const historyMiddleware = ({ getState, dispatch }) => next => action => {
   next(action);
 }
 
+// Populates the city and state for a given US zipcode. 
 export const fetchCityAndStateMiddleware = ({ getState, dispatch }) => next => action => {
   if (action.type === actionTypes.FETCH_CITY_AND_STATE) {
-    console.log("called fetch");
     const url = `http://api.zippopotam.us/us/${action.postcode}`;
     fetch(url)
     .then(res => res.json())
