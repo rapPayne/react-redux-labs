@@ -1,0 +1,19 @@
+{
+  "name": "rest-api-server",
+  "version": "0.0.1",
+  "description": "For serving data for labs and demos via an API",
+  "main": "index.js",
+  "scripts": {
+    "reload-daam": "node ./reload-daam.js",
+    "reload_users": "node ./reload_users.js > ./database.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --port 3007 --watch ./database.json"
+  },
+  "author": "Rap Payne",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "json-server": "^0.15.1",
+    "node-fetch": "^2.6.0"
+  }
+}

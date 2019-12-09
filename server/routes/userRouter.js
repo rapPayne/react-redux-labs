@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
 const routes = (users) => {
   const apiRouter = express.Router();
@@ -23,23 +23,23 @@ const routes = (users) => {
     });
   });
 
-  apiRouter.route("/login").post((req, res) => {
-    const { username, password } = req.body;
-    users.findOne({ username })
-      .exec((err, user) => {
-        if (err || !user) {
-          return res.status(401).json({ error: "bad username or password" });
-        }
-        bcrypt.compare(password, user.password, (err, result) => {
-          if (result === true) {
-            req.session.userId = user._id;
-            return res.status(204).send();
-          } else {
-            return res.status(401).json({ error: "bad username or password" }); // Really bad passord, but let's not tell them that.
-          }
-        });
-      });
-  });
+  // apiRouter.route("/login").post((req, res) => {
+  //   const { username, password } = req.body;
+  //   users.findOne({ username })
+  //     .exec((err, user) => {
+  //       if (err || !user) {
+  //         return res.status(401).json({ error: "bad username or password" });
+  //       }
+  //       bcrypt.compare(password, user.password, (err, result) => {
+  //         if (result === true) {
+  //           req.session.userId = user._id;
+  //           return res.status(204).send();
+  //         } else {
+  //           return res.status(401).json({ error: "bad username or password" }); // Really bad passord, but let's not tell them that.
+  //         }
+  //       });
+  //     });
+  // });
 
   // GET /logout
   apiRouter.route('/logout').get((req, res, next) => {
