@@ -8,8 +8,10 @@
     "poster_path": "/img/posters/1.jpg",
     "runtime": 108,
     "tagline": "There's a war 100 meters below the English Channel",
+    "popularity": 7.0,
+    "imdb_id": "tt0137523",
     "vote_average": 6.2,
-    "vote_count": 52 
+    "vote_count": 52
   },
   {
     "id": 2,
@@ -20,8 +22,10 @@
     "poster_path": "/img/posters/2.jpg",
     "runtime": 108,
     "tagline": "How far will a man go to find a cure?",
+    "popularity": 8.0,
+    "imdb_id": "tt0137523",
     "vote_average": 9.3,
-    "vote_count": 822 
+    "vote_count": 822
   },
   {
     "id": 3,
@@ -32,8 +36,10 @@
     "poster_path": "/img/posters/3.jpg",
     "runtime": 108,
     "tagline": "Being the king is not a game... or is it?",
+    "popularity": 3.3,
+    "imdb_id": "tt0137523",
     "vote_average": 4.0,
-    "vote_count": 98 
+    "vote_count": 98
   },
   {
     "id": 4,
@@ -44,8 +50,10 @@
     "poster_path": "/img/posters/4.jpg",
     "runtime": 108,
     "tagline": "They're after you",
+    "popularity": 9.2,
+    "imdb_id": "tt0137523",
     "vote_average": 8.7,
-    "vote_count": 721 
+    "vote_count": 721
   },
   {
     "id": 5,
@@ -56,8 +64,10 @@
     "poster_path": "/img/posters/5.jpg",
     "runtime": 108,
     "tagline": "The original disaster movie",
+    "popularity": 1.4,
+    "imdb_id": "tt0137523",
     "vote_average": 2.2,
-    "vote_count": 312 
+    "vote_count": 312
   },
   {
     "id": 6,
@@ -68,7 +78,9 @@
     "poster_path": "/img/posters/6.jpg",
     "runtime": 108,
     "tagline": "Pack in the fun",
+    "popularity": 7.5,
+    "imdb_id": "tt0137523",
     "vote_average": 7.3,
-    "vote_count": 42 
+    "vote_count": 42
   }
 ]
