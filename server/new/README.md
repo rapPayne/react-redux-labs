@@ -17,7 +17,6 @@ Users
 
 Table numbers and seat numbers are friendly for the customers. The ids for them are for the system.
 
-# Middlewares
-Middleware runs before each request. We're using middleware to intercept the RESTful requests and provide specialized GET endpoints
+# Specialized Routes
 - /api/showings/:film_id/:showing_date - Returns all showings for that film on that date
 - Others here
