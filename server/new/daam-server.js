@@ -8,7 +8,25 @@ const middlewares = jsonServer.defaults()
 server.use(middlewares)
 
 // Load custom routes
-server.get('/api/showings/:film_id/:date', (req, res) => {
+
+// Return all reservations for a given showingId
+server.get('/api/showings/:showing_id/reservations', (req, res) => {
+  // TODO: if this showing_id isn't a number, return a 400-series
+  const showing_id = +req.params.showing_id;  // Convert the string to a number
+  fs.readFile('database.json', (err, data) => {
+   if (err)
+    res.status(500).send(err);
+   else {
+    const databaseContents = JSON.parse(data)
+    res.json(databaseContents
+     .reservations
+     .filter(s => s.showing_id === showing_id)
+    );
+   }
+  });
+ });
+ 
+ server.get('/api/showings/:film_id/:date', (req, res) => {
  // TODO: if this film_id isn't a number, return a 400-series
  const film_id = +req.params.film_id;  // Convert the string to a number
  // TODO: if date isn't a JS Date, return a 400-series
@@ -33,6 +51,7 @@ server.get('/api/showings/:film_id/:date', (req, res) => {
  });
 });
 
+
 // Add custom routes before JSON Server router
 // server.get('/echo', (req, res) => {
 //  res.jsonp(req.query)
@@ -51,7 +70,7 @@ server.get('/api/showings/:film_id/:date', (req, res) => {
 
 // Use default router
 server.use('/api',router)
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3007;
 
 server.listen(port, () => {
  console.log(`Dinner and a movie data server is running on port ${port}`)

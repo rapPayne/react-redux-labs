@@ -7,7 +7,9 @@
     "reload-daam": "node ./reload-daam.js",
     "reload_users": "node ./reload_users.js > ./database.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server --port 3007 --routes ./routes.json --middlewares ./middlewares.js --watch ./database.json"
+    "server": "json-server --port 3007 --routes ./routes.json --middlewares ./middlewares.js --watch ./database.json",
+    "devserver": "nodemon ./daam-server"
+
   },
   "author": "Rap Payne",
   "license": "ISC",
@@ -15,5 +17,8 @@
     "faker": "^4.1.0",
     "json-server": "^0.15.1",
     "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
