@@ -154,8 +154,7 @@ const loginMiddleware = ({ dispatch, getState }) => next => action => {
       body
     })
       .then(res => res.json())
-      .then(console.log)
-      .then(() => console.warn('Handle sessions here.'))
+      .then(user => dispatch(actions.setUser(user)))
       .catch(console.error)
   }
   next(action);
