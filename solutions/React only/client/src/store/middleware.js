@@ -147,7 +147,8 @@ const checkoutMiddleware = ({ getState, dispatch }) => next => action => {
 // Send username/password POST request
 const loginMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === actionTypes.LOGIN) {
-    const body = JSON.stringify({...action});
+    const body = JSON.stringify({...action.user});
+    console.log("body is",body)
     fetch(`/api/login`, {
       method:'POST',
       headers: {"Content-Type":`application/json`},
@@ -155,6 +156,7 @@ const loginMiddleware = ({ dispatch, getState }) => next => action => {
     })
     .then(res => res.json())
     .then(console.log)
+    .catch(console.error)
   }
   next(action);
 }
