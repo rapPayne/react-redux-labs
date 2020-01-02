@@ -45,3 +45,13 @@ Carts are only local. They're never sent back to the server so other users on ot
 
 Yes, this might be a problem if two unrelated people are considering the same seat. They might possibly both put it in their local carts but the first to pay for the seat gets to keep it. The other should get an error message.
 
+# Security
+I know, I know.
+- "You should promote requests to http*s*."
+- "You should hash passwords."
+- "Your /api/users route is completely insecure!"
+- "You're not asking for the credit card CSC."
+- "Storing credit card PANs in clear text is not PCI compliant."
+- "The sessions are vulnerable to CSRF attack."
+
+I get it. Really. I know better. This is not by any means a truly secure environment. We're doing it this way for ease of use for a training course and not for a production ecommerce web application. Please make sure that you correct the above problems if you ever want to use this for a production app. Throw me a bone here.

@@ -39,8 +39,6 @@ confirmContinue()
  .then(saveDatabase)
  ;
 
-//TODO: Make some showings with some reservations
-
 function confirmContinue() {
  errorMessage = `Okay, we won't continue to run.`;
  return new Promise((resolve, reject) => {
@@ -131,14 +129,14 @@ function makeUsersData() {
   const family = getRandomFamilyName();
   const mail_server = getRandomMailServer();
   const phone = getRandomPhoneNumber();
-  const username = getRandomUsername(given, family, mail_server);
   const password = getRandomPassword();
   const credit_card = getRandomCreditCard();
   users.push({
    id: i + usersStartingId,
-   name: { given, family },
-   phone, username, password, credit_card,
    email: `${given.toLowerCase()}.${family.toLowerCase()}@${mail_server}`,
+   password, 
+   name: { given, family },
+   phone, credit_card,
   });
  }
  database.users = users;
