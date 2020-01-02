@@ -147,22 +147,38 @@ const checkoutMiddleware = ({ getState, dispatch }) => next => action => {
 // Send username/password POST request
 const loginMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === actionTypes.LOGIN) {
-    const body = JSON.stringify({...action.user});
-    console.log("body is",body)
+    const body = JSON.stringify({ ...action.user });
     fetch(`/api/login`, {
-      method:'POST',
-      headers: {"Content-Type":`application/json`},
+      method: 'POST',
+      headers: { "Content-Type": `application/json` },
       body
     })
-    .then(res => res.json())
-    .then(console.log)
-    .catch(console.error)
+      .then(res => res.json())
+      .then(console.log)
+      .then(() => console.warn('Handle sessions here.'))
+      .catch(console.error)
   }
   next(action);
 }
 
 // Send a POST request with the user info.
-//const registerMiddleware = ???
+const registerMiddleware = ({ dispatch, getState }) => next => action => {
+  //TODO: Should validate that the request has the required shape before sending.
+  //TODO: Handle a non-201 response with an error toast or snackbar
+  if (action.type === actionTypes.REGISTER) {
+    const body = JSON.stringify({ ...action.user });
+    fetch(`/api/users`, {
+      method: 'POST',
+      headers: { "Content-Type": `application/json` },
+      body
+    })
+      .then(res => res.json())
+      .then(user => dispatch(actions.setUser(user)))
+      .catch(console.error)
+  }
+  next(action);
+}
+
 
 const loggingMiddleware = ({ getState }) => next => action => {
   next(action);
@@ -179,4 +195,5 @@ export default [
   fetchShowingsMiddleware,
   loginMiddleware,
   loggingMiddleware,
+  registerMiddleware,
 ];

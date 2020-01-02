@@ -5,14 +5,16 @@ import 'material-design-lite/dist/material.purple-indigo.min.css';
 import 'material-design-lite/material';
 import './helpers/Date';
 import './App.css';
-import { store } from './store/store';
 import { Account } from './Account';
 import { Checkout } from './Checkout';
 import { FilmDetails } from './FilmDetails';
 import { LandingPage } from './LandingPage';
 import { Login } from './Login';
+import { NotFound } from './NotFound';
 import { PickSeats } from './PickSeats';
+import { Register } from './Register';
 import { actions } from './store/actions';
+import { store } from './store/store';
 
 function App() {
   const [state, setState] = useState(store.getState());
@@ -50,9 +52,11 @@ function App() {
             <Route exact path="/" render={() => <LandingPage {...state} />} />
             <Route exact path="/account" render={() => <Account {...state} />} />
             <Route exact path="/login" render={() => <Login />} />
+            <Route exact path="/register" render={() => <Register />} />
             <Route exact path="/checkout" render={() => <Checkout {...state} />} />
             <Route exact path="/pickseats/:showingId" render={() => <PickSeats {...state} />} />
             <Route exact path="/filmdetails/:filmId" render={() => <FilmDetails {...state} />} />
+            <Route render={() => <NotFound />} />
           </Switch>
         </main>
         <footer>

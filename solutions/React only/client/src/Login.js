@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { actions } from './store/actions';
 import { store } from './store/store';
 
@@ -8,8 +9,11 @@ export const Login = () => {
   <>
   <form onSubmit={login}>
    <h1>Login</h1>
-   <label>Username</label>
-    <input id="username" />
+   <div>
+     <p>First time user? <Link to="/register">Register</Link></p>
+   </div>
+   <label>Email</label>
+    <input id="email" />
     <label>Password</label>
     <input id="password" type={visibility} />
     <input type="submit" value="Login" />
@@ -20,5 +24,5 @@ export const Login = () => {
 
 function login(e) {
   e.preventDefault();
-  store.dispatch(actions.login({username:e.target['username'].value, password:e.target['password'].value}));
+  store.dispatch(actions.login({email:e.target['email'].value, password:e.target['password'].value}));
 }
