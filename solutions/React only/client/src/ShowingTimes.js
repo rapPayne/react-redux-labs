@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { store } from './store/store';
 import { actions } from './store/actions';
 
-export const ShowingTimes = withRouter(({ showings, currentFilm, currentDate, history }) => {
+export const ShowingTimes = withRouter(({ styles, showings, currentFilm, currentDate, history }) => {
   currentDate = new Date(currentDate);
   const showingsForDateAndFilm = showings.filter(st => st.film_id === currentFilm.id && st.showing_time > currentDate.setHours(0, 0, 0, 0) && st.showing_time < currentDate.setHours(23, 59, 59, 999));
   return (
@@ -32,27 +32,10 @@ export const ShowingTimes = withRouter(({ showings, currentFilm, currentDate, hi
   )
 })
 
-const styles = {
-  wrapper: {
-    marginTop: '20px',
-  },
-  headline: {
-    fontSize: '1.2em',
-  },
-  showingTimesWrapper: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  tile: {
-    background: 'black',
-    color: 'white',
-    fontWeight: 'bold',
-    padding: '20px',
-    margin: '10px',
-  },
-}
+
 
 ShowingTimes.propTypes = {
+  styles: PropTypes.object.isRequired,
   showings: PropTypes.array.isRequired,
   currentFilm: PropTypes.object.isRequired,
   currentDate: PropTypes.object.isRequired,

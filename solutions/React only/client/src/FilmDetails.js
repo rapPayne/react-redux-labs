@@ -50,13 +50,33 @@ export const FilmDetails = withRouter((props) => {
       <a href={homepage} target="movie_site">{homepage}</a>
       <PickDate />
 
-      <ShowingTimes showings={showings} currentDate={currentDate} currentFilm={currentFilm} />
+      <ShowingTimes styles={showingTimesStyles} showings={showings} currentDate={currentDate} currentFilm={currentFilm} />
      </div>
     </div>
    </div>
   </>
  )
 });
+
+const showingTimesStyles = {
+  wrapper: {
+    marginTop: '20px',
+  },
+  headline: {
+    fontSize: '1.2em',
+  },
+  showingTimesWrapper: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  tile: {
+    background: 'black',
+    color: 'white',
+    fontWeight: 'bold',
+    padding: '20px',
+    margin: '10px',
+  },
+}
 
 const styles = {
  container: {

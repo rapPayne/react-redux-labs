@@ -1,4 +1,5 @@
 import React from 'react';
+import './helpers/Currency';
 
 export const Checkout = (props) => {
   console.log(props);
@@ -23,13 +24,13 @@ export const Checkout = (props) => {
             <td></td>
             <td></td>
             <td>{cart.seats.reduce((total, seat) => total + 1, 0)}</td>
-            <td>{cart.seats.reduce((total, seat) => total + seat.price, 0)}</td>
+            <td>{(cart.seats.reduce((total, seat) => total + seat.price, 0)).toCurrency()}</td>
           </tr>
         </tfoot>
         <tbody>
 
           {cart.seats.map(seat => (
-            <tr><td>{seat.seat_number}</td><td>{seat.price}</td><td>1</td><td>{seat.price}</td></tr>
+            <tr><td>{seat.seat_number}</td><td>{seat.price.toCurrency()}</td><td>1</td><td>{seat.price.toCurrency()}</td></tr>
           ))}
 
         </tbody>

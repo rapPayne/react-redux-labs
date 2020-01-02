@@ -9,14 +9,18 @@ export const FilmBrief = withRouter(({ film, showings, history, currentDate }) =
  return (
   <>
    <section onClick={handleClick} style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
-    <div style={styles.posterDiv}>
+     <div style={styles.innerWrapper}>
+     <div style={styles.posterDiv}>
      <img src={poster_path} alt="" style={styles.poster} />
     </div>
     <div style={styles.textDiv}>
      <p style={styles.title}>{title}</p>
      <p style={styles.runtimeP}>{runtime} minutes</p>
      <p style={styles.tagline}>{tagline}</p>
-     {showings && <ShowingTimes showings={showings} currentFilm={film} currentDate={currentDate} />}
+    </div>
+     </div>
+    <div style={styles.showings}>
+    {showings && <ShowingTimes styles={showingTimesStyles} showings={showings} currentFilm={film} currentDate={currentDate} />}
     </div>
    </section>
   </>
@@ -28,14 +32,38 @@ export const FilmBrief = withRouter(({ film, showings, history, currentDate }) =
  }
 });
 
+const showingTimesStyles = {
+  wrapper: {
+    padding: '5px',
+  },
+  headline: {
+    margin: '0',
+    fontWeight: '550',
+  },
+  showingTimesWrapper: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  tile: {
+    background: 'rgba(0,0,0,0.25)',
+    color: 'black',
+    fontWeight: '200',
+    padding: '5px',
+    margin: '1px',
+  },
+}
+
+
 const styles = {
- wrapper: {
-  width: '300px',
-  display: 'flex',
-  flexDirection: 'row',
-  margin: '30px',
-  cursor: 'pointer',
- },
+  wrapper: {
+    width: '300px',
+    margin: '30px',
+    cursor: 'pointer',
+   },
+   innerWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+   },
  poster: {
   maxWidth: '95%',
   objectFit: 'contain',
