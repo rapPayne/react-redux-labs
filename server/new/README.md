@@ -29,7 +29,7 @@ Details about a film like its name and description
 The big rooms where a film will be shown. Our company has six theaters so we can show up to six different films simultaneously.
 
 Theaters have tables. No, not HTML <table>s! We mean tables where people 
-can sit and enjoy a meal while they watch the film.
+can sit and enjoy a meal while they watch the film. These are arranged in its theater in rows and columns with each table's location expressed in an "x" and a "y" value.
 
 Tables have one to six seats. Each seat can be reserved.
 

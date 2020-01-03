@@ -2,18 +2,20 @@ import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { store } from './store/store';
 import { actions } from './store/actions';
+import { Table } from './Table';
 
 // Each time we navigate to PickSeats, we may be navigating to a
 // different showing, so we should trigger a fetch to get all
 // of the reservations for this showing.
 export const PickSeats = withRouter((props) => {
-  const statuses = { open: "open", inMyCart: "inMyCart", reserved: "reserved" };
   const state = store.getState()
   let currentShowing = {};
+  let showing_time;
+  let currentFilm = {};
 
   // Stupidly fancy way of saying filmId = props.match.params.filmId
   const { match: { params: { showingId } } } = props;
-  
+
   // Once and only once, start the fetch to get all reservations for this showing
   useEffect(() => {
     store.dispatch(actions.fetchReservationsForShowing(showingId));
@@ -25,6 +27,8 @@ export const PickSeats = withRouter((props) => {
   // be rerendered once showings are populated.
   if (state.showings && state.showings.length) {
     currentShowing = state.showings.find(showing => showing.id === +showingId);
+    showing_time = currentShowing.showing_time;
+    currentFilm = state.films.find(film => film.id === currentShowing.film_id);
   }
 
   const { history, reservations, theaters, cart } = props;
@@ -42,66 +46,29 @@ export const PickSeats = withRouter((props) => {
     })
     // Mark each seat in your cart as 'inMyCart'
     cart && cart.seats && cart.seats.filter(cartSeat => cartSeat.showing_id === currentShowing.id)
-    .forEach(cartSeat => {
-      allSeats.find(seat => seat.id === cartSeat.seat_id).status = statuses.inMyCart;
-    })
+      .forEach(cartSeat => {
+        allSeats.find(seat => seat.id === cartSeat.seat_id).status = statuses.inMyCart;
+      })
   }
-
+console.log(currentShowing)
   return (
     <>
-      <h1>Pick Yo Seats</h1>
-      <p>{theater.name}</p>
+      <p>Watching {currentFilm && currentFilm.title} in {theater.name} on {showing_time && showing_time.toShowingDateString()} at {showing_time && showing_time.toShowingTimeString()}</p>
+      <h1>Where would you like to sit?</h1>
+      <section style={styles.tablesSection}>
       {tables && tables.map(table => (
-        <div key={table.id}>
-          <p>table {table.table_number} x:{table.x} y:{table.y}</p>
-          {table.seats.map(seat => (
-            <div
-              onClick={() => reserveSeat(seat)}
-              key={seat.id}
-            >
-              <p style={{ ...styles.seat.baseStyle, ...styles.seat[seat.status] }}>
-              Seat: {seat.seat_number} price:{seat.price} status:{seat.status}
-              </p>
-            </div>
-          )
-          )}
-        </div>
+        <Table table={table} currentShowing={currentShowing} key={table.id} />
       ))}
+      </section>
       <button onClick={() => history.push({ pathname: "/checkout" })}>Check out</button>
     </>
   )
-
-  function reserveSeat(seat) {
-    console.log(seat)
-    switch (seat.status) {
-      case statuses.reserved:
-        console.warn("Seat is reserved. Do nothing")
-        break;
-      case statuses.inMyCart:
-        store.dispatch(actions.removeSeatFromCart(seat, currentShowing));
-        break;
-      case statuses.open:
-        store.dispatch(actions.addSeatToCart(seat, currentShowing));
-        break;
-      default:
-        store.dispatch(actions.addSeatToCart(seat, currentShowing));
-    }
-  }
 })
 
 const styles = {
-  seat: {
-    baseStyle: {
-      fontWeight: "bold",
-    },
-    open: {
-      backgroundColor: "white",
-    },
-    reserved: {
-      backgroundColor: "red",
-    },
-    inMyCart: {
-      backgroundColor: "orange",
-    }
-  }
+  tablesSection: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
+  },
 }
+const statuses = { open: "open", inMyCart: "inMyCart", reserved: "reserved" };
