@@ -1,8 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { store } from './store/store';
-import { actions } from './store/actions';
 
 export const ShowingTimes = withRouter(({ styles, showings, currentFilm, currentDate, history }) => {
   currentDate = new Date(currentDate);
@@ -14,8 +12,6 @@ export const ShowingTimes = withRouter(({ styles, showings, currentFilm, current
         {showingsForDateAndFilm.map(st => (
           <span
             onClick={() => {
-              // console.log('clicked', st);
-              // store.dispatch(actions.setCurrentShowing(st));
               history.push(
                 {
                   pathname: `/pickseats/${st.id}`,
@@ -31,8 +27,6 @@ export const ShowingTimes = withRouter(({ styles, showings, currentFilm, current
     </section>
   )
 })
-
-
 
 ShowingTimes.propTypes = {
   styles: PropTypes.object.isRequired,

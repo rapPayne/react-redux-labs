@@ -16,9 +16,8 @@ export const PickSeats = withRouter((props) => {
   
   // Once and only once, start the fetch to get all reservations for this showing
   useEffect(() => {
-    console.warn("Gat a showingId", showingId)
     store.dispatch(actions.fetchReservationsForShowing(showingId));
-  }, []);
+  }, [showingId]);
 
   // If state.showings doesn't exist, we can't draw anything ... yet.
   // But in App.js, we're dispatching fetchShowings() and rerendering
@@ -33,7 +32,6 @@ export const PickSeats = withRouter((props) => {
   const theater = theaters.find(theater => theater.id === currentShowing.theater_id) || {};
   const tables = theater && theater.tables;
   const allSeats = tables && tables.flatMap(table => table.seats)
-  console.log("allseats is", reservations, allSeats)
   // Get all reservations
   if (reservations && allSeats) {
     allSeats.forEach(seat => seat.status = statuses.open);
@@ -45,13 +43,10 @@ export const PickSeats = withRouter((props) => {
     // Mark each seat in your cart as 'inMyCart'
     cart && cart.seats && cart.seats.filter(cartSeat => cartSeat.showing_id === currentShowing.id)
     .forEach(cartSeat => {
-      // const thisSeat  = allSeats.find(seat => seat.id === cartSeat.seat_id)
-      // if (thisSeat) thisSeat.status = statuses.inMyCart;
       allSeats.find(seat => seat.id === cartSeat.seat_id).status = statuses.inMyCart;
     })
   }
 
-  console.log("PS", theater, props);
   return (
     <>
       <h1>Pick Yo Seats</h1>

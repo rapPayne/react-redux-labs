@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { actions } from './store/actions';
 import { store } from './store/store';
 import { PickDate } from './PickDate';
 import { ShowingTimes } from './ShowingTimes';
@@ -29,7 +28,6 @@ export const FilmDetails = withRouter((props) => {
 
  const { homepage, poster_path, overview, release_date, runtime, title, tagline, vote_average, vote_count } = currentFilm;
  const { currentDate, showings } = state;
- console.warn(showings);
  return (
   <>
    <div style={{ ...styles.container }} className='mdl-card mdl-shadow--2dp'>

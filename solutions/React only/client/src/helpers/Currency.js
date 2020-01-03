@@ -6,3 +6,5 @@ Number.prototype.toCurrency = function () {
   })
   return formatter.format(this);
 }
+
+/* eslint no-extend-native: 0 */

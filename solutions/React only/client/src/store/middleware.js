@@ -10,6 +10,7 @@ const fetchInitialDataMiddleware = ({ getState, dispatch }) => next => action =>
   }
   next(action);
 }
+
 const fetchFilmsMiddleware = ({ getState, dispatch }) => next => action => {
   if (action.type === actionTypes.FETCH_FILMS) {
     const url = `/api/films`;
@@ -24,7 +25,6 @@ const fetchFilmsMiddleware = ({ getState, dispatch }) => next => action => {
 const fetchReservationsForShowing = ({ getState, dispatch }) => next => action => {
   if (action.type === actionTypes.FETCH_RESERVATIONS_FOR_SHOWING) {
     const showingId = action.showingId;
-    console.warn("in FRFS middleware", action);
     fetch(`/api/showings/${showingId}/reservations`)
       .then(res => res.json())
       .then(reservations => dispatch(actions.setReservationsForCurrentShowing(reservations)))
@@ -103,28 +103,6 @@ const fetchShowingMiddleware = ({ getState, dispatch }) => next => action => {
   next(action);
 }
 
-// const fetchSeatsMiddleware = ({ getState, dispatch }) => next => action => {
-//   if (action.type === actionTypes.FETCH_SEATS) {
-//     const url = `/api/theaters/seats`;
-//     fetch(url)
-//       .then(res => res.json())
-//       .then(seats => dispatch(actions.setSeats(seats)))
-//       .catch(err => console.error(`Error getting seats:`, err));
-//   }
-//   next(action);
-// }
-
-// const fetchTablesMiddleware = ({ getState, dispatch }) => next => action => {
-//   if (action.type === actionTypes.FETCH_TABLES) {
-//     const url = `/api/theaters/tables`;
-//     fetch(url)
-//       .then(res => res.json())
-//       .then(tables => dispatch(actions.setTables(tables)))
-//       .catch(err => console.error(`Error getting tables:`, err));
-//   }
-//   next(action);
-// }
-
 const checkoutMiddleware = ({ getState, dispatch }) => next => action => {
   if (action.type === actionTypes.CHECKOUT) {
     console.log('checking out');
@@ -178,11 +156,10 @@ const registerMiddleware = ({ dispatch, getState }) => next => action => {
   next(action);
 }
 
-
-const loggingMiddleware = ({ getState }) => next => action => {
-  next(action);
-  console.log("Just finished action", action, getState())
-}
+// const loggingMiddleware = ({ getState }) => next => action => {
+//   next(action);
+//   console.log("Just finished action", action, getState())
+// }
 
 export default [
   checkoutMiddleware,
@@ -193,6 +170,6 @@ export default [
   fetchShowingMiddleware,
   fetchShowingsMiddleware,
   loginMiddleware,
-  loggingMiddleware,
+  //loggingMiddleware,
   registerMiddleware,
 ];

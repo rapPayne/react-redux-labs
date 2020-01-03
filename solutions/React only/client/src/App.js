@@ -31,9 +31,17 @@ function App() {
             <Link to="/" style={{ ...styles.navlink, ...styles.topMenuNavLink }} className="mdl-layout-title">Dinner and a Movie</Link>
             {/* <div class="mdl-layout-spacer"></div> */}
             <nav className="mdl-navigation mdl-layout--large-screen-only">
-              <Link to="/account" className="mdl-layout__tab">My account</Link>
-              <Link to="/login" className="mdl-layout__tab">Login</Link>
-              <Link to="/checkout" className="mdl-layout__tab"><i className="material-icons">shopping_cart</i></Link>
+              {state.user ? (
+                <>
+                  <Link to="/account" className="mdl-layout__tab">My account</Link>
+                  <Link to="/checkout" className="mdl-layout__tab"><i className="material-icons">shopping_cart</i></Link>
+                </>
+              ) : (
+                  <>
+                    <Link to="/login" className="mdl-layout__tab">Login</Link>
+                    <Link to="/register" className="mdl-layout__tab">Register</Link>
+                  </>
+                )}
             </nav>
           </div>
         </header>
@@ -42,9 +50,17 @@ function App() {
             <Link to="/" style={{ ...styles.drawerNavLink, ...styles.navlink }} className="mdl-layout-title">Dinner and a Movie</Link>
           </span>
           <nav className="mdl-navigation">
-            <Link to="/account" className="mdl-navigation__link">My account</Link>
-            <Link to="/login" className="mdl-navigation__link">Login</Link>
-            <Link to="/checkout" className="mdl-navigation__link"><i className="material-icons">shopping_cart</i></Link>
+            {state.user ? (
+              <>
+                <Link to="/account" className="mdl-layout__link">My account</Link>
+                <Link to="/checkout" className="mdl-layout__link"><i className="material-icons">shopping_cart</i></Link>
+              </>
+            ) : (
+                <>
+                  <Link to="/login" className="mdl-layout__link">Login</Link>
+                  <Link to="/register" className="mdl-layout__link">Register</Link>
+                </>
+              )}
           </nav>
         </div>
         <main className="mdl-layout__content">
