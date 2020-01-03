@@ -138,6 +138,23 @@ const loginMiddleware = ({ dispatch, getState }) => next => action => {
   next(action);
 }
 
+// Un-authenticate
+const logoutMiddleware = ({ dispatch, getState }) => next => action => {
+  if (action.type === actionTypes.LOGOUT) {
+    const { sessionId }  = getState();
+    const body = { sessionId };
+    fetch(`/api/logout`, {
+      method: 'POST',
+      headers: { "Content-Type": `application/json` },
+      body
+    })
+    .catch(console.error);
+
+    dispatch(actions.setUser(undefined));
+  }
+  next(action);
+}
+
 // Send a POST request with the user info.
 const registerMiddleware = ({ dispatch, getState }) => next => action => {
   //TODO: Should validate that the request has the required shape before sending.
@@ -156,10 +173,10 @@ const registerMiddleware = ({ dispatch, getState }) => next => action => {
   next(action);
 }
 
-// const loggingMiddleware = ({ getState }) => next => action => {
-//   next(action);
-//   console.log("Just finished action", action, getState())
-// }
+const loggingMiddleware = ({ getState }) => next => action => {
+  next(action);
+  console.log("Just finished action", action, getState())
+}
 
 export default [
   checkoutMiddleware,
@@ -170,6 +187,7 @@ export default [
   fetchShowingMiddleware,
   fetchShowingsMiddleware,
   loginMiddleware,
-  //loggingMiddleware,
+  logoutMiddleware,
+  loggingMiddleware,
   registerMiddleware,
 ];

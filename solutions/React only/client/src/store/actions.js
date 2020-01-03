@@ -9,6 +9,7 @@ export const actionTypes = {
   FETCH_SHOWINGS: "FETCH_SHOWINGS",
   FETCH_THEATERS: "FETCH_THEATERS",
   LOGIN: "LOGIN",
+  LOGOUT: "LOGOUT",
   REGISTER: "REGISTER",
   REMOVE_SEAT_FROM_CART: "REMOVE_SEAT_FROM_CART",
   SET_CURRENT_DATE: "SET_CURRENT_DATE",
@@ -28,6 +29,7 @@ const fetchShowing = (showingId) => ({ type: actionTypes.FETCH_SHOWING, showingI
 const fetchShowings = () => ({ type: actionTypes.FETCH_SHOWINGS });
 const fetchTheaters = () => ({ type: actionTypes.FETCH_THEATERS });
 const login = (user) => ({ type: actionTypes.LOGIN, user});
+const logout = () => ({ type: actionTypes.LOGOUT});
 const register = (user) => ({ type: actionTypes.REGISTER, user});
 const removeSeatFromCart = (seat, showing) => ({ type: actionTypes.REMOVE_SEAT_FROM_CART, seat, showing });
 function setCurrentDate(currentDate) {
@@ -56,6 +58,7 @@ export const actions = {
   fetchShowings,
   fetchTheaters,
   login,
+  logout,
   register,
   setCurrentDate,
   setShowings,

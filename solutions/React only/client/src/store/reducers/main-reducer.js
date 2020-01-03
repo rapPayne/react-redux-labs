@@ -17,7 +17,7 @@ const mainReducer = (state, action) => {
     case actionTypes.SET_SEATS:
       return { ...state, seats: [...action.seats] };
     case actionTypes.SET_USER:
-      return { ...state, user: {...action.user} };
+      return { ...state, user: action.user };
     default:
       return state;
   }

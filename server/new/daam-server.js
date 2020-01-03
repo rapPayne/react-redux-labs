@@ -1,4 +1,4 @@
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 const fs = require('fs');
 const jsonServer = require('json-server')
 const server = jsonServer.create()
@@ -31,6 +31,13 @@ server.post('/api/login', (req, res) => {
     }
   });
 });
+
+server.post('/api/logout', (req, res) => {
+  const { sessionId } = req.body;
+  // TODO: Delete the session here
+  res.status(204).send();
+});
+
 
 // Return all reservations for a given showingId
 server.get('/api/showings/:showing_id/reservations', (req, res) => {

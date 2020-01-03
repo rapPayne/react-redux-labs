@@ -10,6 +10,7 @@ import { Checkout } from './Checkout';
 import { FilmDetails } from './FilmDetails';
 import { LandingPage } from './LandingPage';
 import { Login } from './Login';
+import { Logout } from './Logout';
 import { NotFound } from './NotFound';
 import { PickSeats } from './PickSeats';
 import { Register } from './Register';
@@ -34,6 +35,7 @@ function App() {
               {state.user ? (
                 <>
                   <Link to="/account" className="mdl-layout__tab">My account</Link>
+                  <Link to="/logout" className="mdl-layout__tab">logout</Link>
                   <Link to="/checkout" className="mdl-layout__tab"><i className="material-icons">shopping_cart</i></Link>
                 </>
               ) : (
@@ -68,6 +70,7 @@ function App() {
             <Route exact path="/" render={() => <LandingPage {...state} />} />
             <Route exact path="/account" render={() => <Account {...state} />} />
             <Route exact path="/login" render={() => <Login />} />
+            <Route exact path="/logout" render={() => <Logout />} />
             <Route exact path="/register" render={() => <Register />} />
             <Route exact path="/checkout" render={() => <Checkout {...state} />} />
             <Route exact path="/pickseats/:showingId" render={() => <PickSeats {...state} />} />
