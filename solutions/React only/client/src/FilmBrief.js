@@ -1,9 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { ShowingTimes } from './ShowingTimes';
 
-export const FilmBrief = withRouter(({ film, showings, history, currentDate }) => {
+export const FilmBrief = ({ film, showings, currentDate }) => {
   const { poster_path, runtime, title, tagline } = film;
+  const history = useHistory();
   return (
     <>
       <section onClick={handleClick} style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
@@ -28,7 +29,7 @@ export const FilmBrief = withRouter(({ film, showings, history, currentDate }) =
       pathname: `/filmdetails/${film.id}`,
     })
   }
-});
+};
 
 const showingTimesStyles = {
   wrapper: {

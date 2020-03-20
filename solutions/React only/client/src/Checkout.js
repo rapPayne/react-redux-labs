@@ -1,16 +1,17 @@
 import React from 'react';
-import './helpers/Currency';
+import { useHistory } from 'react-router-dom';
 
 export const Checkout = (props) => {
   console.log(props);
-  const { cart } = props;
+  const { cart, user } = props;
+  const history = useHistory();
   const foo = cart.seats.reduce((total,seat) => +total+seat.price,0);
   console.log("foo is",foo)
   return (
     <>
       <h1>Checkout</h1>
       <p>Here's the stuff in your cart</p>
-      <table>
+      <table className="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
         <thead>
           <tr>
             <th>Item</th>
@@ -35,15 +36,26 @@ export const Checkout = (props) => {
 
         </tbody>
       </table>
-      <button onClick={purchase}>Buy</button>
+      <button onClick={purchase}  className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton}>Buy</button>
       <p>TODO: Add authentication, registration, etc.</p>
-      <section>
-
-      </section>
     </>
   )
 
   function purchase() {
+    if (user) {
+      console.error('trying to purchase')
+    } else {
+      history.push({pathname:'/login?returnUrl=/checkout'});
+    }
     console.error("you clicked purchase", cart);
   }
+};
+
+const styles = {
+  wrapper: {
+    margin: "10px auto",
+  },
+  submitButton: {
+    //width: "95%",
+  },
 }

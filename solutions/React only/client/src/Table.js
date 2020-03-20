@@ -5,15 +5,15 @@ export const Table = ({ table, currentShowing }) => {
   return (
     <div style={styles.wrapper}>
       <div style={styles.tableWrapper}>
-      <div style={{...styles.tableItself, ...getTableWidth(table.seats)}}>{table.table_number}</div>
+        <div style={{ ...styles.tableItself, ...getTableWidth(table.seats) }}>{table.table_number}</div>
       </div>
       <div style={styles.seatsWrapper}>
-    {table.seats.map(seat => (
-      <Seat seat={seat} currentShowing={currentShowing} key={seat.id} />
-    )
-    )}
+        {table.seats.map(seat => (
+          <Seat seat={seat} currentShowing={currentShowing} key={seat.id} />
+        )
+        )}
+      </div>
     </div>
-  </div>
   )
 
 
@@ -33,7 +33,7 @@ const styles = {
     display: 'flex',
     justifyContent: "center",
     alignItems: "center",
-    },
+  },
   tableItself: {
     height: "40px",
     backgroundColor: "blue",

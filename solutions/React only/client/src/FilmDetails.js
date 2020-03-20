@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { store } from './store/store';
 import { PickDate } from './PickDate';
 import { ShowingTimes } from './ShowingTimes';
@@ -11,13 +11,13 @@ import { ShowingTimes } from './ShowingTimes';
 // So use route parameters to get the filmId and grab the currentFilm
 // from state by filmId. (Note: if all the films were not already in
 // application state, we'd need to fetch it from the API)
-export const FilmDetails = withRouter((props) => {
+export const FilmDetails = (props) => {
  const state = store.getState()
  let currentFilm = {};
 
  // Stupidly fancy way of saying filmId = props.match.params.filmId
- const { match: { params: { filmId } } } = props;
-
+ const { filmId } = useParams();
+ 
  // If state.films doesn't exist, we can't draw anything ... yet.
  // But in App.js, we're dispatching fetchFilms() and rerendering
  // when a store.dispatch() happens so this component will in turn
@@ -54,7 +54,7 @@ export const FilmDetails = withRouter((props) => {
    </div>
   </>
  )
-});
+};
 
 const showingTimesStyles = {
   wrapper: {

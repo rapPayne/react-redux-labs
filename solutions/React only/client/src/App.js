@@ -4,25 +4,25 @@ import 'material-design-lite/dist/material.min.css';
 import 'material-design-lite/dist/material.purple-indigo.min.css';
 import 'material-design-lite/material';
 import './helpers/Date';
+import './helpers/Currency';
 import './App.css';
-import { Account } from './Account';
+import { Account } from './authentication/Account';
 import { Checkout } from './Checkout';
 import { FilmDetails } from './FilmDetails';
 import { LandingPage } from './LandingPage';
-import { Login } from './Login';
-import { Logout } from './Logout';
+import { Login } from './authentication/Login';
+import { Logout } from './authentication/Logout';
 import { NotFound } from './NotFound';
 import { PickSeats } from './PickSeats';
-import { Register } from './Register';
 import { actions } from './store/actions';
 import { store } from './store/store';
 
 function App() {
-  const [state, setState] = useState(store.getState());
-  useEffect(() => {
-    store.subscribe(() => setState({ ...store.getState() }));
-    store.dispatch(actions.fetchInitialData());
-  }, []);
+const [state, setState] = useState(store.getState());
+useEffect(() => {
+  store.subscribe(() => setState({ ...store.getState() }));
+  store.dispatch(actions.fetchInitialData());
+}, []);
 
   return (
     <BrowserRouter>
@@ -30,7 +30,6 @@ function App() {
         <header className="mdl-layout__header">
           <div className="mdl-layout__header-row">
             <Link to="/" style={{ ...styles.navlink, ...styles.topMenuNavLink }} className="mdl-layout-title">Dinner and a Movie</Link>
-            {/* <div class="mdl-layout-spacer"></div> */}
             <nav className="mdl-navigation mdl-layout--large-screen-only">
               {state.user ? (
                 <>
@@ -67,19 +66,18 @@ function App() {
         </div>
         <main className="mdl-layout__content">
           <Switch>
-            <Route exact path="/" render={() => <LandingPage {...state} />} />
-            <Route exact path="/account" render={() => <Account {...state} />} />
-            <Route exact path="/login" render={() => <Login />} />
-            <Route exact path="/logout" render={() => <Logout />} />
-            <Route exact path="/register" render={() => <Register />} />
-            <Route exact path="/checkout" render={() => <Checkout {...state} />} />
-            <Route exact path="/pickseats/:showingId" render={() => <PickSeats {...state} />} />
-            <Route exact path="/filmdetails/:filmId" render={() => <FilmDetails {...state} />} />
-            <Route render={() => <NotFound />} />
+            <Route exact path="/" render={_=> <LandingPage {...state} />} />
+            <Route exact path="/account" render={_=> <Account {...state} />} />
+            <Route exact path="/login" render={_=> <Login />} />
+            <Route exact path="/logout" render={_=> <Logout />} />
+            <Route exact path="/register" render={_=> <Account />} />
+            <Route exact path="/checkout" render={_=> <Checkout {...state} />} />
+            <Route exact path="/pickseats/:showingId" render={_=> <PickSeats {...state} />} />
+            <Route exact path="/filmdetails/:filmId" render={_=> <FilmDetails {...state} />} />
+            <Route render={_ => <NotFound />} />
           </Switch>
         </main>
         <footer>
-
         </footer>
       </div>
     </BrowserRouter>
