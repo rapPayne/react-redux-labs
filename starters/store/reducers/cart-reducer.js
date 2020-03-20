@@ -2,15 +2,14 @@ import { actionTypes } from '../actions';
 
 const cartReducer = (state = [], action) => {
   if (!action) return state;
+  const { seat, showing } = action;
   switch (action.type) {
     case actionTypes.ADD_SEAT_TO_CART:
-      const currentSeats = state.seats;
-      let newState;
-      if (state.seats.find(s => s._id === action.seat._id))  // If it is there, remove it.
-        newState = { ...state, seats: currentSeats.filter(s => s._id !== action.seat._id) }
-      else  // Otherwise add it
-        newState = { ...state, seats: [...currentSeats, action.seat] }
-        console.log("cartReducer", newState);
+      return { ...state, seats: [...state.seats, {seat_id: seat.id, showing_id: showing.id, price: seat.price}] }
+    case actionTypes.REMOVE_SEAT_FROM_CART:
+      let newSeats = state.seats.filter(cartSeat => ! (cartSeat.seat_id === seat.id && cartSeat.showing_id === action.showing.id))
+      let newState = {...state, seats: [...newSeats]}
+        console.log("cartReducer", newSeats, newState);
       return newState;
     default:
       return state;

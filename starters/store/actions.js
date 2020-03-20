@@ -1,84 +1,71 @@
+
 export const actionTypes = {
+  ADD_SEAT_TO_CART: "ADD_SEAT_TO_CART",
   CHECKOUT: "CHECKOUT",
   FETCH_FILMS: "FETCH_FILMS",
+  FETCH_INITIAL_DATA: "FETCH_INITIAL_DATA",
+  FETCH_RESERVATIONS_FOR_SHOWING: "FETCH_RESERVATIONS_FOR_SHOWING",
   FETCH_SHOWING: "FETCH_SHOWING",
-  FETCH_TABLES_FOR_THEATER: "FETCH_TABLES_FOR_THEATER",
-  FETCH_SEATS_FOR_TABLE: "FETCH_SEATS_FOR_TABLE",
-  MAKE_RESERVATION: "MAKE_RESERVATION",
-  REMOVE_RESERVATION: "REMOVE_RESERVATION",
-  SET_CURRENT_FILM: "SET_CURRENT_FILM",
-  SET_CURRENT_FILM_SHOWINGS: "SET_CURRENT_FILM_SHOWINGS",
-  SET_CURRENT_SHOWING: "SET_CURRENT_SHOWING",
-  SET_CURRENT_THEATER: "SET_CURRENT_THEATER",
+  FETCH_SHOWINGS: "FETCH_SHOWINGS",
+  FETCH_THEATERS: "FETCH_THEATERS",
+  LOGIN: "LOGIN",
+  LOGOUT: "LOGOUT",
+  REGISTER: "REGISTER",
+  REMOVE_SEAT_FROM_CART: "REMOVE_SEAT_FROM_CART",
+  SET_CURRENT_DATE: "SET_CURRENT_DATE",
+  SET_SHOWINGS: "SET_SHOWINGS",
   SET_FILMS: "SET_FILMS",
   SET_RESERVATIONS_FOR_CURRENT_SHOWING: "SET_RESERVATIONS_FOR_CURRENT_SHOWING",
-  SET_SEATS_FOR_TABLE: "SET_SEATS_FOR_TABLE",
-  SET_TABLES_FOR_CURRENT_THEATER: "SET_TABLES_FOR_CURRENT_THEATER",
-  SET_SHOWING_DATE: "SET_SHOWING_DATE",
-  ADD_SEAT_TO_CART: "ADD_SEAT_TO_CART",
+  SET_THEATERS: "SET_THEATERS",
+  SET_USER: "SET_USER",
 }
+
+const addSeatToCart = (seat, showing) => ({ type: actionTypes.ADD_SEAT_TO_CART, seat, showing });
+const checkout = (cart) => ({ type: actionTypes.CHECKOUT, cart });
+const fetchFilms = () => ({ type: actionTypes.FETCH_FILMS });
+const fetchInitialData = () => ({ type: actionTypes.FETCH_INITIAL_DATA });
+const fetchReservationsForShowing = (showingId) => ({ type: actionTypes.FETCH_RESERVATIONS_FOR_SHOWING, showingId });
+const fetchShowing = (showingId) => ({ type: actionTypes.FETCH_SHOWING, showingId });
+const fetchShowings = () => ({ type: actionTypes.FETCH_SHOWINGS });
+const fetchTheaters = () => ({ type: actionTypes.FETCH_THEATERS });
+const login = (user) => ({ type: actionTypes.LOGIN, user});
+const logout = () => ({ type: actionTypes.LOGOUT});
+const register = (user) => ({ type: actionTypes.REGISTER, user});
+const removeSeatFromCart = (seat, showing) => ({ type: actionTypes.REMOVE_SEAT_FROM_CART, seat, showing });
+function setCurrentDate(currentDate) {
+  return { type: actionTypes.SET_CURRENT_DATE, currentDate };
+}
+function setCurrentTheater(theater) {
+  return { type: actionTypes.SET_CURRENT_THEATER, theater };
+}
+function setFilms(films) {
+  return { type: actionTypes.SET_FILMS, films };
+}
+function setShowings(showings) {
+  return { type: actionTypes.SET_SHOWINGS, showings };
+}
+const setReservationsForCurrentShowing = (reservations) => ({ type: actionTypes.SET_RESERVATIONS_FOR_CURRENT_SHOWING, reservations });
+const setTheaters = (theaters) => ({ type: actionTypes.SET_THEATERS, theaters });
+const setUser = user => ({ type: actionTypes.SET_USER, user});
 
 export const actions = {
   checkout,
+  removeSeatFromCart,
   fetchFilms,
-  fetchSeatsForTable,
+  fetchInitialData,
+  fetchReservationsForShowing,
   fetchShowing,
-  fetchTablesForTheater,
-  setCurrentFilm,
-  setCurrentFilmShowings,
-  setCurrentShowing,
+  fetchShowings,
+  fetchTheaters,
+  login,
+  logout,
+  register,
+  setCurrentDate,
+  setShowings,
   setCurrentTheater,
   setFilms,
-  //setReservationsForCurrentShowing,
-  //setSeatsForTable,
-  setTablesForCurrentTheater,
-  setShowingDate,
+  setReservationsForCurrentShowing,
+  setTheaters,
+  setUser,
   addSeatToCart,
 };
-
-function checkout(cart) {
-  return {type: actionTypes.CHECKOUT, cart};
-}
-function fetchFilms() {
-  return {type: actionTypes.FETCH_FILMS};
-}
-function fetchSeatsForTable(table) {
-  return {type: actionTypes.FETCH_SEATS_FOR_TABLE, table};
-}
-function fetchShowing(showingId) {
-  return {type: actionTypes.FETCH_SHOWING, showingId};
-}
-function fetchTablesForTheater(theaterId) {
-  return {type: actionTypes.FETCH_TABLES_FOR_THEATER, theaterId};
-}
-function setCurrentFilm(film) {
-  return {type: actionTypes.SET_CURRENT_FILM, film};
-}
-function setCurrentFilmShowings(currentFilmShowings) {
-  return {type: actionTypes.SET_CURRENT_FILM_SHOWINGS, currentFilmShowings};
-}
-function setCurrentShowing(showing) {
-  return {type: actionTypes.SET_CURRENT_SHOWING, showing};
-}
-function setCurrentTheater(theater) {
-  return {type: actionTypes.SET_CURRENT_THEATER, theater};
-}
-function setFilms(films) {
-  console.log("actions set films")
-  return {type: actionTypes.SET_FILMS, films};
-}
-// function setReservationsForCurrentShowing(reservations) {
-//   return {type: actionTypes.SET_RESERVATIONS_FOR_CURRENT_SHOWING, reservations};
-// }
-// function setSeatsForTable(table, seats) {
-//   return {type: actionTypes.SET_SEATS_FOR_TABLE, table, seats};
-// }
-function setTablesForCurrentTheater(tables) {
-  return {type: actionTypes.SET_TABLES_FOR_CURRENT_THEATER, tables};
-}
-function setShowingDate(date) {
-  return {type: actionTypes.SET_SHOWING_DATE, date};
-}
-function addSeatToCart(seat, table, theater, showing) {
-  return {type: actionTypes.ADD_SEAT_TO_CART, seat}
-}
