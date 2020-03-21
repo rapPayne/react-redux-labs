@@ -16,7 +16,7 @@ export const FilmDetails = () => {
             <h1>Movie title goes here</h1>
             <h2>Movie tagline goes here</h2>
             <p>Movie overview goes here</p>
-            <p>Viewer's ratings: <span>Vote_average</span> / <span>Vote_count</span></p>
+            <p>Viewer's ratings: <span>Vote_average</span>/10 <span>Vote_count votes</span></p>
             <p>Released: Release date here</p>
             <p>Runtime minutes</p>
             <a href="HOMEPAGE" target="movie_site">Movie's home page here</a>

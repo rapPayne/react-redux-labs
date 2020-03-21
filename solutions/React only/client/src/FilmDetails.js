@@ -42,7 +42,7 @@ export const FilmDetails = (props) => {
       <h1>{title}</h1>
       <h2>{tagline}</h2>
       <p>{overview}</p>
-      <p>Viewer's ratings: <span>{vote_average}</span> / <span>{vote_count}</span></p>
+      <p>Viewer's ratings: <span>{vote_average}</span>/10 <span>{vote_count} votes</span></p>
       <p>Released: {release_date}</p>
       <p>{runtime} minutes</p>
       <a href={homepage} target="movie_site">{homepage}</a>

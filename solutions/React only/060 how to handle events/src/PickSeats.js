@@ -1,8 +1,15 @@
 import React from 'react';
 import * as seatImage from './bundledImages/seat.png';
+import { store } from './store/store';
+import { actions } from './store/actions';
+import * as seatImage from './bundledImages/seat.png';
 
 export const PickSeats = () => {
-  const seat = {id: 89, seat_number: 1, price: 10.75};
+  let table = { id: 0, table_number: 0, x: 1, y: 1, seats: [] };
+  let seat = { id: 0, seat_number: 0, price: 10.75 };
+  let currentShowing = { id: 0, film_id: 0, theater_id: 0, showing_time: new Date() };
+  let currentFilm = { title: "" };
+  let currentTheater = { id: 0, name: "" };
   console.log("PickSeats");
   return (
     <section style={styles.header} className="mdl-card mdl-shadow--2dp">
@@ -31,9 +38,10 @@ export const PickSeats = () => {
     </section>
   )
   function reserveSeat(seat) {
-    console.log(seat)
+    console.log(seat);
+    store.dispatch(actions.addSeatToCart(seat, currentShowing));
   }
-  
+
 }
 const styles = {
   wrapper: {

@@ -9,9 +9,9 @@ import { Table } from './Table';
 // of the reservations for this showing.
 export const PickSeats = props => {
   const state = store.getState()
-  let currentShowing = {};
-  let showing_time;
-  let currentFilm = {};
+let currentShowing = {id: 0, film_id: 0, theater_id: 0, showing_time: new Date()};
+let currentFilm = {title:""};
+let currentTheater = {id: 0, name: ""};
 
   const { showingId } = useParams();
 
@@ -26,14 +26,13 @@ export const PickSeats = props => {
   // be rerendered once showings are populated.
   if (state.showings && state.showings.length) {
     currentShowing = state.showings.find(showing => showing.id === +showingId);
-    showing_time = currentShowing.showing_time;
     currentFilm = state.films.find(film => film.id === currentShowing.film_id);
+    currentTheater = state.theaters.find(theater => theater.id === currentShowing.theater_id) || {};
   }
 
-  const { reservations, theaters, cart } = props;
+  const { reservations, cart } = props;
   const history = useHistory();
-  const theater = theaters.find(theater => theater.id === currentShowing.theater_id) || {};
-  const tables = theater && theater.tables;
+  const tables = currentTheater && currentTheater.tables;
   const allSeats = tables && tables.flatMap(table => table.seats)
   // Get all reservations
   if (reservations && allSeats) {
@@ -56,7 +55,7 @@ export const PickSeats = props => {
     <h1 className="mdl-card__title-text">Where would you like to sit?</h1>
   </div>
 
-  <p>Watching {currentFilm && currentFilm.title} in {theater && theater.name} on {showing_time && showing_time.toShowingDateString()} at {showing_time && showing_time.toShowingTimeString()}</p>
+  <p>Watching {currentFilm.title} in {currentTheater.name} on {currentShowing.showing_time.toShowingDateString()} at {currentShowing.showing_time.toShowingTimeString()}</p>
   <section style={styles.tablesSection}>
     {tables && tables.map(table => (
       <Table table={table} currentShowing={currentShowing} key={table.id} />

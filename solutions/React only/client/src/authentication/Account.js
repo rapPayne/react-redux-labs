@@ -6,10 +6,10 @@ export const Account = (props) => {
   const showPassword = false;
   return (
     <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-        <h1 class="mdl-card__title-text">Register</h1>
+      <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
+        <h1 className="mdl-card__title-text">Register</h1>
       </div>
-      <div class="mdl-card__supporting-text">
+      <div className="mdl-card__supporting-text">
         <form onSubmit={register}>
           <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
