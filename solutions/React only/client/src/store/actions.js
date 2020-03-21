@@ -28,7 +28,7 @@ const fetchReservationsForShowing = (showingId) => ({ type: actionTypes.FETCH_RE
 const fetchShowing = (showingId) => ({ type: actionTypes.FETCH_SHOWING, showingId });
 const fetchShowings = () => ({ type: actionTypes.FETCH_SHOWINGS });
 const fetchTheaters = () => ({ type: actionTypes.FETCH_THEATERS });
-const login = (user) => ({ type: actionTypes.LOGIN, user});
+const login = (email, password) => ({ type: actionTypes.LOGIN, email, password});
 const logout = () => ({ type: actionTypes.LOGOUT});
 const register = (user) => ({ type: actionTypes.REGISTER, user});
 const removeSeatFromCart = (seat, showing) => ({ type: actionTypes.REMOVE_SEAT_FROM_CART, seat, showing });

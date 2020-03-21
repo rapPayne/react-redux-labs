@@ -125,7 +125,7 @@ const checkoutMiddleware = ({ getState, dispatch }) => next => action => {
 // Send username/password POST request
 const loginMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === actionTypes.LOGIN) {
-    const body = JSON.stringify({ ...action.user });
+    const body = JSON.stringify({ ...action }); // email and password
     fetch(`/api/login`, {
       method: 'POST',
       headers: { "Content-Type": `application/json` },
