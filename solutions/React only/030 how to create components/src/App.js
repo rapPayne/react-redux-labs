@@ -32,9 +32,7 @@ function App() {
         </div>
       </header>
       <div className="mdl-layout__drawer">
-        <span className="mdl-layout-title">
-          <a href="/" className="mdl-layout-title">Dinner and a Movie</a>
-        </span>
+        <a href="/" className="mdl-layout-title">Dinner and a Movie</a>
         <nav className="mdl-navigation">
           <a href="/account" className="mdl-layout__link">My account</a>
           <a href="/checkout" className="mdl-layout__link"><i className="material-icons">shopping_cart</i></a>
@@ -43,7 +41,7 @@ function App() {
         </nav>
       </div>
       <main className="mdl-layout__content">
-<Logout />
+        <Logout />
       </main>
       <footer>
       </footer>

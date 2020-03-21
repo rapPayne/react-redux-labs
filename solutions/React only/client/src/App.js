@@ -18,11 +18,11 @@ import { actions } from './store/actions';
 import { store } from './store/store';
 
 function App() {
-const [state, setState] = useState(store.getState());
-useEffect(() => {
-  store.subscribe(() => setState({ ...store.getState() }));
-  store.dispatch(actions.fetchInitialData());
-}, []);
+  const [state, setState] = useState(store.getState());
+  useEffect(() => {
+    store.subscribe(() => setState({ ...store.getState() }));
+    store.dispatch(actions.fetchInitialData());
+  }, []);
 
   return (
     <BrowserRouter>
@@ -47,9 +47,7 @@ useEffect(() => {
           </div>
         </header>
         <div className="mdl-layout__drawer">
-          <span className="mdl-layout-title">
-            <Link to="/" style={{ ...styles.drawerNavLink, ...styles.navlink }} className="mdl-layout-title">Dinner and a Movie</Link>
-          </span>
+          <Link to="/" style={{ ...styles.drawerNavLink, ...styles.navlink }} className="mdl-layout-title">Dinner and a Movie</Link>
           <nav className="mdl-navigation">
             {state.user ? (
               <>
@@ -66,14 +64,14 @@ useEffect(() => {
         </div>
         <main className="mdl-layout__content">
           <Switch>
-            <Route exact path="/" render={_=> <LandingPage {...state} />} />
-            <Route exact path="/account" render={_=> <Account {...state} />} />
-            <Route exact path="/login" render={_=> <Login />} />
-            <Route exact path="/logout" render={_=> <Logout />} />
-            <Route exact path="/register" render={_=> <Account />} />
-            <Route exact path="/checkout" render={_=> <Checkout {...state} />} />
-            <Route exact path="/pickseats/:showingId" render={_=> <PickSeats {...state} />} />
-            <Route exact path="/filmdetails/:filmId" render={_=> <FilmDetails {...state} />} />
+            <Route exact path="/" render={_ => <LandingPage {...state} />} />
+            <Route exact path="/account" render={_ => <Account {...state} />} />
+            <Route exact path="/login" render={_ => <Login />} />
+            <Route exact path="/logout" render={_ => <Logout />} />
+            <Route exact path="/register" render={_ => <Account />} />
+            <Route exact path="/checkout" render={_ => <Checkout {...state} />} />
+            <Route exact path="/pickseats/:showingId" render={_ => <PickSeats {...state} />} />
+            <Route exact path="/filmdetails/:filmId" render={_ => <FilmDetails {...state} />} />
             <Route render={_ => <NotFound />} />
           </Switch>
         </main>
