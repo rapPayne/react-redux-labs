@@ -6,7 +6,7 @@ import * as seatImage from './bundledImages/seat.png';
 export const Seat = (props) => {
   const { seat, currentShowing } = props;
   return (
-    <div style={styles.wrapper}>
+    <div style={styles.seatWrapper}>
       <div onClick={() => reserveSeat(seat)} style={{...styles.seatItself, ...styles.seat[seat.status]}} >
           {seat.seat_number}
       </div>
@@ -32,7 +32,7 @@ export const Seat = (props) => {
 }
 
 const styles = {
-  wrapper: {
+  seatWrapper: {
     margin: "5px",
   },
   seatItself: {

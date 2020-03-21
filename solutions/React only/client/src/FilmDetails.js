@@ -12,48 +12,48 @@ import { ShowingTimes } from './ShowingTimes';
 // from state by filmId. (Note: if all the films were not already in
 // application state, we'd need to fetch it from the API)
 export const FilmDetails = (props) => {
- const state = store.getState()
- let currentFilm = {};
+  const state = store.getState()
+  let currentFilm = {};
 
- // Stupidly fancy way of saying filmId = props.match.params.filmId
- const { filmId } = useParams();
- 
- // If state.films doesn't exist, we can't draw anything ... yet.
- // But in App.js, we're dispatching fetchFilms() and rerendering
- // when a store.dispatch() happens so this component will in turn
- // be rerendered once films are populated.
- if (state.films && state.films.length) {
-  currentFilm = state.films.find(film => film.id === +filmId);
- }
+  // Stupidly fancy way of saying filmId = props.match.params.filmId
+  const { filmId } = useParams();
 
- const { homepage, poster_path, overview, release_date, runtime, title, tagline, vote_average, vote_count } = currentFilm;
- const { currentDate, showings } = state;
- return (
-  <>
-   <div style={{ ...styles.container }} className='mdl-card mdl-shadow--2dp'>
-    <div style={{}}>
-     <h1>{title}</h1>
-    </div>
-    <div style={{ display: 'flex' }}>
-     <div style={{ flex: '1 1 30%' }}>
-      <img src={poster_path} alt="" style={styles.poster} />
-     </div>
-     <div style={{ flex: '1 1 70%' }}>
-      <h1>{title}</h1>
-      <h2>{tagline}</h2>
-      <p>{overview}</p>
-      <p>Viewer's ratings: <span>{vote_average}</span>/10 <span>{vote_count} votes</span></p>
-      <p>Released: {release_date}</p>
-      <p>{runtime} minutes</p>
-      <a href={homepage} target="movie_site">{homepage}</a>
-      <PickDate />
+  // If state.films doesn't exist, we can't draw anything ... yet.
+  // But in App.js, we're dispatching fetchFilms() and rerendering
+  // when a store.dispatch() happens so this component will in turn
+  // be rerendered once films are populated.
+  if (state.films && state.films.length) {
+    currentFilm = state.films.find(film => film.id === +filmId);
+  }
 
-      <ShowingTimes styles={showingTimesStyles} showings={showings} currentDate={currentDate} currentFilm={currentFilm} />
-     </div>
-    </div>
-   </div>
-  </>
- )
+  const { homepage, poster_path, overview, release_date, runtime, title, tagline, vote_average, vote_count } = currentFilm;
+  const { currentDate, showings } = state;
+  return (
+    <>
+      <div style={{ ...styles.container }} className='mdl-card mdl-shadow--2dp'>
+        <div style={{}}>
+          <h1>{title}</h1>
+        </div>
+        <div style={{ display: 'flex' }}>
+          <div style={{ flex: '1 1 30%' }}>
+            <img src={poster_path} alt="" style={styles.poster} />
+          </div>
+          <div style={{ flex: '1 1 70%' }}>
+            <h1>{title}</h1>
+            <h2>{tagline}</h2>
+            <p>{overview}</p>
+            <p>Viewer's ratings: <span>{vote_average}</span>/10 <span>{vote_count} votes</span></p>
+            <p>Released: {release_date}</p>
+            <p>{runtime} minutes</p>
+            <a href={homepage} target="movie_site">{homepage}</a>
+            <PickDate />
+
+            <ShowingTimes styles={showingTimesStyles} showings={showings} currentDate={currentDate} currentFilm={currentFilm} />
+          </div>
+        </div>
+      </div>
+    </>
+  )
 };
 
 const showingTimesStyles = {
@@ -77,16 +77,16 @@ const showingTimesStyles = {
 }
 
 const styles = {
- container: {
-  width: '95%',
-  margin: '20px 20px',
-  padding: '20px',
- },
- cardTitle: {
+  container: {
+    width: '95%',
+    margin: '20px 20px',
+    padding: '20px',
+  },
+  cardTitle: {
 
- },
- poster: {
-  maxWidth: '95%',
-  objectFit: 'contain',
- },
+  },
+  poster: {
+    maxWidth: '95%',
+    objectFit: 'contain',
+  },
 }
