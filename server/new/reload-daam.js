@@ -39,8 +39,6 @@ confirmContinue()
  .then(saveDatabase)
  ;
 
-//TODO: Make some showings with some reservations
-
 function confirmContinue() {
  errorMessage = `Okay, we won't continue to run.`;
  return new Promise((resolve, reject) => {
@@ -131,14 +129,14 @@ function makeUsersData() {
   const family = getRandomFamilyName();
   const mail_server = getRandomMailServer();
   const phone = getRandomPhoneNumber();
-  const username = getRandomUsername(given, family, mail_server);
   const password = getRandomPassword();
   const credit_card = getRandomCreditCard();
   users.push({
    id: i + usersStartingId,
-   name: { given, family },
-   phone, username, password, credit_card,
    email: `${given.toLowerCase()}.${family.toLowerCase()}@${mail_server}`,
+   password, 
+   name: { given, family },
+   phone, credit_card,
   });
  }
  database.users = users;
@@ -156,14 +154,13 @@ function makeShowingsData() {
   // If there's no theater, skip this film. This will happen if we have more films than theaters
   if (!database.theaters[index]) continue;
   const theater_id = database.theaters[index].id
-  // Create a daily schedule for the next 10 days
+  // Create a daily schedule for the next X days
   const lastDayInMS = todayInMS + daysToSchedule * oneDayInMS;
-  const tzOffsetInMS = (new Date()).getTimezoneOffset() * 60 * 1000;
   for (let day = todayInMS; day <= lastDayInMS; day += oneDayInMS) {
-   const theDay = new Date(day);
-   theDay.setHours(0, 0, 0, 0);
-   const midnightLocalTime = new Date(theDay.setHours(23, 59));
-   for (let showing_time = getRandomStartTime(theDay, 11, 14); showing_time < midnightLocalTime; showing_time = getNextStartingTime(showing_time, film.running_time)) {
+   const theDay = new Date(day).setHours(0, 0, 0, 0);
+   const midnightLocalTime = new Date(day).setHours(23, 59);
+   //console.log(`Showing Times:`, film.id, randomStartTime, midnightLocalTime)
+   for (let showing_time = getRandomStartTime(theDay, 11, 14); showing_time < midnightLocalTime; showing_time = getNextStartingTime(showing_time, film.runtime)) {
     const showing = { id: showingId++, film_id: film.id, theater_id, showing_time };
     showings.push(showing);
    }
@@ -295,7 +292,8 @@ function getRecentDate(withinDays) {
 // Returns a *UTC* time between the *local* hours passed in.
 function getRandomStartTime(date, earliestHour, latestHour) {
  let newDate = new Date(date);
- const tzOffsetInMS = newDate.getTimezoneOffset() * 60 * 1000;
+ //const tzOffsetInMS = newDate.getTimezoneOffset() * 60 * 1000;
+ const tzOffsetInMS = 0;
  const minutes = [0, 15, 30, 45];
  const randomHour = Math.floor(Math.random() * (latestHour - earliestHour) + earliestHour);
  const randomMinutes = minutes[Math.floor(Math.random() * minutes.length)];
@@ -303,7 +301,7 @@ function getRandomStartTime(date, earliestHour, latestHour) {
  newDate = new Date(newDate.getTime() + tzOffsetInMS);
  return newDate;
 }
-function getNextStartingTime(lastStartingTime, runtimeinMinutes) {
+function getNextStartingTime(lastStartingTime, runtimeinMinutes=90) {
  const endTimeInMS = lastStartingTime.getTime() + runtimeinMinutes * 60 * 1000;
  const nextStartingTime = new Date(endTimeInMS);
  const minutes = nextStartingTime.getMinutes();
