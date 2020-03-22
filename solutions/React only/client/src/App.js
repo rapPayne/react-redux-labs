@@ -31,35 +31,36 @@ function App() {
           <div className="mdl-layout__header-row">
             <Link to="/" style={{ ...styles.navlink, ...styles.topMenuNavLink }} className="mdl-layout-title">Dinner and a Movie</Link>
             <nav className="mdl-navigation mdl-layout--large-screen-only">
-              {state.user ? (
+              {state.user ?
                 <>
                   <Link to="/account" className="mdl-layout__tab">My account</Link>
                   <Link to="/logout" className="mdl-layout__tab">logout</Link>
                   <Link to="/checkout" className="mdl-layout__tab"><i className="material-icons">shopping_cart</i></Link>
                 </>
-              ) : (
-                  <>
-                    <Link to="/login" className="mdl-layout__tab">Login</Link>
-                    <Link to="/register" className="mdl-layout__tab">Register</Link>
-                  </>
-                )}
+                :
+                <>
+                  <Link to="/login" className="mdl-layout__tab">Login</Link>
+                  <Link to="/register" className="mdl-layout__tab">Register</Link>
+                </>
+              }
             </nav>
           </div>
         </header>
         <div className="mdl-layout__drawer">
           <Link to="/" style={{ ...styles.drawerNavLink, ...styles.navlink }} className="mdl-layout-title">Dinner and a Movie</Link>
           <nav className="mdl-navigation">
-            {state.user ? (
+            {state.user ?
               <>
                 <Link to="/account" className="mdl-layout__link">My account</Link>
+                <Link to="/logout" className="mdl-layout__link">logout</Link>
                 <Link to="/checkout" className="mdl-layout__link"><i className="material-icons">shopping_cart</i></Link>
               </>
-            ) : (
-                <>
-                  <Link to="/login" className="mdl-layout__link">Login</Link>
-                  <Link to="/register" className="mdl-layout__link">Register</Link>
-                </>
-              )}
+              :
+              <>
+                <Link to="/login" className="mdl-layout__link">Login</Link>
+                <Link to="/register" className="mdl-layout__link">Register</Link>
+              </>
+            }
           </nav>
         </div>
         <main className="mdl-layout__content">
