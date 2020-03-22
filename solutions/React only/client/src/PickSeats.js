@@ -9,9 +9,9 @@ import { Table } from './Table';
 // of the reservations for this showing.
 export const PickSeats = props => {
   const state = store.getState()
-let currentShowing = {id: 0, film_id: 0, theater_id: 0, showing_time: new Date()};
-let currentFilm = {title:""};
-let currentTheater = {id: 0, name: ""};
+  let currentShowing = { id: 0, film_id: 0, theater_id: 0, showing_time: new Date() };
+  let currentFilm = { title: "" };
+  let currentTheater = { id: 0, name: "" };
 
   const { showingId } = useParams();
 
@@ -51,19 +51,19 @@ let currentTheater = {id: 0, name: ""};
       })
   }
   return (
-<section style={styles.header} className="mdl-card mdl-shadow--2dp">
-  <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
-    <h1 className="mdl-card__title-text">Where would you like to sit?</h1>
-  </div>
+    <section style={styles.header} className="mdl-card mdl-shadow--2dp">
+      <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
+        <h1 className="mdl-card__title-text">Where would you like to sit?</h1>
+      </div>
 
-  <p>Watching {currentFilm.title} in {currentTheater.name} on {currentShowing.showing_time.toShowingDateString()} at {currentShowing.showing_time.toShowingTimeString()}</p>
-  <section style={styles.tablesSection}>
-    {tables && tables.map(table => (
-      <Table table={table} currentShowing={currentShowing} key={table.id} />
-    ))}
-  </section>
-  <button onClick={() => history.push({ pathname: "/checkout" })} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} >Check out</button>
-</section>
+      <p>Watching {currentFilm.title} in {currentTheater.name} on {currentShowing.showing_time.toShowingDateString()} at {currentShowing.showing_time.toShowingTimeString()}</p>
+      <section style={styles.tablesSection}>
+        {tables && tables.map(table => (
+          <Table table={table} currentShowing={currentShowing} key={table.id} />
+        ))}
+      </section>
+      <button onClick={() => history.push({ pathname: "/checkout" })} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} >Check out</button>
+    </section>
   )
 };
 

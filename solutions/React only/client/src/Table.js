@@ -18,9 +18,7 @@ export const Table = ({ table, currentShowing }) => {
 }
 
 function getTableWidth(seats) {
-  return {
-    width: seats.length * 40 + "px"
-  }
+  return { width: seats.length * 40 + "px" }
 }
 
 const styles = {
