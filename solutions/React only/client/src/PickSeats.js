@@ -18,6 +18,7 @@ let currentTheater = {id: 0, name: ""};
   // Once and only once, start the fetch to get all reservations for this showing
   useEffect(() => {
     store.dispatch(actions.fetchReservationsForShowing(showingId));
+    console.log("loading Pickseats")
   }, [showingId]);
 
   // If state.showings doesn't exist, we can't draw anything ... yet.
