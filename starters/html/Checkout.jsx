@@ -22,5 +22,4 @@
     </tbody>
   </table>
   <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton}>Buy</button>
-  <p>TODO: Add authentication, registration, etc.</p>
 </>

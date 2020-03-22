@@ -1,12 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-export const Checkout = (props) => {
-  console.log(props);
-  const { cart, user } = props;
+export const Checkout = ({ cart, user }) => {
   const history = useHistory();
-  const foo = cart.seats.reduce((total,seat) => +total+seat.price,0);
-  console.log("foo is",foo)
+  const foo = cart.seats.reduce((total, seat) => +total + seat.price, 0);
+  console.log("foo is", foo)
   return (
     <>
       <h1>Checkout</h1>
@@ -24,28 +22,33 @@ export const Checkout = (props) => {
           <tr>
             <td></td>
             <td></td>
-            <td>{cart.seats.reduce((total, seat) => total + 1, 0)}</td>
+            <td>{cart.seats.length}</td>
             <td>{(cart.seats.reduce((total, seat) => total + seat.price, 0)).toCurrency()}</td>
           </tr>
         </tfoot>
         <tbody>
-
-          {cart.seats.map(seat => (
-            <tr><td>{seat.seat_number}</td><td>{seat.price.toCurrency()}</td><td>1</td><td>{seat.price.toCurrency()}</td></tr>
-          ))}
-
+          {cart.seats.map(seat => makeTableRow(seat))}
         </tbody>
       </table>
-      <button onClick={purchase}  className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton}>Buy</button>
+      <button onClick={purchase} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton}>Buy</button>
       <p>TODO: Add authentication, registration, etc.</p>
     </>
   )
-
+  function makeTableRow({seat_id, seat_number, price}) {
+    return (
+      <tr key={seat_id}>
+        <td>{seat_number}</td>
+        <td>{price.toCurrency()}</td>
+        <td>1</td>
+        <td>{price.toCurrency()}</td>
+      </tr>
+    )
+  }
   function purchase() {
     if (user) {
       console.error('trying to purchase')
     } else {
-      history.push({pathname:'/login?returnUrl=/checkout'});
+      history.push({ pathname: '/login?returnUrl=/checkout' });
     }
     console.error("you clicked purchase", cart);
   }

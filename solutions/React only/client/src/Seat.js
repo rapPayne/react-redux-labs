@@ -16,9 +16,9 @@ export const Seat = (props) => {
   function reserveSeat(seat) {
     console.log(seat)
     switch (seat.status) {
-      case statuses.reserved:
-        console.warn("Seat is reserved. Do nothing")
-        break;
+      // case statuses.reserved:
+      //   console.warn("Seat is reserved. Do nothing")
+      //   break;
       case statuses.inMyCart:
         store.dispatch(actions.removeSeatFromCart(seat, currentShowing));
         break;

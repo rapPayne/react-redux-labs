@@ -7,7 +7,7 @@ import { Table } from './Table';
 // Each time we navigate to PickSeats, we may be navigating to a
 // different showing, so we should trigger a fetch to get all
 // of the reservations for this showing.
-export const PickSeats = props => {
+export const PickSeats = () => {
   const state = store.getState()
   let currentShowing = { id: 0, film_id: 0, theater_id: 0, showing_time: new Date() };
   let currentFilm = { title: "" };
@@ -31,7 +31,7 @@ export const PickSeats = props => {
     currentTheater = state.theaters.find(theater => theater.id === currentShowing.theater_id) || {};
   }
 
-  const { reservations, cart } = props;
+  const { reservations, cart } = state;
   const history = useHistory();
   const tables = currentTheater && currentTheater.tables;
   const allSeats = tables && tables.flatMap(table => table.seats)
