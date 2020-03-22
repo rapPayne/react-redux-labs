@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { actions } from '../store/actions';
 import { store } from '../store/store';
@@ -8,11 +8,11 @@ export const Login = (props) => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const redirectUrl = params.get('redirectUrl');
+  const [showPassword, setShowPassword ] = useState(false);
 
   if (store.getState().user) {
     history && history.push({ pathname: redirectUrl || "/" });
   }
-  const showPassword = false;
   return (
     <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
       <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
@@ -34,6 +34,7 @@ export const Login = (props) => {
           <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
               <input id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+              <span onClick={e=>setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
               <label className="mdl-textfield__label" htmlFor="email">Password</label>
             </div>
           </div>
