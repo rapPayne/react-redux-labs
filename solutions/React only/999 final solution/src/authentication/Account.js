@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { store } from '../store/store';
 import { actions } from '../store/actions';
 
 export const Account = (props) => {
-  const showPassword = false;
+  const [ user, setUser ] = useState(props.user || {});
+  console.log("Account", user);
+  const showPassword = true;
   return (
     <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
       <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
@@ -20,8 +22,15 @@ export const Account = (props) => {
 
           <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
-              <input id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="email">Password</label>
+              <input value={user.password} id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+              <label className="mdl-textfield__label" htmlFor="password">Password</label>
+            </div>
+          </div>
+
+          <div style={styles.inputDivs}>
+            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
+              <input id="password2" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+              <label className="mdl-textfield__label" htmlFor="password2">Password (again)</label>
             </div>
           </div>
 

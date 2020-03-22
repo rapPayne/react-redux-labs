@@ -72,7 +72,7 @@ function App() {
             <Route exact path="/register" render={_ => <Account />} />
             <Route exact path="/checkout" render={_ => <Checkout {...state} />} />
             <Route exact path="/pickseats/:showingId" render={_ => <PickSeats {...state} />} />
-            <Route exact path="/filmdetails/:filmId" render={_ => <FilmDetails {...state} />} />
+            <Route exact path="/film/:filmId" render={_ => <FilmDetails {...state} />} />
             <Route render={_ => <NotFound />} />
           </Switch>
         </main>

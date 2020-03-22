@@ -26,7 +26,7 @@ export const FilmBrief = ({ film, showings, currentDate }) => {
   )
   function handleClick() {
     history.push({
-      pathname: `/filmdetails/${film.id}`,
+      pathname: `/film/${film.id}`,
     })
   }
 };

@@ -13,8 +13,15 @@
 
       <div style={styles.inputDivs}>
         <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
-          <input id="password" type="password" className="mdl-textfield__input" />
-          <label className="mdl-textfield__label" htmlFor="email">Password</label>
+          <input id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+          <label className="mdl-textfield__label" htmlFor="password">Password</label>
+        </div>
+      </div>
+
+      <div style={styles.inputDivs}>
+        <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
+          <input id="password2" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+          <label className="mdl-textfield__label" htmlFor="password2">Password (again)</label>
         </div>
       </div>
 
@@ -52,8 +59,8 @@
           <label className="mdl-textfield__label" htmlFor="expiration">Expiration</label>
         </div>
       </div>
-      
-      <input type='submit' value='Save'  className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} />
+
+      <input type='submit' value='Save' className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} />
     </form>
   </div>
 </section>
