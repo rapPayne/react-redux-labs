@@ -68,7 +68,7 @@ function App() {
             <Route exact path="/account" render={() => <Account { ...state } />} />
             <Route exact path="/login" render={() => <Login />} />
             <Route exact path="/checkout" render={() => <Checkout { ...state } />} />
-            <Route exact path="/pickseats" render={() => <PickSeats { ...state } />} />
+            <Route exact path="/pickseats/:showingId" render={() => <PickSeats { ...state } />} />
             <Route exact path="/film/:filmId" render={() => <FilmDetails { ...state } />} />
             <Route exact render={() => <NotFound />} />            
           </Switch>

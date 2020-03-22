@@ -15,6 +15,7 @@ export const PickSeats = () => {
 
   const { showingId } = useParams();
 
+  // RAP: We *may* be ever-adding to reservations. We *may* should empty all current reservations in a reducer before fetching. If we do this, we might be able to read all reservations from props and remove the dependency on the store in this component.
   // Once and only once, start the fetch to get all reservations for this showing
   useEffect(() => {
     store.dispatch(actions.fetchReservationsForShowing(showingId));
