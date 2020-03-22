@@ -30,6 +30,7 @@ function App() {
         <a href="/" className="mdl-layout-title">Dinner and a Movie</a>
         <nav className="mdl-navigation">
           <a href="/account" className="mdl-layout__link">My account</a>
+          <a href="/logout" className="mdl-layout__link">logout</a>
           <a href="/checkout" className="mdl-layout__link"><i className="material-icons">shopping_cart</i></a>
           <a href="/login" className="mdl-layout__link">Login</a>
           <a href="/register" className="mdl-layout__link">Register</a>

@@ -15,8 +15,6 @@ export const Table = ({ table, currentShowing }) => {
       </div>
     </div>
   )
-
-
 }
 
 function getTableWidth(seats) {

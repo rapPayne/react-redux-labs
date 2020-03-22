@@ -15,7 +15,6 @@ export const FilmDetails = (props) => {
   const state = store.getState()
   let currentFilm = {};
 
-  // Stupidly fancy way of saying filmId = props.match.params.filmId
   const { filmId } = useParams();
 
   // If state.films doesn't exist, we can't draw anything ... yet.
