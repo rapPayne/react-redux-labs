@@ -4,7 +4,7 @@
   </div>
   <div className="mdl-card__supporting-text">
     <div>
-      <p>First time user? <a href="/register">Register</a></p>
+      <p>First time user? <a href="/account">Register</a></p>
     </div>
     <form>
 
