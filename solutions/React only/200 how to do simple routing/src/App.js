@@ -67,6 +67,7 @@ function App() {
             <Route exact path="/" render={() => <LandingPage { ...state } />} />
             <Route exact path="/account" render={() => <Account { ...state } />} />
             <Route exact path="/login" render={() => <Login />} />
+            <Route exact path="/logout" render={() => <Logout />} />
             <Route exact path="/checkout" render={() => <Checkout { ...state } />} />
             <Route exact path="/pickseats/:showingId" render={() => <PickSeats { ...state } />} />
             <Route exact path="/film/:filmId" render={() => <FilmDetails { ...state } />} />
