@@ -5,8 +5,6 @@ const fetchInitialDataMiddleware = ({ getState, dispatch }) => next => action =>
     dispatch(actions.fetchFilms());
     dispatch(actions.fetchShowings());
     dispatch(actions.fetchTheaters());
-    // dispatch(actions.fetchTables());
-    // dispatch(actions.fetchSeats());
   }
   next(action);
 }
