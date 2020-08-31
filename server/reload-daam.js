@@ -5,7 +5,7 @@ const readline = require('readline');
 
 const database = {};
 const databaseFilePath = "./database.json";
-const numberOfUsersToCreate = 5;
+const numberOfUsersToCreate = 25;
 const usersStartingId = 100;
 const creditCardTypes = [{ "4": "Visa" }, { "5": "Mastercard" }, { "6": "Discover" }];
 const startingReservationId = 8573;
