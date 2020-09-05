@@ -13,10 +13,10 @@ const reservationsReducer = (state = {}, action) => {
     // which seat they're contemplating buying. It will appear as 
     // "held" in PickSeats and in their shopping cart.
     // case actionTypes.HOLD_SEAT:
-    //   return [...state, { seat_id: seat.id, showing_id: showing.id }];
+    //   return [...state, { seat_id: action.seat.id, showing_id: action.showing.id }];
     // // Undoing the hold from above. Also only local.
     // case actionTypes.CLEAR_HOLD_ON_SEAT:
-    //   const newState = state.filter(r => !(r.seat_id === seat.id && r.showing_id === showing.id));
+    //   const newState = state.filter(r => !(r.seat_id === action.seat.id && r.showing_id === action.showing.id));
     //   console.log("oldstate", state.length, "newState", newState.length, seat, showing, state);
     //   return newState;
     default:
