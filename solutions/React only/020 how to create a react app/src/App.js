@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { store } from './store/store';
-import { actions } from './store/actions';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 
 function App() {
-  const [state, setState] = useState(store.getState());
-  useEffect(() => {
-    store.subscribe(() => setState({ ...store.getState() }));
-    store.dispatch(actions.fetchInitialData());
-  }, []);
-  console.log(store.getState());
   return (
     <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header className="mdl-layout__header">
