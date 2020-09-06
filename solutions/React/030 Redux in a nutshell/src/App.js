@@ -4,7 +4,6 @@ import { actions } from './store/actions';
 import logo from './logo.svg';
 import './App.css';
 
-
 function App() {
   const [state, setState] = useState(store.getState());
   useEffect(() => {
