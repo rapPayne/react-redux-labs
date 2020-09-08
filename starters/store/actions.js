@@ -13,6 +13,8 @@ export const actionTypes = {
   REGISTER: "REGISTER",
   REMOVE_SEAT_FROM_CART: "REMOVE_SEAT_FROM_CART",
   SET_CURRENT_DATE: "SET_CURRENT_DATE",
+  SET_CURRENT_FILM: "SET_CURRENT_FILM",
+  SET_CURRENT_SHOWING: "SET_CURRENT_SHOWING",
   SET_SHOWINGS: "SET_SHOWINGS",
   SET_FILMS: "SET_FILMS",
   SET_RESERVATIONS_FOR_CURRENT_SHOWING: "SET_RESERVATIONS_FOR_CURRENT_SHOWING",
@@ -32,12 +34,10 @@ const login = (email, password) => ({ type: actionTypes.LOGIN, email, password})
 const logout = () => ({ type: actionTypes.LOGOUT});
 const register = (user) => ({ type: actionTypes.REGISTER, user});
 const removeSeatFromCart = (seat, showing) => ({ type: actionTypes.REMOVE_SEAT_FROM_CART, seat, showing });
-function setCurrentDate(currentDate) {
-  return { type: actionTypes.SET_CURRENT_DATE, currentDate };
-}
-function setCurrentTheater(theater) {
-  return { type: actionTypes.SET_CURRENT_THEATER, theater };
-}
+const setCurrentDate = date => ({ type: actionTypes.SET_CURRENT_DATE, date });
+const setCurrentFilm = film => ({ type: actionTypes.SET_CURRENT_FILM, film });
+const setCurrentShowing = showing => ({ type: actionTypes.SET_CURRENT_SHOWING, showing });
+const setCurrentTheater = theater => ({ type: actionTypes.SET_CURRENT_THEATER, theater });
 function setFilms(films) {
   return { type: actionTypes.SET_FILMS, films };
 }
@@ -61,10 +61,12 @@ export const actions = {
   logout,
   register,
   setCurrentDate,
-  setShowings,
+  setCurrentFilm,
+  setCurrentShowing,
   setCurrentTheater,
   setFilms,
   setReservationsForCurrentShowing,
+  setShowings,
   setTheaters,
   setUser,
   addSeatToCart,
