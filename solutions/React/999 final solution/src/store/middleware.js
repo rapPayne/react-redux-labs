@@ -5,8 +5,6 @@ const fetchInitialDataMiddleware = ({ getState, dispatch }) => next => action =>
     dispatch(actions.fetchFilms());
     dispatch(actions.fetchShowings());
     dispatch(actions.fetchTheaters());
-    // dispatch(actions.fetchTables());
-    // dispatch(actions.fetchSeats());
   }
   next(action);
 }
@@ -122,6 +120,11 @@ const checkoutMiddleware = ({ getState, dispatch }) => next => action => {
   next(action);
 }
 
+const loggingMiddleware = ({ getState, dispatch }) => next => action => {
+  next(action);
+  window.debugging && console.log("Just finished action", action, getState());
+}
+
 // Send username/password POST request
 const loginMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === actionTypes.LOGIN) {
@@ -141,15 +144,14 @@ const loginMiddleware = ({ dispatch, getState }) => next => action => {
 // Un-authenticate
 const logoutMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === actionTypes.LOGOUT) {
-    const { sessionId }  = getState();
+    const { sessionId } = getState();
     const body = { sessionId };
     fetch(`/api/logout`, {
       method: 'POST',
       headers: { "Content-Type": `application/json` },
       body
     })
-    .catch(console.error);
-
+      .catch(console.error);
     dispatch(actions.setUser(undefined));
   }
   next(action);
@@ -173,12 +175,7 @@ const registerMiddleware = ({ dispatch, getState }) => next => action => {
   next(action);
 }
 
-const loggingMiddleware = ({ getState }) => next => action => {
-  next(action);
-  console.log("Just finished action", action, getState())
-}
-
-export default [
+export const middleware = [
   checkoutMiddleware,
   fetchFilmsMiddleware,
   fetchInitialDataMiddleware,
