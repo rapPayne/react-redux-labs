@@ -20,8 +20,9 @@ import { store } from './store/store';
 function App() {
   const [state, setState] = useState(store.getState());
   useEffect(() => {
-    store.subscribe(() => setState({ ...store.getState() }));
+    const unsubscribe = store.subscribe(() => setState({ ...store.getState() }));
     store.dispatch(actions.fetchInitialData());
+    return unsubscribe;
   }, []);
 
   return (
