@@ -11,6 +11,8 @@ export const reducer = (state, action = {}) => {
       return { ...state, currentShowing: action.showing }
     case actionTypes.SET_FILMS:
       return { ...state, films: action.films }
+    case actionTypes.SET_SHOWINGS:
+      return { ...state, showings: action.showings }
     case actionTypes.SET_TABLES:
       return { ...state, tables: action.tables }
     case actionTypes.SET_THEATERS:

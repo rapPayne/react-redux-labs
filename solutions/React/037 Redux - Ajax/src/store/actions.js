@@ -1,3 +1,4 @@
+
 export const actionTypes = {
   ADD_SEAT_TO_CART: "ADD_SEAT_TO_CART",
   FETCH_FILMS: "FETCH_FILMS",

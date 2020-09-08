@@ -9,6 +9,8 @@ export const reducer = (state, action = {}) => {
       return { ...state, currentShowing: action.currentShowing }
     case "SET_FILMS":
       return { ...state, films: action.films }
+    case "SET_SHOWINGS":
+      return { ...state, showings: action.showings }
     case "SET_TABLES":
       return { ...state, tables: action.tables }
     case "SET_THEATERS":
