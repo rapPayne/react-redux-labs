@@ -169,7 +169,6 @@ function makeShowingsData() {
   database.showings = showings;
   console.log("Finished making showings data");
 }
-
 function makeReservationsData() {
   errorMessage = `Problem making reservations data`;
   console.log("Making reservations data");
