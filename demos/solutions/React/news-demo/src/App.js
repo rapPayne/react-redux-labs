@@ -1,35 +1,30 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
 import { store } from './store/store';
-import { actions } from './store/actions';
 import { Landing } from './Landing';
-import { NewsDetails } from './NewsDetails'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { NewsDetails } from './NewsDetails';
+import { actions } from './store/actions';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = store.getState();
-    store.subscribe(() => this.setState(store.getState()));
-  }
-  componentDidMount() {
+function App() {
+  
+  const [state, setState] = useState(store.getState())
+  useEffect(() => {
+    store.subscribe(() => setState(store.getState()));
     store.dispatch(actions.fetchNews());
-  }
-  render() {
-    return (
-      <main>
+  }, []);
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
         <header>
         </header>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/details" render={props => <NewsDetails {...props} />} />
-            <Route path="*" render={props => <Landing {...props} articles={this.state.articles} />} />
-          </Switch>
-        </BrowserRouter>
-      </main>
-    );
-  }
-
+        <main>
+          <Route path="/" exact><Landing articles={state.articles} /></Route>
+          <Route path="/article/:article_number"><NewsDetails /></Route>
+        </main>
+      </BrowserRouter>
+    </Provider>
+  );
 }
 
 export default App;

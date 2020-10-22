@@ -4,9 +4,9 @@ export const actionTypes = {
   ADD_ARTICLE: "ADD_ARTICLE",
 }
 
-const fetchNews = () => ({type:actionTypes.FETCH_NEWS});
+const fetchNews = (countryCode='us') => ({type:actionTypes.FETCH_NEWS, countryCode});
 const addArticle = article => ({type:actionTypes.ADD_ARTICLE, article})
 export const actions = {
-  fetchNews: fetchNews,
+  fetchNews,
   addArticle,
 }

@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import { fetchNewsMiddleware } from './middleware';
+import { fetchNewsMiddleware, loggingMiddleware } from './middleware';
 import { actionTypes } from './actions';
 
 const reducer = (state,action) => {
@@ -15,5 +15,5 @@ const reducer = (state,action) => {
 
 
 const initialState = {articles:[]};
-const enhancers = applyMiddleware(fetchNewsMiddleware);
+const enhancers = applyMiddleware(loggingMiddleware, fetchNewsMiddleware);
 export const store = createStore(reducer, initialState, enhancers);
