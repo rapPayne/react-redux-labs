@@ -1,8 +1,6 @@
 import { createStore, applyMiddleware, AnyAction } from 'redux';
 import { fetchNewsMiddleware, loggingMiddleware } from './middleware';
 import { actionTypes } from './actions';
-import { Reducer } from 'react';
-import { Article } from '../types/Article';
 import { State } from '../types/State';
 
 
