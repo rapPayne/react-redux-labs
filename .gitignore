@@ -14,10 +14,20 @@ toCopy/
 **/node_modules
 
 # testing
-/coverage
+**/coverage
 
 # production
-/build
+**/build
+
+# React Native
+**/.expo/*
+**/*.jks
+**/*.p8
+**/*.p12
+**/*.key
+**/*.mobileprovision
+# **/*.orig.*
+**/web-build/
 
 # misc
 .DS_Store
@@ -26,10 +36,10 @@ toCopy/
 .env.test.local
 .env.production.local
 
-npm-debug.log*
+**/npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# WebStorm (meh)
+# IDE files
 /.idea
 /.vscode
