@@ -1,15 +1,14 @@
 {
   "name": "rest-api-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "For serving data for labs and demos via an API",
   "main": "index.js",
   "scripts": {
     "reload-daam": "node ./reload-daam.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server --port 3007 --routes ./routes.json --middlewares ./middlewares.js --watch ./database.json",
-    "devserver": "nodemon ./daam-server"
+    "server": "json-server --config json-server.json ./database.json"
   },
-  "author": "Rap Payne",
+  "author": "RapPayne",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

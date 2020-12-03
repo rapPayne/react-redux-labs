@@ -1,0 +1,6 @@
+{
+  "port": 3007,
+  "routes": "./routes.json",
+  "middlewares": "./middlewares.js",
+  "watch": true
+}

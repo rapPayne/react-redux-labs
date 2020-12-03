@@ -1,3 +1,5 @@
 {
- "/api/*": "/$1"
+ "/api/*": "/$1",
+ "/showings/:showing_id/reservations": "/reservations?showing_id=:showing_id",
+ "/login/:username/:password": "/users?email=:username&password=:password"
 }
