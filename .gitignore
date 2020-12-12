@@ -13,6 +13,9 @@ toCopy/
 # dependencies
 **/node_modules
 
+# Don't need to save configuration and removing these will keep dependabot from flagging security issues (which we don't care about since risk is nonexistent).
+**/package-lock.json
+
 # testing
 /coverage
 
