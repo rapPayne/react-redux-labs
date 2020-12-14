@@ -4,6 +4,8 @@
   "middlewares": [
     "./middlewares/logging-middleware.js", 
     "./middlewares/authentication-middleware.js",
-    "./middlewares/showings-middleware.js"],
+    "./middlewares/showings-middleware.js",
+    "./middlewares/theaters-middleware.js"
+  ],
   "watch": true
 }
