@@ -1,3 +1,5 @@
+To run the server, go `npm run server`
+
 To load the data, go `npm run reload-daam`
 
 

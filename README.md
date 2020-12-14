@@ -15,16 +15,16 @@ You've been provided a Node server using Express to serve data from a mongoDB da
 In the labs, you'll create the client portion from scratch.
 
 ## Setup requirements
-1. Node and npm
-1. bash
-1. mongo
+For the React labs, As long as you have a version of node that is under support, you should be good. For React Native labs, you'll also need a bunch of other stuff. But as far as we're concerned, if you match the requirements to run a React Native app, you can run these labs.
 
 ## How to run
+1. [Run the server](server)
+2. Run a client solution
 ```bash
-cd server
-npm run dev
+cd <solution folder>
+npm install
+npm run start
 ```
-This will run the client AND the server. Both are in watch mode so that if you make any changes to the source, it restarts.
 
 ## Instructor notes
 Instructors, this section is for you! 
@@ -43,5 +43,4 @@ The 5-day React/Redux class starts with React intro and setup then does a deep-d
 
 The 3-day React and 4-day React Native classes have a 45-minute Redux In a Nutshell lecture. The lab for that topic is simply installing Redux through npm and apply our pre-written Redux code.
 
-The only difference between 3-day React and 5-day React/Redux is that we do a 45-minute "nutshell" overview with one and a 2-day deep dive with the other.
-
+The main difference between 3-day React and 5-day React/Redux is that we do a 45-minute "nutshell" overview with one and a 2-day deep dive with the other.

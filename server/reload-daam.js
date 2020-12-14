@@ -213,10 +213,10 @@ function sayGoodbye() {
 
  ... and then browsing to ...
  
- http://localhost:3000/users
- http://localhost:3000/users/${usersStartingId + 3}
- http://localhost:3000/films
- http://localhost:3000/theaters
+ http://localhost:3007/users
+ http://localhost:3007/users/${usersStartingId + 3}
+ http://localhost:3007/films
+ http://localhost:3007/theaters
 
  You can hit five RESTful API endpoints
  - films, 
