@@ -3,6 +3,7 @@
   "routes": "./routes.json",
   "middlewares": [
     "./middlewares/logging-middleware.js", 
-    "./middlewares/authentication-middleware.js"],
+    "./middlewares/authentication-middleware.js",
+    "./middlewares/showings-middleware.js"],
   "watch": true
 }
