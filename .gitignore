@@ -22,6 +22,10 @@ toCopy/
 # production
 /build
 
+# expo
+**/.expo
+**/.watchmanconfig
+
 # misc
 .DS_Store
 .env.local
