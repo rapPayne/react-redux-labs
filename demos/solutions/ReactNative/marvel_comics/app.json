@@ -1,0 +1,12 @@
+{
+  "name": "marvel_comics",
+  "displayName": "marvel_comics",
+  "expo": {
+    "name": "marvel_comics",
+    "slug": "marvel_comics",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
