@@ -1,4 +1,4 @@
-import { host } from './helpers';
+import { host } from './apiHelpers';
 
 const fetchFilmsMiddleware = ({dispatch, getState}) => next => action => {
   if (action?.type === "FETCH_FILMS") {
@@ -6,7 +6,6 @@ const fetchFilmsMiddleware = ({dispatch, getState}) => next => action => {
     .then(res => res.json())
     .then(films => films.forEach(film => dispatch({type:"ADD_FILM",film})))
     .catch(err => console.error("Couldn't fetch films", err))
-
   }
   next(action);
 }

@@ -12,5 +12,4 @@ const initialState = {
 }
 initialState.log = true;
 
-export const store = createStore(reducer, initialState,
-  applyMiddleware(...middlewares));
+export const store = createStore(reducer, initialState, applyMiddleware(...middlewares));
