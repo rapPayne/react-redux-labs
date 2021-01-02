@@ -25,6 +25,7 @@ toCopy/
 
 # React Native
 **/.expo/*
+**/.expo-shared/*
 **/*.jks
 **/*.p8
 **/*.p12
