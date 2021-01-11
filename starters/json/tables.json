@@ -13,6 +13,7 @@
         "table_id": "5ba6948c4b66490ccd23f7d4",
         "seat_number": 2,
         "price": 10.75,
+        "status": "seatIsSelected",
         "__v": 0
       },
       {
@@ -20,12 +21,14 @@
         "table_id": "5ba6948c4b66490ccd23f7d4",
         "seat_number": 3,
         "price": 10.75,
+        "status": "seatIsSelected",
         "__v": 0
       },
       {
         "_id": "5ba6948c4b66490ccd23f86a",
         "table_id": "5ba6948c4b66490ccd23f7d4",
         "seat_number": 4,
+        "status": "seatIsSelected",
         "price": 10.75,
         "__v": 0
       }
@@ -45,6 +48,7 @@
         "table_id": "5ba6948c4b66490ccd23f7d5",
         "seat_number": 1,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       },
       {
@@ -70,6 +74,7 @@
         "table_id": "5ba6948c4b66490ccd23f7d6",
         "seat_number": 1,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       }
     ],
@@ -113,6 +118,7 @@
         "table_id": "5ba6948c4b66490ccd23f7d8",
         "seat_number": 2,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       }
     ],
@@ -167,6 +173,7 @@
         "table_id": "5ba6948c4b66490ccd23f7db",
         "seat_number": 1,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       },
       {
@@ -174,6 +181,7 @@
         "table_id": "5ba6948c4b66490ccd23f7db",
         "seat_number": 2,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       }
     ],
@@ -192,6 +200,7 @@
         "table_id": "5ba6948c4b66490ccd23f7dc",
         "seat_number": 1,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       },
       {
@@ -199,6 +208,7 @@
         "table_id": "5ba6948c4b66490ccd23f7dc",
         "seat_number": 2,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       },
       {
@@ -206,6 +216,7 @@
         "table_id": "5ba6948c4b66490ccd23f7dc",
         "seat_number": 3,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       },
       {
@@ -213,6 +224,7 @@
         "table_id": "5ba6948c4b66490ccd23f7dc",
         "seat_number": 4,
         "price": 10.75,
+        "status": "seatIsTaken",
         "__v": 0
       }
     ],
