@@ -1,0 +1,426 @@
+[
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f867",
+        "table_id": "5ba6948c4b66490ccd23f7d4",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f868",
+        "table_id": "5ba6948c4b66490ccd23f7d4",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f869",
+        "table_id": "5ba6948c4b66490ccd23f7d4",
+        "seat_number": 3,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f86a",
+        "table_id": "5ba6948c4b66490ccd23f7d4",
+        "seat_number": 4,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7d4",
+    "id": 46,
+    "theater_id": 4,
+    "table_number": 1,
+    "x": 1,
+    "y": 1,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f86b",
+        "table_id": "5ba6948c4b66490ccd23f7d5",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f86c",
+        "table_id": "5ba6948c4b66490ccd23f7d5",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7d5",
+    "id": 47,
+    "theater_id": 4,
+    "table_number": 2,
+    "x": 1,
+    "y": 2,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f86d",
+        "table_id": "5ba6948c4b66490ccd23f7d6",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7d6",
+    "id": 48,
+    "theater_id": 4,
+    "table_number": 3,
+    "x": 1,
+    "y": 3,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f86e",
+        "table_id": "5ba6948c4b66490ccd23f7d7",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7d7",
+    "id": 49,
+    "theater_id": 4,
+    "table_number": 4,
+    "x": 1,
+    "y": 4,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f86f",
+        "table_id": "5ba6948c4b66490ccd23f7d8",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f870",
+        "table_id": "5ba6948c4b66490ccd23f7d8",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7d8",
+    "id": 50,
+    "theater_id": 4,
+    "table_number": 5,
+    "x": 1,
+    "y": 5,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f871",
+        "table_id": "5ba6948c4b66490ccd23f7d9",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7d9",
+    "id": 51,
+    "theater_id": 4,
+    "table_number": 6,
+    "x": 2,
+    "y": 1,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f872",
+        "table_id": "5ba6948c4b66490ccd23f7da",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7da",
+    "id": 52,
+    "theater_id": 4,
+    "table_number": 7,
+    "x": 2,
+    "y": 2,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f873",
+        "table_id": "5ba6948c4b66490ccd23f7db",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f874",
+        "table_id": "5ba6948c4b66490ccd23f7db",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7db",
+    "id": 53,
+    "theater_id": 4,
+    "table_number": 8,
+    "x": 2,
+    "y": 3,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f875",
+        "table_id": "5ba6948c4b66490ccd23f7dc",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f876",
+        "table_id": "5ba6948c4b66490ccd23f7dc",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f877",
+        "table_id": "5ba6948c4b66490ccd23f7dc",
+        "seat_number": 3,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f878",
+        "table_id": "5ba6948c4b66490ccd23f7dc",
+        "seat_number": 4,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7dc",
+    "id": 54,
+    "theater_id": 4,
+    "table_number": 9,
+    "x": 2,
+    "y": 4,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f879",
+        "table_id": "5ba6948c4b66490ccd23f7dd",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f87a",
+        "table_id": "5ba6948c4b66490ccd23f7dd",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f87b",
+        "table_id": "5ba6948c4b66490ccd23f7dd",
+        "seat_number": 3,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f87c",
+        "table_id": "5ba6948c4b66490ccd23f7dd",
+        "seat_number": 4,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7dd",
+    "id": 55,
+    "theater_id": 4,
+    "table_number": 10,
+    "x": 2,
+    "y": 5,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f87d",
+        "table_id": "5ba6948c4b66490ccd23f7de",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f87e",
+        "table_id": "5ba6948c4b66490ccd23f7de",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7de",
+    "id": 56,
+    "theater_id": 4,
+    "table_number": 11,
+    "x": 3,
+    "y": 1,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f87f",
+        "table_id": "5ba6948c4b66490ccd23f7df",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f880",
+        "table_id": "5ba6948c4b66490ccd23f7df",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f881",
+        "table_id": "5ba6948c4b66490ccd23f7df",
+        "seat_number": 3,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f882",
+        "table_id": "5ba6948c4b66490ccd23f7df",
+        "seat_number": 4,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7df",
+    "id": 57,
+    "theater_id": 4,
+    "table_number": 12,
+    "x": 3,
+    "y": 2,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f883",
+        "table_id": "5ba6948c4b66490ccd23f7e0",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7e0",
+    "id": 58,
+    "theater_id": 4,
+    "table_number": 13,
+    "x": 3,
+    "y": 3,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f884",
+        "table_id": "5ba6948c4b66490ccd23f7e1",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f885",
+        "table_id": "5ba6948c4b66490ccd23f7e1",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f886",
+        "table_id": "5ba6948c4b66490ccd23f7e1",
+        "seat_number": 3,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f887",
+        "table_id": "5ba6948c4b66490ccd23f7e1",
+        "seat_number": 4,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7e1",
+    "id": 59,
+    "theater_id": 4,
+    "table_number": 14,
+    "x": 3,
+    "y": 4,
+    "__v": 1
+  },
+  {
+    "seats": [
+      {
+        "_id": "5ba6948c4b66490ccd23f888",
+        "table_id": "5ba6948c4b66490ccd23f7e2",
+        "seat_number": 1,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f889",
+        "table_id": "5ba6948c4b66490ccd23f7e2",
+        "seat_number": 2,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f88a",
+        "table_id": "5ba6948c4b66490ccd23f7e2",
+        "seat_number": 3,
+        "price": 10.75,
+        "__v": 0
+      },
+      {
+        "_id": "5ba6948c4b66490ccd23f88b",
+        "table_id": "5ba6948c4b66490ccd23f7e2",
+        "seat_number": 4,
+        "price": 10.75,
+        "__v": 0
+      }
+    ],
+    "_id": "5ba6948c4b66490ccd23f7e2",
+    "id": 60,
+    "theater_id": 4,
+    "table_number": 15,
+    "x": 3,
+    "y": 5,
+    "__v": 1
+  }
+]

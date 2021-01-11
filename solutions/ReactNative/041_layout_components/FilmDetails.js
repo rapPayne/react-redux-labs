@@ -13,15 +13,10 @@ export const FilmDetails = ({ film, selected_date, showings = [] }) => {
         <Text>{film.tagline}</Text>
         <Text>{film.homepage}</Text>
         <Text>{film.overview}</Text>
-        <Text>Release date: {film.release_date}</Text>
+        <Text>{film.release_date}</Text>
         <Text>Running time: {film.runtime} minutes</Text>
-        <View>
-          <Text>
-            Rating: {film.vote_average}/
-          <Text>10</Text>
-          </Text>
-          <Text>{film.vote_count} votes</Text>
-        </View>
+        <Text>Rating: {film.vote_average}</Text>
+        <Text>{film.vote_count} votes</Text>
       </View>
     </ScrollView>
   )
