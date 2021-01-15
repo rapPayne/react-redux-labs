@@ -11,18 +11,20 @@ export const PickSeats = () => {
   const navigation = useNavigation();
   const showing = route.params.showing;
   const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
   const selected_film = useSelector(state => state.selected_film);
   const selected_date = useSelector(state => state.selected_date);
   const tables = useSelector(state => state.tables);
   const reservations = useSelector(state => state.reservations);
-  //useEffect(() => {
-    tables?.forEach(table => {
-      table.seats.forEach(seat => {
-        if (reservations.some(res => res.seat_id === seat.id))
-          seat.status = "seatIsTaken"
-      })
+  tables?.forEach(table => {
+    table.seats.forEach(seat => {
+      if (reservations.some(res => res.seat_id === seat.id))
+        seat.status = "seatIsTaken"
+      if (cart.some(item => item.seat_id === seat.id))
+        seat.status = "seatIsSelected"
     })
-  //})
+  })
+
   useEffect(() => {
     dispatch({ type: "FETCH_TABLES_AND_SEATS", theater_id: showing.theater_id })
     dispatch({ type: "FETCH_RESERVATIONS", showing_id: showing.id });
