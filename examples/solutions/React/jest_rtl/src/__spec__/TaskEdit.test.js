@@ -11,6 +11,6 @@ describe("TaskEdit component", () => {
 
   it("can change the priority of a Task", () => { });
 
-  it("can change the date of a Task", () => { });
+  it("can change the due date of a Task", () => { });
 
 });

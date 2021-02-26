@@ -31,6 +31,7 @@ Task List
 - Can be ordered by priority
 - Can be ordered by title
 - Will _select_ the correct task (When the user taps a task, it becomes the selected task)
+- Can purge all deleted tasks
 
 TaskEdit
 - Can add a new Task

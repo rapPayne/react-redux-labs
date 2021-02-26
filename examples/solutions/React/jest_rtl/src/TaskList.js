@@ -13,6 +13,7 @@ export const TaskList = () => {
   return (
     <>
       <h1>I'm TaskList</h1>
+      <button onClick={purgeCompletedTasks}>Purge completed tasks</button>
       <label htmlFor="sortByDropdown">Sort by</label>
       <select id="sortByDropdown" value="title" onChange={reorderTasks}>
         <option value="title">Title</option>
@@ -28,5 +29,10 @@ export const TaskList = () => {
   function reorderTasks({ target: { value } }) {
     tasks.sort((a, b) => a[value] < b[value] ? -1 : a[value] > b[value] ? 1 : 0);
     setTasks(() => [...tasks]);
+  }
+
+  function purgeCompletedTasks() {
+    const remainingTasks = tasks.filter(t => t.completed !== true)
+    setTasks([...remainingTasks]);
   }
 }

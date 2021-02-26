@@ -6,7 +6,8 @@ import userEvent from '@testing-library/user-event';
 
 describe("TaskList Component", () => {
   beforeEach(() => {
-    jest.spyOn(taskRepository, 'getAll').mockReturnValue(seedTasks);
+    // mock the repo so as to hardcode tasks
+    jest.spyOn(taskRepository, 'getAll').mockReturnValue([...seedTasks]);
   });
 
   afterEach(() => {
@@ -70,8 +71,20 @@ describe("TaskList Component", () => {
     expect(screen.getByLabelText(/description/i).value).toEqual(description);
     expect(screen.getByLabelText(/due/i).value).toEqual(due);
     expect(screen.getByLabelText(/priority/i).value).toEqual(priority + "");
-
   });
+
+  it("can purge all deleted tasks", () => {
+    // Arrange
+    jest.spyOn(taskRepository, 'getAll').mockReturnValue([{ ...seedTasks[0], completed: true }, { ...seedTasks[1] }, { ...seedTasks[2], completed: true }]);
+    render(<TaskList />);
+    expect(screen.queryAllByTestId("task")).toHaveLength(3);
+    const purgeCompletedTasksButton = screen.getByText(/purge.*completed/i);
+    // Act
+    userEvent.click(purgeCompletedTasksButton);
+    // Assert
+    expect(screen.queryAllByTestId("task")).toHaveLength(1);
+    //throw "not implemented";
+  })
 
 });
 
