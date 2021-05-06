@@ -162,8 +162,8 @@ const registerMiddleware = ({ dispatch, getState }) => next => action => {
   //TODO: Handle a non-201 response with an error toast or snackbar
   if (action.type === actionTypes.REGISTER) {
     // Making sure we have at minimum, an email and password.
-    const [ email, password, name, phone, credit_card ] = action.user;
-    if (!email || !password ) throw new Error("Need an email and password to register");
+    const { email, password, name, phone, credit_card } = action.user;
+    if (!email || !password) throw new Error("Need an email and password to register");
     const body = JSON.stringify({ ...action.user });
     fetch(`/api/users`, {
       method: 'POST',
