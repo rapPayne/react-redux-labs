@@ -16,4 +16,10 @@ describe("Store", () => {
     expect(store.getState()).toEqual(state);
   })
 
+  test("can be subscribed to", () => {
+    const mockedFn = jest.fn()
+    store.subscribe(mockedFn)
+    store.dispatch({ type: "FOO" });
+    expect(mockedFn).toHaveBeenCalled()
+  })
 })
