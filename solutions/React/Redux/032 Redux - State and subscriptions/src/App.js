@@ -5,9 +5,10 @@ import { store } from './store/store';
 function App() {
   const [state, setState] = useState(store.getState());
   useEffect(() => {
+    console.log("Store is", store);
     const unsubscribe = store.subscribe(() => setState(store.getState()));
     store.dispatch({ type: "FOO" });
-    return unsubscribe;   // Unsubscribe on teardown
+    return unsubscribe;
   }, []);
 
   return (
@@ -36,7 +37,7 @@ function App() {
       </div>
       <main className="mdl-layout__content">
         <section>
-          {state.films.map(film => <div>{film.title} - {film.tagline}</div>)}
+          {state.films.map(film => <div key={film.id}>{film.title} - {film.tagline}</div>)}
         </section>
       </main>
       <footer>
