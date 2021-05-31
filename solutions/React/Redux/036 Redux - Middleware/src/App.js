@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { store } from './store/store';
-import { actions } from './store/actions';
+import { store, actions } from './store/store';
 
 function App() {
   const [state, setState] = useState(store.getState());
@@ -10,7 +9,7 @@ function App() {
     fetch("/api/films")
       .then(res => res.json())
       .then(films => store.dispatch(actions.setFilms(films)));
-    return unsubscribe;   // Unsubscribe on teardown
+    return unsubscribe;
   }, []);
 
   return (
