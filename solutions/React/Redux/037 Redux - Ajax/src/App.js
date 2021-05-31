@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { store } from './store/store';
-import { actions } from './store/actions';
+import { store, actions } from './store/store';
 
 function App() {
-  window.debugging = true;
   const [state, setState] = useState(store.getState());
   useEffect(() => {
     const unsubscribe = store.subscribe(() => setState(store.getState()));
     store.dispatch(actions.fetchInitialData());
-    return unsubscribe;   // Unsubscribe on teardown
+    return unsubscribe;
   }, []);
 
   return (

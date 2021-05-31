@@ -1,15 +1,16 @@
-import { actionTypes } from './actions';
+import { actionTypes } from '../actions';
 
-const rootReducer = (state, action = {}) => {
+export const rootReducer = (state, action) => {
+  if (!action) return state;
   switch (action.type) {
+    case actionTypes.SET_FILMS:
+      return { ...state, films: action.films }
     case actionTypes.SET_CURRENT_DATE:
       return { ...state, currentDate: action.date }
     case actionTypes.SET_CURRENT_FILM:
       return { ...state, currentFilm: action.film }
     case actionTypes.SET_CURRENT_SHOWING:
       return { ...state, currentShowing: action.showing }
-    case actionTypes.SET_FILMS:
-      return { ...state, films: action.films }
     case actionTypes.SET_TABLES:
       return { ...state, tables: action.tables }
     case actionTypes.SET_THEATERS:
@@ -23,21 +24,4 @@ const rootReducer = (state, action = {}) => {
     default:
       return state;
   }
-};
-
-const cartReducer = (state, action) => {
-  switch (action.type) {
-    case actionTypes.ADD_SEAT_TO_CART:
-      return { ...state, seats: [...state.seats, action.seat] }
-    case actionTypes.REMOVE_SEAT_FROM_CART:
-      return { ...state, seats: state.seats.filter(seat => seat !== action.seat) }
-    default:
-      return state;
-  }
 }
-export const reducer = (state, action = {}) => (
-  {
-    ...rootReducer(state, action),
-    cart: cartReducer(state.cart, action),
-  }
-);

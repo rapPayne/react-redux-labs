@@ -1,17 +1,15 @@
 import { createStore, applyMiddleware } from 'redux';
-import { reducer } from './reducers';
-import { middleware } from './middleware';
-
+import { middleware } from './middleware/middleware';
+import { reducer } from './reducers/reducer';
+export { actions } from './actions';
+window.debugging = true;
 const initialState = {
-  debugging: true,
-  cart: {seats:[], food:[]},
-  currentDate: new Date().setHours(0,0,0,0), 
+  cart: { seats: [], food: [] },
+  currentDate: new Date().setHours(0, 0, 0, 0),
   films: [],
   reservations: [],
   showings: [],
   theaters: [],
 };
-
 const storeEnhancer = applyMiddleware(...middleware);
-
 export const store = createStore(reducer, initialState, storeEnhancer);
