@@ -1,31 +1,17 @@
-To run the server, go `npm run server`
+# The RESTful API data server
+## Cheatsheet/Quick Reference
+- To install, go `npm install`
+- To run the server, go `npm run server`
+- To load the data, go `npm run reload-daam`
 
-To load the data, go `npm run reload-daam`
-
-
-Data structure
-
-Films
-Theaters
-- tables (id, table_number, x, y (location in the theater))
-- seats (id, seat_number)
-Showings
-Reservations (seat_id, showing_id, user_id)
-Users
-- name
-- cell phone
-- email
-- credit card??
-
-
-# Specialized Routes
+## Specialized Routes
 - /api/showings/:film_id/:showing_date - Returns all showings for that film on that date
 - /api/showings/:showing_id/reservations - All reservations for that showing
 
-# Data
-
 ## Films
 Details about a film like its name and description
+ - /api/films
+ - /api/films/:film_id
 
 ## Theaters, tables, and seats
 The big rooms where a film will be shown. Our company has six theaters so we can show up to six different films simultaneously.
@@ -37,8 +23,18 @@ Tables have one to six seats. Each seat can be reserved.
 
 Table numbers and seat numbers are friendly numbers for the customers. The ids are for the system.
 
+- /api/theaters
+- /api/theaters/:theater_id
+- /api/theater/:theater_id/tables
+- /api/tables (Not super useful TBH)
+- /api/tables/:table_id
+- /api/tables/:table_id/seats
+
 ## Showings
 A film at a particular time in a particular theater. We may have four or five showings of a film per day.
+
+- /api/showings
+- /api/showings/:showing_id
 
 ## Reservations
 On our site, customers will find a showing they're interested in. Then they'll look at the seats and pick where they want to watch the film. They will add one or more seats to their shopping cart. When they check out and pay for their seats, we create a *reservation*.
@@ -46,6 +42,10 @@ On our site, customers will find a showing they're interested in. Then they'll l
 Carts are only local. They're never sent back to the server so other users on other client machines cannot see those holds. Reservations are sent to the database and are permanent. Other users will see those reservations if they refresh their browser.
 
 Yes, this might be a problem if two unrelated people are considering the same seat. They might possibly both put it in their local carts but the first to pay for the seat gets to keep it. The other should get an error message.
+
+- /api/showings/:showing_id/reservations
+- /api/reservations (Again, not super-useful)
+- /api/reservations/:reservation_id
 
 # Security
 I know, I know.

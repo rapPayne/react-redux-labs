@@ -18,7 +18,7 @@ In the labs, you'll create the client portion from scratch.
 For the React labs, As long as you have a version of node that is under support, you should be good. For React Native labs, you'll also need a bunch of other stuff. But as far as we're concerned, if you match the requirements to run a React Native app, you can run these labs.
 
 ## How to run
-1. [Run the server](server)
+1. [Run the RESTful API server](/server)
 2. Run a client solution
 ```bash
 cd <solution folder>
