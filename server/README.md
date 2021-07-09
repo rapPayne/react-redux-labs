@@ -10,25 +10,31 @@
 
 ## Films
 Details about a film like its name and description
+### Film routes
  - /api/films
  - /api/films/:film_id
 
 ## Theaters, tables, and seats
 The big rooms where a film will be shown. Our company has six theaters so we can show up to six different films simultaneously.
 
-Theaters have tables. No, not HTML <table>s! We mean tables where people 
+Theaters have tables. No, not HTML `<table>s`! We mean tables where people 
 can sit and enjoy a meal while they watch the film. These are arranged in its theater in rows and columns with each table's location expressed in an "x" and a "y" value.
 
 Tables have one to six seats. Each seat can be reserved.
 
 Table numbers and seat numbers are friendly numbers for the customers. The ids are for the system.
 
+### Theater routes
 - /api/theaters
 - /api/theaters/:theater_id
+### Table routes
 - /api/theater/:theater_id/tables
 - /api/tables (Not super useful TBH)
 - /api/tables/:table_id
+### Seat routes
 - /api/tables/:table_id/seats
+- /api/seats (Also not useful)
+- /api/seats/:seat_id
 
 ## Showings
 A film at a particular time in a particular theater. We may have four or five showings of a film per day.
@@ -43,6 +49,7 @@ Carts are only local. They're never sent back to the server so other users on ot
 
 Yes, this might be a problem if two unrelated people are considering the same seat. They might possibly both put it in their local carts but the first to pay for the seat gets to keep it. The other should get an error message.
 
+### Reservation routes
 - /api/showings/:showing_id/reservations
 - /api/reservations (Again, not super-useful)
 - /api/reservations/:reservation_id
