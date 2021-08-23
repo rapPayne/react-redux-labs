@@ -10,7 +10,7 @@ These are the labs for the React, Redux, and React Native classes.
 ## Overview
 We're creating a web app that could be used for a movie theater that also serves food and drinks. The customer is able to pick a movie they want to see, select a showtime, and reserve seats in the theater on a seat map.
 
-You've been provided a Node server using Express to serve data from a mongoDB database through a RESTful API. The server can be found under the "server" folder. Its README.md file has more info about that API.
+You've been provided a Node server using Express to serve data from a simple database through a RESTful API. The server can be found under the "server" folder. Its README.md file has more info about that API.
 
 In the labs, you'll create the client portion from scratch.
 
@@ -18,7 +18,7 @@ In the labs, you'll create the client portion from scratch.
 For the React labs, As long as you have a version of node that is under support, you should be good. For React Native labs, you'll also need a bunch of other stuff. But as far as we're concerned, if you match the requirements to run a React Native app, you can run these labs.
 
 ## How to run
-1. [Run the RESTful API server](/server)
+1. [Start the RESTful API server](/server)
 2. Run a client solution
 ```bash
 cd <solution folder>
