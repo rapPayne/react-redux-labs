@@ -18,7 +18,7 @@
       <div style={styles.inputDivs}>
         <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
           <input id="password" className="mdl-textfield__input" />
-          <label className="mdl-textfield__label" htmlFor="email">Password</label>
+          <label className="mdl-textfield__label" htmlFor="password">Password</label>
         </div>
       </div>
 
