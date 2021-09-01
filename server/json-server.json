@@ -2,9 +2,10 @@
   "port": 3007,
   "routes": "./routes.json",
   "middlewares": [
-    "./middlewares/logging-middleware.js", 
+    "./middlewares/logging-middleware.js",
     "./middlewares/authentication-middleware.js",
     "./middlewares/showings-middleware.js",
+    "./middlewares/purchase-middleware.js",
     "./middlewares/theaters-middleware.js"
   ],
   "watch": true
