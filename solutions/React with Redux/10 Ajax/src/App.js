@@ -14,7 +14,6 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
         <h1>Dinner And A Movie</h1>
         <nav>
           <a href="home">Home</a>
@@ -23,7 +22,6 @@ class App extends Component {
           <a href="checkout">Checkout</a>
         </nav>
         <Register person={this.state.user} />
-      </div>
     );
   }
 
