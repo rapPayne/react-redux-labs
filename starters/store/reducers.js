@@ -6,11 +6,11 @@ const rootReducer = (state, action = {}) => {
       return { ...state, currentDate: action.date }
     case actionTypes.SET_CURRENT_FILM:
       return { ...state, currentFilm: action.film }
-      case actionTypes.SET_CURRENT_SHOWING:
-        return { ...state, currentShowing: action.showing }
-        case actionTypes.SET_CURRENT_THEATER:
-          return { ...state, currentTheater: action.theater }
-          case actionTypes.SET_SHOWINGS:
+    case actionTypes.SET_CURRENT_SHOWING:
+      return { ...state, currentShowing: action.showing }
+    case actionTypes.SET_CURRENT_THEATER:
+      return { ...state, currentTheater: action.theater }
+    case actionTypes.SET_SHOWINGS:
       return { ...state, showings: action.showings }
     case actionTypes.SET_TABLES:
       return { ...state, tables: [...action.tables] };
