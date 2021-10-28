@@ -30,23 +30,19 @@ const fetchReservationsForShowing = (showingId) => ({ type: actionTypes.FETCH_RE
 const fetchShowing = (showingId) => ({ type: actionTypes.FETCH_SHOWING, showingId });
 const fetchShowings = () => ({ type: actionTypes.FETCH_SHOWINGS });
 const fetchTheaters = () => ({ type: actionTypes.FETCH_THEATERS });
-const login = (email, password) => ({ type: actionTypes.LOGIN, email, password});
-const logout = () => ({ type: actionTypes.LOGOUT});
-const register = (user) => ({ type: actionTypes.REGISTER, user});
+const login = (email, password) => ({ type: actionTypes.LOGIN, email, password });
+const logout = () => ({ type: actionTypes.LOGOUT });
+const register = (user) => ({ type: actionTypes.REGISTER, user });
 const removeSeatFromCart = (seat, showing) => ({ type: actionTypes.REMOVE_SEAT_FROM_CART, seat, showing });
 const setCurrentDate = date => ({ type: actionTypes.SET_CURRENT_DATE, date });
 const setCurrentFilm = film => ({ type: actionTypes.SET_CURRENT_FILM, film });
 const setCurrentShowing = showing => ({ type: actionTypes.SET_CURRENT_SHOWING, showing });
 const setCurrentTheater = theater => ({ type: actionTypes.SET_CURRENT_THEATER, theater });
-function setFilms(films) {
-  return { type: actionTypes.SET_FILMS, films };
-}
-function setShowings(showings) {
-  return { type: actionTypes.SET_SHOWINGS, showings };
-}
+const setFilms = films => ({ type: actionTypes.SET_FILMS, films });
+const setShowings = showings => ({ type: actionTypes.SET_SHOWINGS, showings });
 const setReservationsForCurrentShowing = (reservations) => ({ type: actionTypes.SET_RESERVATIONS_FOR_CURRENT_SHOWING, reservations });
 const setTheaters = (theaters) => ({ type: actionTypes.SET_THEATERS, theaters });
-const setUser = user => ({ type: actionTypes.SET_USER, user});
+const setUser = user => ({ type: actionTypes.SET_USER, user });
 
 export const actions = {
   checkout,
