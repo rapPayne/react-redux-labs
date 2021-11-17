@@ -1,10 +1,9 @@
 {
   "name": "rest-api-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "For serving data for labs and demos via an API",
   "scripts": {
     "reload-daam": "node ./reload-daam.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "json-server --config json-server.json ./database.json"
   },
   "author": "RapPayne",
