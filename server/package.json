@@ -1,6 +1,6 @@
 {
   "name": "rest-api-server",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "For serving data for labs and demos via an API",
   "scripts": {
     "reload-daam": "node ./reload-daam.js",
