@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { store } from './store/store';
 import { actions } from './store/actions';
-import * as seatImage from './bundledImages/seat.png';
+import seatImage from './bundledImages/seat.png';
 
 export const PickSeats = () => {
   let showingId = 50;
@@ -11,12 +11,12 @@ export const PickSeats = () => {
   let currentFilm = { title: "A Cool Movie" };
   let currentTheater = { id: 0, name: "Theater #1" };
 
-    // Once and only once, start the fetch to get all reservations for this showing
-    useEffect(() => {
-      store.dispatch(actions.fetchReservationsForShowing(showingId));
-      console.log("loading Pickseats")
-    }, [showingId]);
-  
+  // Once and only once, start the fetch to get all reservations for this showing
+  useEffect(() => {
+    store.dispatch(actions.fetchReservationsForShowing(showingId));
+    console.log("loading Pickseats")
+  }, [showingId]);
+
   console.log("PickSeats");
   return (
     <section style={styles.header} className="mdl-card mdl-shadow--2dp">

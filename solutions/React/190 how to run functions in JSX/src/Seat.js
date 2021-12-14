@@ -2,7 +2,7 @@ import React from 'react';
 import { store } from './store/store';
 import { actions } from './store/actions';
 
-import * as seatImage from './bundledImages/seat.png';
+import seatImage from './bundledImages/seat.png';
 
 export const Seat = ({ seat, currentShowing }) => {
   return (

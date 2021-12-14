@@ -1,14 +1,14 @@
 import React from 'react';
 import { store } from './store/store';
 import { actions } from './store/actions';
-import * as seatImage from './bundledImages/seat.png';
+import seatImage from './bundledImages/seat.png';
 
 export const Seat = (props) => {
   const { seat, currentShowing } = props;
   return (
     <div style={styles.seatWrapper}>
-      <div onClick={() => reserveSeat(seat)} style={{...styles.seatItself, ...styles.seat[seat.status]}} >
-          {seat.seat_number}
+      <div onClick={() => reserveSeat(seat)} style={{ ...styles.seatItself, ...styles.seat[seat.status] }} >
+        {seat.seat_number}
       </div>
     </div>
   );

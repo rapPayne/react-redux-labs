@@ -1,5 +1,5 @@
 import React from 'react';
-import * as seatImage from './bundledImages/seat.png';
+import seatImage from './bundledImages/seat.png';
 
 export const PickSeats = () => {
   console.log("PickSeats");
