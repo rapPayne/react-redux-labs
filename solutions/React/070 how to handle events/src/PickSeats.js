@@ -1,8 +1,8 @@
 import React from 'react';
-import * as seatImage from './bundledImages/seat.png';
+import seatImage from './bundledImages/seat.png';
 import { store } from './store/store';
 import { actions } from './store/actions';
-import * as seatImage from './bundledImages/seat.png';
+console.log("seatImage", seatImage);
 
 export const PickSeats = () => {
   let table = { id: 0, table_number: 0, x: 1, y: 1, seats: [] };
