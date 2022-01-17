@@ -1,8 +1,8 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Checkout = ({ cart, user }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const foo = cart.seats.reduce((total, seat) => +total + seat.price, 0);
   console.log("foo is", foo)
   return (
@@ -34,9 +34,9 @@ export const Checkout = ({ cart, user }) => {
       <p>TODO: Add authentication, registration, etc.</p>
     </>
   )
-  function makeTableRow({seat_id, seat_number, price}) {
+  function makeTableRow({ id, seat_number, price }) {
     return (
-      <tr key={seat_id}>
+      <tr key={id}>
         <td>{seat_number}</td>
         <td>{price.toCurrency()}</td>
         <td>1</td>
@@ -48,7 +48,7 @@ export const Checkout = ({ cart, user }) => {
     if (user) {
       console.error('trying to purchase')
     } else {
-      history.push({ pathname: '/login?returnUrl=/checkout' });
+      navigate('/login?returnUrl=/checkout');
     }
     console.error("you clicked purchase", cart);
   }

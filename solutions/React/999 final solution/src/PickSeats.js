@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { store } from './store/store';
 import { actions } from './store/actions';
 import { Table } from './Table';
@@ -33,7 +33,7 @@ export const PickSeats = () => {
   }
 
   const { reservations, cart } = state;
-  const history = useHistory();
+  const navigate = useNavigate();
   const tables = currentTheater && currentTheater.tables;
   const allSeats = tables && tables.flatMap(table => table.seats)
   // Get all reservations
@@ -63,7 +63,7 @@ export const PickSeats = () => {
           <Table table={table} currentShowing={currentShowing} key={table.id} />
         ))}
       </section>
-      <button onClick={() => history.push({ pathname: "/checkout" })} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} >Check out</button>
+      <button onClick={() => navigate("/checkout")} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} >Check out</button>
     </section>
   )
 };

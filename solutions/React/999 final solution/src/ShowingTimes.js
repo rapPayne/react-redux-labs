@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 export const ShowingTimes = ({ styles, showings, currentFilm, currentDate }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   currentDate = new Date(currentDate);
   const showingsForDateAndFilm = showings.filter(st => st.film_id === currentFilm.id && st.showing_time > currentDate.setHours(0, 0, 0, 0) && st.showing_time < currentDate.setHours(23, 59, 59, 999));
   return (
@@ -12,7 +12,7 @@ export const ShowingTimes = ({ styles, showings, currentFilm, currentDate }) => 
       <div style={styles.showingTimesWrapper}>
         {showingsForDateAndFilm.map(st => (
           <span style={styles.tile} key={st.id}
-            onClick={() => history.push({ pathname: `/pickseats/${st.id}` })}>
+            onClick={() => navigate(`/pickseats/${st.id}`)}>
             {st.showing_time.toShowingTimeString()}</span>
         )
         )}

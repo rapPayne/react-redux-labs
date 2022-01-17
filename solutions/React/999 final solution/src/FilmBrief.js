@@ -1,10 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ShowingTimes } from './ShowingTimes';
 
 export const FilmBrief = ({ film, showings, currentDate }) => {
   const { poster_path, runtime, title, tagline } = film;
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <>
       <section onClick={handleClick} style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
@@ -25,9 +25,7 @@ export const FilmBrief = ({ film, showings, currentDate }) => {
     </>
   )
   function handleClick() {
-    history.push({
-      pathname: `/film/${film.id}`,
-    })
+    navigate(`/film/${film.id}`, { state: { foo: "bar" } });
   }
 };
 

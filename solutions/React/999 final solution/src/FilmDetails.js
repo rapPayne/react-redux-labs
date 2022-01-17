@@ -11,7 +11,7 @@ import { ShowingTimes } from './ShowingTimes';
 // So use route parameters to get the filmId and grab the currentFilm
 // from state by filmId. (Note: if all the films were not already in
 // application state, we'd need to fetch it from the API)
-export const FilmDetails = (props) => {
+export const FilmDetails = () => {
   const state = store.getState()
   let currentFilm = {};
 
