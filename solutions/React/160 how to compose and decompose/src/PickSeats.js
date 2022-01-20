@@ -68,7 +68,7 @@ export const PickSeats = () => {
   )
   function reserveSeat(seat) {
     console.log(seat);
-    store.dispatch(actions.addSeatToCart(seat, currentShowing));
+    dispatch(actions.addSeatToCart(seat, currentShowing));
   }
   function getTableWidth(seats) {
     return { width: seats.length * 40 + "px" }

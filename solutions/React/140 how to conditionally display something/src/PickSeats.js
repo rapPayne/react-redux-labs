@@ -47,7 +47,7 @@ export const PickSeats = () => {
   )
   function reserveSeat(seat) {
     console.log(seat);
-    store.dispatch(actions.addSeatToCart(seat, currentShowing));
+    dispatch(actions.addSeatToCart(seat, currentShowing));
   }
 
 }

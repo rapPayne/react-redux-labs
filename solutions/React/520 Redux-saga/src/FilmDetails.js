@@ -19,7 +19,7 @@ export const FilmDetails = (props) => {
   const { filmId } = useParams();
   // If state.films doesn't exist, we can't draw anything ... yet.
   // But in App.js, we're dispatching fetchFilms() and rerendering
-  // when a store.dispatch() happens so this component will in turn
+  // when a dispatch() happens so this component will in turn
   // be rerendered once films are populated.
   if (films && films.length) {
     currentFilm = films.find(film => film.id === +filmId);

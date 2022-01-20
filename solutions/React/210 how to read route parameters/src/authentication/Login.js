@@ -39,10 +39,7 @@ export const Login = () => {
   );
   function login(e) {
     e.preventDefault();
-    store.dispatch(actions.login({
-      email: e.target['email'].value,
-      password: e.target['password'].value
-    }));
+    dispatch(actions.login(e.target['email'].value, e.target['password'].value));
   }
 
 }

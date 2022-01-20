@@ -29,7 +29,7 @@ export const PickSeats = () => {
 
   // If state.showings doesn't exist, we can't draw anything ... yet.
   // But in App.js, we're dispatching fetchShowings() and rerendering
-  // when a store.dispatch() happens so this component will in turn
+  // when a dispatch() happens so this component will in turn
   // be rerendered once showings are populated.
   if (showings && showings.length) {
     currentShowing = showings.find(showing => showing.id === +showingId);
