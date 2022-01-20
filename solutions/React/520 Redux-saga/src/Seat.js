@@ -1,9 +1,9 @@
-import React from 'react';
-import { store } from './store/store';
+import { useDispatch } from 'react-redux';
 import { actions } from './store/actions';
 import seatImage from './bundledImages/seat.png';
 
 export const Seat = (props) => {
+  const dispatch = useDispatch();
   const { seat, currentShowing } = props;
   return (
     <div style={styles.seatWrapper}>
@@ -20,13 +20,13 @@ export const Seat = (props) => {
       //   console.warn("Seat is reserved. Do nothing")
       //   break;
       case statuses.inMyCart:
-        store.dispatch(actions.removeSeatFromCart(seat, currentShowing));
+        dispatch(actions.removeSeatFromCart(seat, currentShowing));
         break;
       case statuses.open:
-        store.dispatch(actions.addSeatToCart(seat, currentShowing));
+        dispatch(actions.addSeatToCart(seat, currentShowing));
         break;
       default:
-        store.dispatch(actions.addSeatToCart(seat, currentShowing));
+        dispatch(actions.addSeatToCart(seat, currentShowing));
     }
   }
 }

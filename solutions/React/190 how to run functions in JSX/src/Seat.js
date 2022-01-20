@@ -1,10 +1,10 @@
-import React from 'react';
-import { store } from './store/store';
+import { useDispatch } from 'react-redux';
 import { actions } from './store/actions';
 
 import seatImage from './bundledImages/seat.png';
 
 export const Seat = ({ seat, currentShowing }) => {
+  const dispatch = useDispatch();
   return (
     <div style={styles.seatWrapper}>
       <div onClick={e => reserveSeat(seat)} style={{ ...styles.seatItself }} >
@@ -14,7 +14,7 @@ export const Seat = ({ seat, currentShowing }) => {
   );
   function reserveSeat(seat) {
     console.log(seat);
-    store.dispatch(actions.addSeatToCart(seat, currentShowing));
+    dispatch(actions.addSeatToCart(seat, currentShowing));
   }
 
 }
