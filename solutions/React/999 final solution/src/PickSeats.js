@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { store } from './store/store';
 import { actions } from './store/actions';
 import { Table } from './Table';
 
@@ -8,7 +8,13 @@ import { Table } from './Table';
 // different showing, so we should trigger a fetch to get all
 // of the reservations for this showing.
 export const PickSeats = () => {
-  const state = store.getState()
+  const dispatch = useDispatch();
+  const films = useSelector(state => state.films)
+  const showings = useSelector(state => state.showings)
+  const theaters = useSelector(state => state.theaters)
+  const reservations = useSelector(state => state.reservations)
+  const cart = useSelector(state => state.cart)
+
   let currentShowing = { id: 0, film_id: 0, theater_id: 0, showing_time: new Date() };
   let currentFilm = { title: "" };
   let currentTheater = { id: 0, name: "" };
@@ -18,21 +24,19 @@ export const PickSeats = () => {
   // RAP: We *may* be ever-adding to reservations. We *may* should empty all current reservations in a reducer before fetching. If we do this, we might be able to read all reservations from props and remove the dependency on the store in this component.
   // Once and only once, start the fetch to get all reservations for this showing
   useEffect(() => {
-    store.dispatch(actions.fetchReservationsForShowing(showingId));
-    console.log("loading Pickseats")
+    dispatch(actions.fetchReservationsForShowing(showingId));
   }, [showingId]);
 
   // If state.showings doesn't exist, we can't draw anything ... yet.
   // But in App.js, we're dispatching fetchShowings() and rerendering
   // when a store.dispatch() happens so this component will in turn
   // be rerendered once showings are populated.
-  if (state.showings && state.showings.length) {
-    currentShowing = state.showings.find(showing => showing.id === +showingId);
-    currentFilm = state.films.find(film => film.id === currentShowing.film_id);
-    currentTheater = state.theaters.find(theater => theater.id === currentShowing.theater_id) || {};
+  if (showings && showings.length) {
+    currentShowing = showings.find(showing => showing.id === +showingId);
+    currentFilm = films.find(film => film.id === currentShowing.film_id);
+    currentTheater = theaters.find(theater => theater.id === currentShowing.theater_id) || {};
   }
 
-  const { reservations, cart } = state;
   const navigate = useNavigate();
   const tables = currentTheater && currentTheater.tables;
   const allSeats = tables && tables.flatMap(table => table.seats)

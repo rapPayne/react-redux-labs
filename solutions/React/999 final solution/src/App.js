@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import 'material-design-lite/dist/material.min.css';
 import 'material-design-lite/dist/material.purple-indigo.min.css';
@@ -15,14 +16,13 @@ import { Logout } from './authentication/Logout';
 import { NotFound } from './NotFound';
 import { PickSeats } from './PickSeats';
 import { actions } from './store/actions';
-import { store } from './store/store';
 
 function App() {
-  const [state, setState] = useState(store.getState());
+  const state = useSelector(state => state);
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
   useEffect(() => {
-    const unsubscribe = store.subscribe(() => setState({ ...store.getState() }));
-    store.dispatch(actions.fetchInitialData());
-    return unsubscribe;
+    dispatch(actions.fetchInitialData());
   }, []);
 
   return (
@@ -32,7 +32,7 @@ function App() {
           <div className="mdl-layout__header-row">
             <Link to="/" style={{ ...styles.navlink, ...styles.topMenuNavLink }} className="mdl-layout-title">Dinner and a Movie</Link>
             <nav className="mdl-navigation mdl-layout--large-screen-only">
-              {state.user ?
+              {user ?
                 <>
                   <Link to="/account" className="mdl-layout__tab">My account</Link>
                   <Link to="/logout" className="mdl-layout__tab">logout</Link>
@@ -50,7 +50,7 @@ function App() {
         <div className="mdl-layout__drawer">
           <Link to="/" style={{ ...styles.drawerNavLink, ...styles.navlink }} className="mdl-layout-title">Dinner and a Movie</Link>
           <nav className="mdl-navigation">
-            {state.user ?
+            {user ?
               <>
                 <Link to="/account" className="mdl-layout__link">My account</Link>
                 <Link to="/logout" className="mdl-layout__link">logout</Link>
@@ -66,7 +66,7 @@ function App() {
         </div>
         <main className="mdl-layout__content">
           <Routes>
-            <Route path="/" element={<LandingPage {...state} />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/account" element={<Account {...state} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />

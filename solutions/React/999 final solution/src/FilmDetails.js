@@ -1,6 +1,5 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { store } from './store/store';
 import { PickDate } from './PickDate';
 import { ShowingTimes } from './ShowingTimes';
 
@@ -12,7 +11,9 @@ import { ShowingTimes } from './ShowingTimes';
 // from state by filmId. (Note: if all the films were not already in
 // application state, we'd need to fetch it from the API)
 export const FilmDetails = () => {
-  const state = store.getState()
+  const films = useSelector(state => state.films);
+  const currentDate = useSelector(state => state.currentDate);
+  const showings = useSelector(state => state.showings);
   let currentFilm = {};
 
   const { filmId } = useParams();
@@ -21,12 +22,11 @@ export const FilmDetails = () => {
   // But in App.js, we're dispatching fetchFilms() and rerendering
   // when a store.dispatch() happens so this component will in turn
   // be rerendered once films are populated.
-  if (state.films && state.films.length) {
-    currentFilm = state.films.find(film => film.id === +filmId);
+  if (films && films.length) {
+    currentFilm = films.find(film => film.id === +filmId);
   }
 
   const { homepage, poster_path, overview, release_date, runtime, title, tagline, vote_average, vote_count } = currentFilm;
-  const { currentDate, showings } = state;
   return (
     <>
       <div style={{ ...styles.container }} className='mdl-card mdl-shadow--2dp'>

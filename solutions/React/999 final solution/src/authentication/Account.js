@@ -3,7 +3,7 @@ import { store } from '../store/store';
 import { actions } from '../store/actions';
 
 export const Account = (props) => {
-  const [ user, setUser ] = useState(props.user || {});
+  const [user, setUser] = useState(props.user || {});
   console.log("Account", user);
   const showPassword = true;
   return (
@@ -55,7 +55,7 @@ export const Account = (props) => {
             </div>
           </div>
 
-         <div style={styles.inputDivs}>
+          <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input id="number" className="mdl-textfield__input" />
               <label className="mdl-textfield__label" htmlFor="number">Credit card</label>
@@ -68,8 +68,8 @@ export const Account = (props) => {
               <label className="mdl-textfield__label" htmlFor="expiration">Expiration</label>
             </div>
           </div>
-          
-          <input type='submit' value='Save'  className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} />
+
+          <input type='submit' value='Save' className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} />
         </form>
       </div>
     </section>

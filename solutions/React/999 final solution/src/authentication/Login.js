@@ -49,7 +49,7 @@ export const Login = (props) => {
 
 function login(e) {
   e.preventDefault();
-  store.dispatch(actions.login({ email: e.target['email'].value, password: e.target['password'].value }));
+  store.dispatch(actions.login(e.target['email'].value, e.target['password'].value));
 }
 
 const styles = {
