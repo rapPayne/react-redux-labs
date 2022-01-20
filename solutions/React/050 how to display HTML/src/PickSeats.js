@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const PickSeats = () => {
   console.log("PickSeats");
   return (

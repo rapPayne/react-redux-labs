@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const LandingPage = () => {
   console.log("LandingPage");
   return (

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const FilmDetails = () => {
   console.log("FilmDetails");
   return (
@@ -20,9 +18,9 @@ export const FilmDetails = () => {
             <p>Released: Release date here</p>
             <p>Runtime minutes</p>
             <a href="HOMEPAGE" target="movie_site">Movie's home page here</a>
-        Pick dates will go here
-        Showing times will go here
-      </div>
+            Pick dates will go here
+            Showing times will go here
+          </div>
         </div>
       </div>
     </>

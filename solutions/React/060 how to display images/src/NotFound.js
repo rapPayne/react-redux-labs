@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const NotFound = () => {
   console.log("NotFound");
   return (

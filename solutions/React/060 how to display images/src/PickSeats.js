@@ -1,4 +1,3 @@
-import React from 'react';
 import seatImage from './bundledImages/seat.png';
 
 export const PickSeats = () => {

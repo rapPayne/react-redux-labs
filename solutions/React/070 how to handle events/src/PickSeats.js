@@ -1,4 +1,3 @@
-import React from 'react';
 import seatImage from './bundledImages/seat.png';
 import { store } from './store/store';
 import { actions } from './store/actions';

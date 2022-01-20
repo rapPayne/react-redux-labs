@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Checkout = () => {
   console.log("Checkout");
   return (
