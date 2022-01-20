@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { store } from '../store/store';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/actions';
 
 export const Account = (props) => {
+  const dispatch = useDispatch();
   const [user, setUser] = useState(props.user || {});
   console.log("Account", user);
   const showPassword = true;
@@ -84,7 +85,7 @@ export const Account = (props) => {
       phone: e.target['phone'].value,
       credit_card: { number: e.target['number'].value, expiration: e.target['expiration'].value },
     };
-    store.dispatch(actions.register(user));
+    dispatch(actions.register(user));
   }
 }
 

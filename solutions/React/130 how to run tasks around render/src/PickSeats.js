@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import { store } from './store/store';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from './store/actions';
 import seatImage from './bundledImages/seat.png';
 
 export const PickSeats = () => {
+  const dispatch = useDispatch();
   let showingId = 50;
   let table = { id: 0, table_number: 0, x: 1, y: 1, seats: [] };
   let seat = { id: 0, seat_number: 0, price: 10.75 };
@@ -13,7 +14,7 @@ export const PickSeats = () => {
 
   // Once and only once, start the fetch to get all reservations for this showing
   useEffect(() => {
-    store.dispatch(actions.fetchReservationsForShowing(showingId));
+    dispatch(actions.fetchReservationsForShowing(showingId));
     console.log("loading Pickseats")
   }, [showingId]);
 

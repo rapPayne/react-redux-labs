@@ -1,8 +1,8 @@
-import React from 'react';
-import { store } from '../store/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/actions';
 
 export const Account = () => {
+  const dispatch = useDispatch();
   console.log("Account");
   return (
     <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
@@ -74,12 +74,12 @@ export const Account = () => {
       name: { given: e.target['given'].value, family: e.target['family'].value },
       phone: e.target['phone'].value,
       credit_card: {
-        number: e.target['number'].value, 
+        number: e.target['number'].value,
         expiration: e.target['expiration'].value
       },
     };
-    store.dispatch(actions.register(user));
+    dispatch(actions.register(user));
   }
-  
+
 }
 const styles = {};

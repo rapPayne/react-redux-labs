@@ -1,14 +1,15 @@
+import { useDispatch, useSelector } from 'react-redux';
 import seatImage from './bundledImages/seat.png';
-import { store } from './store/store';
 import { actions } from './store/actions';
 console.log("seatImage", seatImage);
 
 export const PickSeats = () => {
+  const dispatch = useDispatch();
   let table = { id: 0, table_number: 0, x: 1, y: 1, seats: [] };
   let seat = { id: 0, seat_number: 0, price: 10.75 };
   let currentShowing = { id: 0, film_id: 0, theater_id: 0, showing_time: new Date() };
-  let currentFilm = { title: "" };
-  let currentTheater = { id: 0, name: "" };
+  let currentFilm = { title: "A Cool Movie" };
+  let currentTheater = { id: 0, name: "Theater #1" };
   console.log("PickSeats");
   return (
     <section style={styles.header} className="mdl-card mdl-shadow--2dp">
@@ -38,7 +39,7 @@ export const PickSeats = () => {
   )
   function reserveSeat(seat) {
     console.log(seat);
-    store.dispatch(actions.addSeatToCart(seat, currentShowing));
+    dispatch(actions.addSeatToCart(seat, currentShowing));
   }
 
 }

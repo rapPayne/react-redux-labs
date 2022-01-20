@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/actions';
-import { store } from '../store/store';
 
 export const Login = () => {
-  const [showPassword, setShowPassword ] = useState(false);
+  const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
   console.log("Login");
   return (
     <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
@@ -26,7 +26,7 @@ export const Login = () => {
           <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
               <input id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
-              <span onClick={e=>setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
+              <span onClick={e => setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
               <label className="mdl-textfield__label" htmlFor="email">Password</label>
             </div>
           </div>
@@ -39,11 +39,12 @@ export const Login = () => {
   );
   function login(e) {
     e.preventDefault();
-    store.dispatch(actions.login({ 
-      email: e.target['email'].value, 
-      password: e.target['password'].value }));
+    dispatch(actions.login({
+      email: e.target['email'].value,
+      password: e.target['password'].value
+    }));
   }
-  
+
 }
 
 const styles = {

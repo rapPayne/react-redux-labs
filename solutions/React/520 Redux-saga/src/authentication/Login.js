@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/actions';
-import { store } from '../store/store';
 
-export const Login = (props) => {
+export const Login = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const redirectUrl = params.get('redirectUrl');
-  const [showPassword, setShowPassword ] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   if (store.getState().user) {
     history && history.push({ pathname: redirectUrl || "/" });
@@ -34,7 +35,7 @@ export const Login = (props) => {
           <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
               <input id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
-              <span onClick={e=>setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
+              <span onClick={e => setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
               <label className="mdl-textfield__label" htmlFor="email">Password</label>
             </div>
           </div>
@@ -45,12 +46,13 @@ export const Login = (props) => {
       </div>
     </section>
   )
+  function login(e) {
+    e.preventDefault();
+    dispatch(actions.login(e.target['email'].value, e.target['password'].value));
+  }
+
 };
 
-function login(e) {
-  e.preventDefault();
-  store.dispatch(actions.login({ email: e.target['email'].value, password: e.target['password'].value }));
-}
 
 const styles = {
   wrapper: {

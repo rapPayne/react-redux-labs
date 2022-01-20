@@ -1,9 +1,8 @@
-import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/actions';
-import { store } from '../store/store';
 
 export const Login = () => {
-  console.log("Login");
+  const dispatch = useDispatch();
   return (
     <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
       <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
@@ -37,11 +36,12 @@ export const Login = () => {
   );
   function login(e) {
     e.preventDefault();
-    store.dispatch(actions.login({ 
-      email: e.target['email'].value, 
-      password: e.target['password'].value }));
+    dispatch(actions.login({
+      email: e.target['email'].value,
+      password: e.target['password'].value
+    }));
   }
-  
+
 }
 
 const styles = {
