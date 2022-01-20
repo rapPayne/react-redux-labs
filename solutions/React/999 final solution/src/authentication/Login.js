@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { actions } from '../store/actions';
-import { store } from '../store/store';
 
 export const Login = (props) => {
+  const dispatch = useDispatch();
+  const user = useSelector(store => store.user);
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const redirectUrl = params.get('redirectUrl');
   const [showPassword, setShowPassword] = useState(false);
 
-  if (store.getState().user) {
+  if (user) {
     navigate(redirectUrl || "/");
   }
   return (
@@ -44,13 +46,14 @@ export const Login = (props) => {
         </form>
       </div>
     </section>
-  )
-};
+  );
 
-function login(e) {
-  e.preventDefault();
-  store.dispatch(actions.login(e.target['email'].value, e.target['password'].value));
-}
+  function login(e) {
+    e.preventDefault();
+    dispatch(actions.login(e.target['email'].value, e.target['password'].value));
+  }
+
+};
 
 const styles = {
   wrapper: {
