@@ -1,22 +1,24 @@
-import React from 'react';
-import { store } from './store/store';
+import { useDispatch } from 'react-redux';
 import { actions } from './store/actions';
 
-export const PickDate = () => (
-  <div style={styles.pickDateWrapper}>
-  {Date.getArrayOfDays(7).map(date => (
-    <span
-      onClick = {() => set_current_date(date)}
-      style={styles.days}
-      key={date.getTime()}>
-      {date.toShortDayOfWeekString()}
-    </span>
-  ))}
-</div>
-);
+export const PickDate = () => {
+  const dispatch = useDispatch();
+  return (
+    <div style={styles.pickDateWrapper}>
+      {Date.getArrayOfDays(7).map(date => (
+        <span
+          onClick={() => set_current_date(date)}
+          style={styles.days}
+          key={date.getTime()}>
+          {date.toShortDayOfWeekString()}
+        </span>
+      ))}
+    </div>
+  );
 
-function set_current_date(date) {
-  store.dispatch(actions.setCurrentDate(date));
+  function set_current_date(date) {
+    dispatch(actions.setCurrentDate(date));
+  }
 }
 
 const styles = {
