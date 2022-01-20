@@ -1,12 +1,10 @@
-import React from 'react';
-import { store } from './store/store';
+import { useSelector } from 'react-redux';
 
 export const LandingPage = () => {
-  console.log("LandingPage");
-  const state = store.getState();
-  const films = state.films;
+  const films = useSelector(state => state.films);
+  const showings = useSelector(state => state.showings);
+  const currentDate = new Date(useSelector(state => state.currentDate))
   const film = films[1] || {};
-  const currentDate = new Date();
   return (
     <>
       <section style={styles.header} className="mdl-card mdl-shadow--2dp">
@@ -29,7 +27,7 @@ export const LandingPage = () => {
           </div>
           <div style={styles.showings}>
             Showing times will go here
-        </div>
+          </div>
         </section>
 
       </section>

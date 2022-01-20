@@ -1,13 +1,11 @@
-import React from 'react';
-import { store } from './store/store';
+import { useSelector } from 'react-redux';
 import { PickDate } from "./PickDate";
 import { ShowingTimes } from './ShowingTimes';
 
 export const FilmDetails = () => {
-  console.log("FilmDetails");
-  const state = store.getState();
-  const films = state.films;
-  const film = films[1] || {}; return (
+  const films = useSelector(state => state.films);
+  const film = films[1] || {};
+  return (
     <>
       <div style={{ ...styles.container }} className='mdl-card mdl-shadow--2dp'>
         <div style={{}}>
@@ -60,5 +58,5 @@ const styles = {
     padding: '20px',
     margin: '10px',
   },
-  
+
 };

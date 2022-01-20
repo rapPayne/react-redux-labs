@@ -1,9 +1,8 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { PickDate } from "./PickDate";
 import { ShowingTimes } from './ShowingTimes';
 
-export const FilmDetails = ({films, showings, currentDate}) => {
+export const FilmDetails = ({ films, showings, currentDate }) => {
   let film = {};
   const { filmId } = useParams();
   if (films && films.length) {

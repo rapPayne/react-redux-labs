@@ -1,12 +1,11 @@
-import React from 'react';
-import { store } from './store/store';
 import { PickDate } from './PickDate';
 import { FilmBrief } from './FilmBrief';
+import { useSelector } from 'react-redux';
 
 export const LandingPage = () => {
-  console.log("LandingPage");
-  const state = store.getState();
-  const currentDate = new Date(state.currentDate);
+  const films = useSelector(state => state.films);
+  const showings = useSelector(state => state.showings);
+  const currentDate = new Date(useSelector(state => state.currentDate))
   return (
     <>
       <section style={styles.header} className="mdl-card mdl-shadow--2dp">
@@ -16,8 +15,8 @@ export const LandingPage = () => {
         <PickDate />
       </section>
       <section style={styles.filmsWrapper}>
-        {state.films.map(film => (
-          <FilmBrief film={film} showings={state.showings} currentDate={currentDate} key={film.id} />
+        {films.map(film => (
+          <FilmBrief film={film} showings={showings} currentDate={currentDate} key={film.id} />
         ))}
       </section>
     </>

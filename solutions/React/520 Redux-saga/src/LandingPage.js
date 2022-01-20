@@ -1,10 +1,12 @@
-import React from 'react';
 import { FilmBrief } from './FilmBrief';
 import { PickDate } from './PickDate';
+import { useSelector } from 'react-redux';
 
 export const LandingPage = (props) => {
+  const films = useSelector(state => state.films);
+  const showings = useSelector(state => state.showings);
+  const currentDate = new Date(useSelector(state => state.currentDate))
   const { films, showings } = props;
-  const currentDate = new Date(props.currentDate)
   return (
     <>
       <section style={styles.header} className="mdl-card mdl-shadow--2dp">
