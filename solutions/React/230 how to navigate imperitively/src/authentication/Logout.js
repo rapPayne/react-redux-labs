@@ -1,15 +1,14 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { store } from '../store/store';
+import { useDispatch } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { actions } from '../store/actions';
 
 export const Logout = () => {
-  console.log("Logout");
-  store.dispatch(actions.logout());
+  const dispatch = useDispatch();
+  dispatch(actions.logout());
   return (
     <>
       <p>Logging out ...</p>
-      <Redirect to="/" />
+      <Navigate to="/" />
     </>
   )
 }
