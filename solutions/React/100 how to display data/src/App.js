@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import 'material-design-lite/dist/material.min.css';
 import 'material-design-lite/dist/material.purple-indigo.min.css';
 import './App.css';
 import './helpers/Currency';
 import './helpers/Date';
 import 'material-design-lite/material';
-import { store } from './store/store';
 import { actions } from './store/actions';
 import { LandingPage } from './LandingPage';
 import { FilmDetails } from './FilmDetails';
@@ -17,12 +17,12 @@ import { Logout } from './authentication/Logout';
 import { Account } from './authentication/Account';
 
 function App() {
-  const [state, setState] = useState(store.getState());
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
   useEffect(() => {
-    store.subscribe(() => setState({ ...store.getState() }));
-    store.dispatch(actions.fetchInitialData());
+    dispatch(actions.fetchInitialData());
   }, []);
-  console.log(store.getState());
+
   console.log(1234.567.toCurrency());
   return (
     <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">

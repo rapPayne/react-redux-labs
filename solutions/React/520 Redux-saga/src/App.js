@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import 'material-design-lite/dist/material.min.css';
 import 'material-design-lite/dist/material.purple-indigo.min.css';
@@ -18,13 +19,13 @@ import { actions } from './store/actions';
 import { store } from './store/store';
 
 function App() {
-  const [state, setState] = useState(store.getState());
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
   useEffect(() => {
-    store.subscribe(() => setState({ ...store.getState() }));
-    store.dispatch({type:'SAY_HELLO'})
-    store.dispatch({type:'SAY_HELLO'})
-    store.dispatch({type:'SAY_HELLO'})
-    store.dispatch(actions.fetchInitialData());
+    dispatch({ type: 'SAY_HELLO' })
+    dispatch({ type: 'SAY_HELLO' })
+    dispatch({ type: 'SAY_HELLO' })
+    dispatch(actions.fetchInitialData());
   }, []);
 
   return (
