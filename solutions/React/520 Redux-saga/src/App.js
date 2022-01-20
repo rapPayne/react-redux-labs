@@ -16,7 +16,6 @@ import { Logout } from './authentication/Logout';
 import { NotFound } from './NotFound';
 import { PickSeats } from './PickSeats';
 import { actions } from './store/actions';
-import { store } from './store/store';
 
 function App() {
   const state = useSelector(state => state);
