@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { actions } from './store/actions';
 import { Table } from './Table';
 
 export const PickSeats = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const state = store.getState();
   const { showingId } = useParams();
   let currentShowing = { id: 0, film_id: 0, theater_id: 0, showing_time: new Date() };
   let currentFilm = { title: "A Cool Movie" };
@@ -49,7 +48,7 @@ export const PickSeats = () => {
         ))}
 
       </section>
-      <button onClick={_ => history.push(`/checkout`)} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} >Check out</button>
+      <button onClick={_ => navigate(`/checkout`)} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} >Check out</button>
     </section>
   )
 

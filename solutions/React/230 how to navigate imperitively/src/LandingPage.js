@@ -16,7 +16,7 @@ export const LandingPage = () => {
       </section>
       <section style={styles.filmsWrapper}>
         {films.map(film => (
-          <FilmBrief film={film} showings={state.showings} currentDate={currentDate} key={film.id} />
+          <FilmBrief film={film} showings={showings} currentDate={currentDate} key={film.id} />
         ))}
       </section>
     </>

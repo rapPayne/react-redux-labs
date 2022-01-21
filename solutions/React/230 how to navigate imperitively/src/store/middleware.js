@@ -125,7 +125,7 @@ const checkoutMiddleware = ({ getState, dispatch }) => next => action => {
 // Send username/password POST request
 const loginMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === actionTypes.LOGIN) {
-    const body = JSON.stringify({ ...action.user });
+    const body = JSON.stringify({ email: action.email, password: action.password });
     fetch(`/api/login`, {
       method: 'POST',
       headers: { "Content-Type": `application/json` },
@@ -141,14 +141,14 @@ const loginMiddleware = ({ dispatch, getState }) => next => action => {
 // Un-authenticate
 const logoutMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === actionTypes.LOGOUT) {
-    const { sessionId }  = getState();
+    const { sessionId } = getState();
     const body = { sessionId };
     fetch(`/api/logout`, {
       method: 'POST',
       headers: { "Content-Type": `application/json` },
       body
     })
-    .catch(console.error);
+      .catch(console.error);
 
     dispatch(actions.setUser(undefined));
   }

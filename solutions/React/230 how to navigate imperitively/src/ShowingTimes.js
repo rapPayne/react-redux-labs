@@ -1,8 +1,7 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export const ShowingTimes = ({showings, currentFilm, currentDate}) => {
-  const history = useHistory();
+export const ShowingTimes = ({ showings, currentFilm, currentDate }) => {
+  const navigate = useNavigate();
   currentDate = new Date(currentDate);
   const showingsForDateAndFilm = showings.filter(st => st.film_id === currentFilm.id && st.showing_time > currentDate.setHours(0, 0, 0, 0) && st.showing_time < currentDate.setHours(23, 59, 59, 999));
   return (
@@ -10,7 +9,7 @@ export const ShowingTimes = ({showings, currentFilm, currentDate}) => {
       <p style={styles.headline}>Showing times for {currentDate.toShowingDateString()}</p>
       <div style={styles.showingTimesWrapper}>
         {showingsForDateAndFilm.map(st => (
-          <span onClick={() => history.push(`/pickseats/${st.id}`)} style={styles.tile} key={st.id}>
+          <span onClick={() => navigate(`/pickseats/${st.id}`)} style={styles.tile} key={st.id}>
             {st.showing_time.toShowingTimeString()}</span>
         )
         )}

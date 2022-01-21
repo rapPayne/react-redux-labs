@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import 'material-design-lite/dist/material.min.css';
 import 'material-design-lite/dist/material.purple-indigo.min.css';
 import './App.css';
@@ -62,16 +62,17 @@ function App() {
           </nav>
         </div>
         <main className="mdl-layout__content">
-          <Switch>
-            <Route exact path="/" render={() => <LandingPage {...state} />} />
-            <Route exact path="/account" render={() => <Account {...state} />} />
-            <Route exact path="/login" render={() => <Login />} />
-            <Route exact path="/logout" render={() => <Logout />} />
-            <Route exact path="/checkout" render={() => <Checkout {...state} />} />
-            <Route exact path="/pickseats/:showingId" render={() => <PickSeats {...state} />} />
-            <Route exact path="/film/:filmId" render={() => <FilmDetails {...state} />} />
-            <Route exact render={() => <NotFound />} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<LandingPage {...state} />} />
+            <Route path="/account" element={<Account {...state} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/register" element={<Account />} />
+            <Route path="/checkout" element={<Checkout {...state} />} />
+            <Route path="/pickseats/:showingId" element={<PickSeats {...state} />} />
+            <Route path="/film/:filmId" element={<FilmDetails {...state} />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </main>
         <footer>
         </footer>
