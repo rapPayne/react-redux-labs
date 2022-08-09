@@ -1,4 +1,5 @@
-import { createStore, applyMiddleware } from 'redux';
+//import { applyMiddleware } from 'redux';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
 import { reducer } from './reducers';
 import { middleware } from './middleware';
 
@@ -14,4 +15,4 @@ const initialState = {
 
 const storeEnhancer = applyMiddleware(...middleware);
 
-export const store = createStore(reducer, initialState, storeEnhancer);
+export const store = configureStore({ reducer: reducer }, initialState, storeEnhancer);

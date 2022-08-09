@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import 'material-design-lite/dist/material.min.css';
@@ -20,10 +20,10 @@ import { actions } from './store/actions';
 function App() {
   const state = useSelector(state => state);
   const user = useSelector(state => state.user);
-  const dispatch = useDispatch();
+  const dispatch = useMemo(useDispatch, []);
   useEffect(() => {
     dispatch(actions.fetchInitialData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <BrowserRouter>

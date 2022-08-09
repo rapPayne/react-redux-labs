@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     dispatch(actions.fetchInitialData());
   }, []);
+  console.log({ state })
   return (
     <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header className="mdl-layout__header">
