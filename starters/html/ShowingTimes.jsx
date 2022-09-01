@@ -2,7 +2,7 @@
   <p style={styles.headline}>Showing times for {currentDate.toShowingDateString()}</p>
   <div style={styles.showingTimesWrapper}>
     {showingsForDateAndFilm.map(st => (
-      <span style={styles.tile} key={st.id}>
+      <span style={styles.title} key={st.id}>
         {st.showing_time.toShowingTimeString()}</span>
     )
     )}
