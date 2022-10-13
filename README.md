@@ -2,10 +2,13 @@
 
 These are the labs for the React, Redux, and React Native classes. 
 
-* [Overview](#Overview)
-* [Setup Requirements](#Setup-Requirements)
-* [How to run](#how-to-run)
-* [Instructor Notes](#instructor-notes)
+- [Dinner-and-a-movie](#dinner-and-a-movie)
+  - [Overview](#overview)
+  - [Setup requirements](#setup-requirements)
+  - [How to run](#how-to-run)
+  - [Instructor notes](#instructor-notes)
+    - [How the projects relate](#how-the-projects-relate)
+  - [JavaScript Cheatsheet](#javascript-cheatsheet)
 
 ## Overview
 We're creating a web app that could be used for a movie theater that also serves food and drinks. The customer is able to pick a movie they want to see, select a showtime, and reserve seats in the theater on a seat map.
@@ -44,3 +47,31 @@ The 5-day React/Redux class starts with React intro and setup then does a deep-d
 The 3-day React and 4-day React Native classes have a 45-minute Redux In a Nutshell lecture. The lab for that topic is simply installing Redux through npm and apply our pre-written Redux code.
 
 The main difference between 3-day React and 5-day React/Redux is that we do a 45-minute "nutshell" overview with one and a 2-day deep dive with the other.
+
+## JavaScript Cheatsheet
+I often hear, "Dang! I thought I knew JavaScript. Where can I read up on some of these confusing features?" 
+
+Here are some:
+* [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 
+  * The `=>` operator
+* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+* [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+* [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+* [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+  * The `??` operator
+* [Elvis operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+  * The `?` operator
+* [Array prototypes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [Ternaries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+  * The `? - :` operator
+* [ES Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+  * importing and exporting
+* [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+  * The `...` operator
+* [Default function parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+
+* [Object property shorthand](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015)
+* [Strings with backtics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+  * The `` operator
