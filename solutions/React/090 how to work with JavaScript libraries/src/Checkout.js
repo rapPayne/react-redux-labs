@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const Checkout = () => {
   console.log("Checkout");
@@ -31,4 +30,4 @@ export const Checkout = () => {
     </>
   )
 }
-const styles={};
+const styles = {};

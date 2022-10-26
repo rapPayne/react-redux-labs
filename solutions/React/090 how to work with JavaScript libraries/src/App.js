@@ -25,7 +25,7 @@ function App() {
 
   console.log(1234.567.toCurrency());
   return (
-    <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div className="mdl-layout xmdl-js-layout mdl-layout--fixed-header">
       <header className="mdl-layout__header">
         <div className="mdl-layout__header-row">
           <a href="/" className="mdl-layout-title">Dinner and a Movie</a>
