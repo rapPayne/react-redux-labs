@@ -1,4 +1,5 @@
 import { actionTypes, actions } from './actions';
+import { sliceActions } from './slices';
 
 const fetchInitialDataMiddleware = ({ getState, dispatch }) => next => action => {
   if (action.type === actionTypes.FETCH_INITIAL_DATA) {
@@ -25,7 +26,7 @@ const fetchReservationsForShowing = ({ getState, dispatch }) => next => action =
     const showingId = action.showingId;
     fetch(`/api/showings/${showingId}/reservations`)
       .then(res => res.json())
-      .then(reservations => dispatch(actions.setReservationsForCurrentShowing(reservations)))
+      .then(reservations => dispatch(sliceActions.reservations.setReservationsForCurrentShowing(reservations)))
       .catch(err => console.error(`Error setting reservations for showing:`, err));
   }
   next(action);

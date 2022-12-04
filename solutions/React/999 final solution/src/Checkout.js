@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 export const Checkout = ({ cart, user }) => {
   const navigate = useNavigate();
-  const foo = cart.seats.reduce((total, seat) => +total + seat.price, 0);
-  console.log("foo is", foo)
   return (
     <>
       <h1>Checkout</h1>
@@ -22,8 +20,8 @@ export const Checkout = ({ cart, user }) => {
           <tr>
             <td></td>
             <td></td>
-            <td>{cart.seats.length}</td>
-            <td>{(cart.seats.reduce((total, seat) => total + seat.price, 0)).toCurrency()}</td>
+            <td>{cart.length}</td>
+            <td>{(cart.reduce((total, seat) => total + seat.price, 0)).toCurrency()}</td>
           </tr>
         </tfoot>
         <tbody>
@@ -46,7 +44,7 @@ export const Checkout = ({ cart, user }) => {
   }
   function purchase() {
     if (user) {
-      console.error('trying to purchase')
+      console.error('To be implemented: trying to purchase')
     } else {
       navigate('/login?returnUrl=/checkout');
     }

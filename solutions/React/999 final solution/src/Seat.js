@@ -20,9 +20,11 @@ export const Seat = (props) => {
       //   console.warn("Seat is reserved. Do nothing")
       //   break;
       case statuses.inMyCart:
+        console.warn("inMyCart already")
         dispatch(actions.removeSeatFromCart(seat, currentShowing));
         break;
       case statuses.open:
+        console.warn("open. Adding to cart")
         dispatch(actions.addSeatToCart(seat, currentShowing));
         break;
       default:

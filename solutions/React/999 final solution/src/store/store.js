@@ -1,9 +1,10 @@
 //import { applyMiddleware } from 'redux';
-import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
-import { reducer } from './reducers';
+import { configureStore } from '@reduxjs/toolkit';
+//import { reducer } from './reducers';
+import { reducer } from './slices';
 import { middleware } from './middleware';
 
-const initialState = {
+const preloadedState = {
   cart: { seats: [], food: [] },
   currentDate: new Date().setHours(0, 0, 0, 0),
   films: [],
@@ -13,6 +14,6 @@ const initialState = {
   user: {},
 };
 
-const storeEnhancer = applyMiddleware(...middleware);
-
-export const store = configureStore({ reducer: reducer }, initialState, storeEnhancer);
+//const enhancers = applyMiddleware(...middleware);
+//export const store = createStore(reducer, preloadedState, enhancers,)
+export const store = configureStore({ reducer, preloadedState, middleware });

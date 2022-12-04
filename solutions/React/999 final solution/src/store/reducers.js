@@ -28,6 +28,7 @@ const rootReducer = (state, action = {}) => {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case actionTypes.ADD_SEAT_TO_CART:
+      action.seat.status = "inMyCart";
       return { ...state, seats: [...state.seats, action.seat] }
     case actionTypes.REMOVE_SEAT_FROM_CART:
       return { ...state, seats: state.seats.filter(seat => seat !== action.seat) }
@@ -35,6 +36,7 @@ const cartReducer = (state, action) => {
       return state;
   }
 }
+
 
 // See the note in the server's README about reservations and holds.
 const reservationsReducer = (state = {}, action) => {

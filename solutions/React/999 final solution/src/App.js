@@ -20,7 +20,7 @@ import { actions } from './store/actions';
 function App() {
   const state = useSelector(state => state);
   const user = useSelector(state => state.user);
-  const dispatch = useMemo(useDispatch, []);
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.fetchInitialData());
   }, [dispatch]);
