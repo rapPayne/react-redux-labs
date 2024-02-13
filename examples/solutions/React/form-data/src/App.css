@@ -1,0 +1,12 @@
+:root {
+  margin: 0 auto;
+}
+
+/* CSS nesting is now kosher as of Chrome/Edge v112 */
+form {
+
+  & input {
+    width: 95%;
+    display: block;
+  }
+}
