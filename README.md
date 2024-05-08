@@ -1,6 +1,6 @@
 # Dinner-and-a-movie
 
-These are the labs for the React, Redux, and React Native classes. 
+These are the labs for the React and Redux classes. 
 
 - [Dinner-and-a-movie](#dinner-and-a-movie)
   - [Overview](#overview)
@@ -18,7 +18,7 @@ You've been provided a Node server using Express to serve data from a simple dat
 In the labs, you'll create the client portion from scratch.
 
 ## Setup requirements
-For the React labs, As long as you have a version of node that is under support, you should be good. For React Native labs, you'll also need a bunch of other stuff. But as far as we're concerned, if you match the requirements to run a React Native app, you can run these labs.
+For the React labs, As long as you have a version of node that is under support, you should be good. 
 
 ## How to run
 1. [Start the RESTful API server](/server)
@@ -33,10 +33,9 @@ npm run start
 Instructors, this section is for you! 
 
 ### How the projects relate
-This site supports three courses:
+This site supports two courses:
 * a five-day React with Redux, 
 * a three-day React (without Redux),
-* a four-day React Native
 
 As you know there's a lot of overlap between these topics so there is some instructions and solutions that are common between them.
 
@@ -44,6 +43,6 @@ Setup is common for all three. The server is common for all three.
 
 The 5-day React/Redux class starts with React intro and setup then does a deep-dive into Redux with labs and everything.
 
-The 3-day React and 4-day React Native classes have a 45-minute Redux In a Nutshell lecture. The lab for that topic is simply installing Redux through npm and apply our pre-written Redux code.
+The 3-day React class has a 45-minute Redux In a Nutshell lecture. The lab for that topic is simply installing Redux through npm and apply our pre-written Redux code.
 
 The main difference between 3-day React and 5-day React/Redux is that we do a 45-minute "nutshell" overview with one and a 2-day deep dive with the other.
