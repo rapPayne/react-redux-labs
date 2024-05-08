@@ -1,6 +1,0 @@
-{
-  "/api/*": "/$1",
-  "/showings/:showing_id/reservations": "/reservations?showing_id=:showing_id",
-  "/showings/:film_id/:date": "/showings?film_id=:film_id&showing_time=:date",
-  "/login/:username/:password": "/users?email=:username&password=:password"
-}

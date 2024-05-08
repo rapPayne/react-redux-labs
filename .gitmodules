@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = http://github.com/rapPayne/daam-server
