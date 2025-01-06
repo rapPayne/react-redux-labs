@@ -12,7 +12,7 @@ export const Table = ({ table, currentShowing }: Props): ReactElement => {
   return (
     <div style={styles.wrapper}>
       <div style={styles.tableWrapper}>
-        <div style={{ ...styles.tableItself, ...getTableWidth(table.seats ?? []) }}>{table.tableNumber}</div>
+        <div style={{ ...styles.tableItself, ...getTableWidth(table.seats ?? []) }}>{table.table_number}</div>
       </div>
       <div style={styles.seatsWrapper}>
         {table.seats?.map(seat => (

@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
+    "material-design-icons": "^3.0.1",
     "material-design-lite": "^1.3.0",
     "react": "19.0.0-rc-603e6108-20241029",
     "react-dom": "19.0.0-rc-603e6108-20241029",

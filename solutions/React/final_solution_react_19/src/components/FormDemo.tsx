@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 
 export const FormDemo = () => {
@@ -15,7 +15,7 @@ export const FormDemo = () => {
         </section>
 
         {/* A select list (dropdown or listbox) */}
-        <section>
+        {/* <section>
           <label htmlFor="soda">Soda</label>
           <select value={state.soda} name="soda" onChange={setIt} id="soda">
             <option>Choose one ...</option>
@@ -23,19 +23,19 @@ export const FormDemo = () => {
             <option value="r">Royal Crown Cola</option>
             <option value="c">Coca Cola</option>
           </select>
-        </section>
+        </section> */}
 
         {/* A checkbox */}
         <section>
           <label htmlFor="new">New?</label>
-          <input
+          {/* <input
             type="checkbox"
             value={state.new}
             checked={state.new}
             name="new"
             onChange={setIt}
             id="new"
-          />
+          /> */}
         </section>
 
         {/* A radio group */}
@@ -77,7 +77,7 @@ export const FormDemo = () => {
         {/* Behaves just like a regular textbox */}
         <section>
           <label htmlFor="comments">Comments</label>
-          <textarea name="comments" value={state.comments} onChange={setIt} id="comments" />
+          {/* <textarea name="comments" value={state.comments} onChange={setIt} id="comments" /> */}
         </section>
 
         {/* A date input (aka calendar) */}
@@ -91,18 +91,18 @@ export const FormDemo = () => {
     </>
   );
 
-  function setIt(e) {
+  function setIt(e: ChangeEvent<HTMLInputElement>) {
     console.log('setting')
     const newState = { ...state };
     switch (e.target.type) {
       case "checkbox":
-        newState[e.target.name] = e.target.checked;
+        // newState[e.target.name] = e.target.checked;
         break;
       case "radio":
-        newState[e.target.name] = e.target.value;
+        // newState[e.target.name] = e.target.value;
         break;
       default:
-        newState[e.target.name] = e.target.value;
+      // newState[e.target.name] = e.target.value;
     }
     setState(newState);
   }

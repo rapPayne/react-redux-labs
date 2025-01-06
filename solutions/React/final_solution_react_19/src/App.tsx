@@ -1,9 +1,10 @@
-import { CSSProperties, ReactElement, useEffect } from 'react'
+
+import { CSSProperties, ReactElement, Suspense, useEffect } from 'react'
 import './App.css'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { LandingPage } from './components/scenes/LandingPage.tsx';
 import { Account } from './components/authentication/Account.tsx';
-import { Login } from './components/authentication/Login.tsx';
+import { Login } from './components/authentication/LoginActionState.tsx';
 import { Logout } from './components/authentication/Logout.tsx';
 import { Checkout } from './components/scenes/Checkout.tsx';
 import { PickSeats } from './components/scenes/PickSeats.tsx';
@@ -13,11 +14,12 @@ import { State, useStore } from './store/useStore.ts';
 import { Convert as ConvertFilm } from './types/Film.ts';
 import { Convert as ConvertShowing } from './types/Showing.ts';
 import { Convert as ConvertTheater } from './types/Theater.ts';
+import { FilmList } from './components/FilmList.tsx';
 
 export function App(): ReactElement {
   const store: State = useStore();
-  //const state = {};
   const user = {};
+
   useEffect(() => {
     // Load initial data here
     fetch("http://localhost:3008/films")
@@ -82,17 +84,20 @@ export function App(): ReactElement {
           </nav>
         </div>
         <main className="mdl-layout__content">
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/register" element={<Account />} />
-            <Route path="/checkout" element={<Checkout cart={store.cart} user={store.user} />} />
-            <Route path="/pickseats/:showingId" element={<PickSeats />} />
-            <Route path="/film/:filmId" element={<FilmDetails />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<h1>Loading. Please wait ...</h1>}>
+            <FilmList />
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/register" element={<Account />} />
+              <Route path="/checkout" element={<Checkout cart={store.cart} user={store.user} />} />
+              <Route path="/pickseats/:showingId" element={<PickSeats />} />
+              <Route path="/film/:filmId" element={<FilmDetails />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </main>
         <footer>
         </footer>
