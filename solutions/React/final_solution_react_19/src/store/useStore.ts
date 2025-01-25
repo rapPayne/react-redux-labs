@@ -18,8 +18,8 @@ export type State = {
   currentDate: Date,
   setCurrentDate: (date: Date) => void,
   // The list of all films
-  films: Film[],
-  setFilms: (films: Film[]) => void,
+  films: Film[] | undefined,
+  setFilms: (films: Film[] | undefined) => void,
   // 
   // reservations: Reservation[],
   // All showings: a film in a theater at a given time
@@ -42,8 +42,8 @@ export const useStore = create<State>((set) => ({
   currentDate: new Date(new Date().setHours(0, 0, 0, 0)),
   setCurrentDate: (date: Date) => set((state) => ({ ...state, currentDate: date })),
   //   
-  films: [],
-  setFilms: (films: Film[]) => set((state) => ({ ...state, films: films })),
+  films: undefined,
+  setFilms: (films: Film[] | undefined) => set((state) => ({ ...state, films: films })),
   //   reservations: [],
   //   
   showings: [],

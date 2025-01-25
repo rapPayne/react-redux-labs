@@ -14,8 +14,9 @@
     "@types/react-dom": "npm:types-react-dom@rc",
     "material-design-icons": "^3.0.1",
     "material-design-lite": "^1.3.0",
-    "react": "19.0.0-rc-603e6108-20241029",
-    "react-dom": "19.0.0-rc-603e6108-20241029",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.1",
     "react-router-dom": "^6.27.0",
     "zustand": "^5.0.1"
   },

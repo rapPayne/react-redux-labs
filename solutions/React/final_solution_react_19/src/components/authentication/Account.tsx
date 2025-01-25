@@ -1,110 +1,133 @@
-import { User } from "../../types/User";
+import { Convert, User } from "../../types/User";
+import { useStore } from "../../store/useStore";
+import { useState } from "react";
+import { useFormStatus } from "react-dom";
 
+// Pulled out so we can use useFormStatus
+const FormContents = ({ user, isAddingNewUser }: { user: User | undefined, isAddingNewUser: boolean }) => {
+  const status = useFormStatus();
+  const [username, setUsername] = useState(user?.username);
+  const showPassword = true;
+
+  return (
+    <>
+      <div className="mdl-color--primary mdl-color-text--white">
+        <h1>{isAddingNewUser ? "Register" : "My Account"} {status.pending ? "Pending" : "Settled"}</h1>
+      </div>
+      <pre>{JSON.stringify(status, null, 2)}</pre>
+      {/* <input type="hidden" name="id" value={user?.id} /> */}
+      <div>
+        <label htmlFor="username">Username</label>
+        <input defaultValue={username} onChange={e => setUsername(e.target.value)} id="username" name="username" className="mdl-textfield__input" />
+        {isAddingNewUser && username && <div>{"'" + username + "' is available -- TODO: this doesn't actually work"}</div>}
+      </div>
+
+      <div>
+        <label htmlFor="password">Password</label>
+        <input defaultValue={user?.password} id="password" name="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+      </div>
+
+      <div>
+        <label htmlFor="password2">Password (again)</label>
+        <input id="password2" name="password2" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+      </div>
+
+      <div>
+        <label htmlFor="email">Email</label>
+        <input defaultValue={user?.email} id="email" name="email" className="mdl-textfield__input" />
+        {status.data && <div>{`Submitting '${status.data.get("email")}'`}</div>}
+      </div>
+
+      <div>
+        <label htmlFor="first">First name (given name)</label>
+        <input defaultValue={user?.first} id="first" name="first" className="mdl-textfield__input" />
+        {status.data && <div>{`Submitting '${status.data.get("first")}'`}</div>}
+      </div>
+
+      <div>
+        <label htmlFor="last">Last name (family name)</label>
+        <input defaultValue={user?.last} id="last" name="last" className="mdl-textfield__input" />
+        {status.data && <div>{`Submitting '${status.data.get("last")}'`}</div>}
+      </div>
+
+      <div>
+        <label htmlFor="phone">Phone</label>
+        <input defaultValue={user?.phone} id="phone" name="phone" className="mdl-textfield__input" />
+      </div>
+
+      <div>
+        <label htmlFor="pan">Credit card</label>
+        <input defaultValue={user?.creditCard?.pan} id="pan" name="pan" className="mdl-textfield__input" />
+      </div>
+
+      <div >
+        <label htmlFor="expiryMonth">Expiry month</label>
+        <input defaultValue={user?.creditCard?.expiryMonth} id="expiryMonth" name="expiryMonth" className="mdl-textfield__input" />
+      </div>
+
+      <div >
+        <label htmlFor="expiryYear">Expiry year</label>
+        <input defaultValue={user?.creditCard?.expiryYear} id="expiryYear" name="expiryYear" className="mdl-textfield__input" />
+      </div>
+
+      <input type='submit' value={status.pending ? 'Hold yer horses!' : 'Save'} disabled={status.pending} />
+
+    </>
+
+    // <pre>{JSON.stringify(user, undefined, 2)}</pre>
+  )
+}
 
 export const Account = () => {
-  const user: User = {};  //TODO: read from state
+  const store = useStore();
+  const user: User | undefined = store.user;
+  const isUpdatingExistingUser = !!user;
+  const isAddingNewUser = !user;
   console.log("Account", user);
-  const showPassword = true;
+
+  async function registerOrUpdate(formData: FormData) {
+    for (const [k, v] of formData.entries()) {
+      console.log(`${k} is ${v}`)
+    }
+    console.log({ username: formData.get("username") })
+    const userToBeSent = Object.fromEntries(formData);
+    await fetch(isAddingNewUser ? "http://localhost:3008/api/register" : `http://localhost:3008/api/account/${user?.id}`, {
+      body: JSON.stringify(userToBeSent),
+      headers: { 'Content-Type': "application/json" },
+      method: isAddingNewUser ? "POST" : "PATCH"
+    })
+      .then(res => res.text())
+      .then(text => Convert.toUser(text))
+      .then(user => store.setUser(user))
+  }
+
   return (
-    <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
-      <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
-        <h1 className="mdl-card__title-text">Register</h1>
-      </div>
-      <div className="mdl-card__supporting-text">
-        <form onSubmit={(e) => register(e)}>
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="email" className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="email">Email</label>
-            </div>
-          </div>
-
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
-              <input value={user.password} id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="password">Password</label>
-            </div>
-          </div>
-
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
-              <input id="password2" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="password2">Password (again)</label>
-            </div>
-          </div>
-
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="given" className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="given">First name (given name)</label>
-            </div>
-          </div>
-
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="family" className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="family">Last name (family name)</label>
-            </div>
-          </div>
-
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="phone" className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="phone">Phone</label>
-            </div>
-          </div>
-
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="number" className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="number">Credit card</label>
-            </div>
-          </div>
-
-          <div style={styles.inputDivs}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="expiration" type="date" className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="expiration">Expiration</label>
-            </div>
-          </div>
-
-          <input type='submit' value='Save' className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={styles.submitButton} />
-        </form>
-      </div>
+    <section>
+      <form action={registerOrUpdate}>
+        <FormContents user={user} isAddingNewUser={isAddingNewUser} />
+      </form>
     </section>
   )
 
-  function register(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const password = (form.elements.namedItem("password") as HTMLInputElement).value;
-    const given = (form.elements.namedItem("given") as HTMLInputElement).value;
-    const family = (form.elements.namedItem("family") as HTMLInputElement).value;
-    const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
-    const number = (form.elements.namedItem("password") as HTMLInputElement).value;
-    const expiration = (form.elements.namedItem("password") as HTMLInputElement).value;
-    const user = {
-      email,
-      password,
-      name: { given, family },
-      phone,
-      credit_card: { number, expiration },
-    };
-    console.log(user)
-    //TODO: dispatch(actions.register(user));
-  }
-}
 
-
-const styles = {
-  wrapper: {
-    margin: "10px auto",
-  },
-  inputDivs: {
-    //display: "block",
-  },
-  submitButton: {
-    width: "95%",
-  },
+  // function register(e: React.FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
+  //   const form = e.target as HTMLFormElement;
+  //   const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+  //   const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+  //   const given = (form.elements.namedItem("given") as HTMLInputElement).value;
+  //   const family = (form.elements.namedItem("family") as HTMLInputElement).value;
+  //   const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
+  //   const number = (form.elements.namedItem("password") as HTMLInputElement).value;
+  //   const expiration = (form.elements.namedItem("password") as HTMLInputElement).value;
+  //   const user = {
+  //     email,
+  //     password,
+  //     name: { given, family },
+  //     phone,
+  //     credit_card: { number, expiration },
+  //   };
+  //   console.log(user)
+  //   //TODO: dispatch(actions.register(user));
+  // }
 }

@@ -26,7 +26,10 @@ export type CreditCard = {
 
 // Converts JSON strings to/from your types
 export class Convert {
-  public static toUser(json: string): User[] {
+  public static toUser(json: string): User {
+    return JSON.parse(json);
+  }
+  public static toUserArray(json: string): User[] {
     return JSON.parse(json);
   }
 

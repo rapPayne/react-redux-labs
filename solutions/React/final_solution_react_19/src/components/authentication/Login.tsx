@@ -1,20 +1,46 @@
-import { useState } from 'react';
+import { useActionState, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { User } from '../../types/User';
+import { Convert, User } from '../../types/User';
+import toast from 'react-hot-toast';
+import { State, useStore } from '../../store/useStore';
 
 export const Login = () => {
-  const user: User = {};    //TODO: Get from State
+  const { user, setUser } = useStore();
+  //const setUser = useStore((state) => state.setUser);
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const redirectUrl = params.get('redirectUrl');
   const [showPassword, setShowPassword] = useState(false);
+  const [state, dispatch, isPending] = useActionState(
+    async (prevState, formData) => {
+      const objectFromFormData = Object.fromEntries(formData.entries())
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", },
+        body: JSON.stringify(objectFromFormData)
+      });
+      if (!res.ok) {
+        toast.error(`Couldn't log you in. Please try again`)
+        console.warn(`Error posting: ${res.status} ${res.statusText}`);
+        return undefined;
+      } else {
+        const user = Convert.toUser(await res.text());
+        console.log(user);
+        setUser(user);
+        return user;
+      }
+    },
+    user  // Initial state is the user from Zustand store
+  );
 
   if (user) {
     navigate(redirectUrl || "/");
   }
+
   return (
-    <section style={styles.wrapper} className="mdl-card mdl-shadow--2dp">
+    <section>
+      {isPending ? <h1>Loading...</h1> : null}
       <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
         <h1 className="mdl-card__title-text">Login</h1>
       </div>
@@ -22,20 +48,20 @@ export const Login = () => {
         <div>
           <p>First time user? <Link to="/register">Register</Link></p>
         </div>
-        <form onSubmit={(e) => login(e)}>
+        <form action={dispatch}>
 
           <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
-              <input id="email" className="mdl-textfield__input" />
-              <label className="mdl-textfield__label" htmlFor="email">Email</label>
+              <label htmlFor="username">Username</label>
+              <input id="username" name="username" defaultValue={state?.username} />
             </div>
           </div>
 
           <div style={styles.inputDivs}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style={styles.inputDivs}>
-              <input id="password" type={showPassword ? "text" : "password"} className="mdl-textfield__input" />
+              <label htmlFor="email">Password</label>
+              <input id="password" name="password" type={showPassword ? "text" : "password"} />
               <span onClick={() => setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
-              <label className="mdl-textfield__label" htmlFor="email">Password</label>
             </div>
           </div>
 
@@ -54,9 +80,6 @@ export const Login = () => {
 };
 
 const styles = {
-  wrapper: {
-    margin: "10px auto",
-  },
   inputDivs: {
     display: "block",
   },

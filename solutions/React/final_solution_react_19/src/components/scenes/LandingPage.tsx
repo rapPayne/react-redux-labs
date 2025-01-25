@@ -12,7 +12,7 @@ export const LandingPage = () => {
   const films: Array<Film> = store.films;
   const showings: Array<Showing> = store.showings;
   const currentDate: Date = new Date()
-  console.log(showings);
+  // console.log(showings);
   return (
     <>
       <section style={styles.header} className="mdl-card mdl-shadow--2dp">

@@ -1,37 +1,58 @@
 
-import { CSSProperties, ReactElement, Suspense, useEffect } from 'react'
+import { ReactElement, Suspense, use, useEffect, useTransition } from 'react'
 import './App.css'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { LandingPage } from './components/scenes/LandingPage.tsx';
 import { Account } from './components/authentication/Account.tsx';
-import { Login } from './components/authentication/LoginActionState.tsx';
+import { Login } from './components/authentication/Login.tsx';
+//import { Login } from './components/authentication/LoginActionState.tsx';
+//import { Login } from './components/authentication/LoginTestServerAction.tsx';
 import { Logout } from './components/authentication/Logout.tsx';
 import { Checkout } from './components/scenes/Checkout.tsx';
 import { PickSeats } from './components/scenes/PickSeats.tsx';
 import { FilmDetails } from './components/scenes/FilmDetails.tsx';
 import { NotFound } from './components/scenes/NotFound.tsx';
 import { State, useStore } from './store/useStore.ts';
-import { Convert as ConvertFilm } from './types/Film.ts';
+import { Convert as ConvertFilm, Film } from './types/Film.ts';
 import { Convert as ConvertShowing } from './types/Showing.ts';
 import { Convert as ConvertTheater } from './types/Theater.ts';
-import { FilmList } from './components/FilmList.tsx';
+import { FilmList } from './components/FilmListWithUse.tsx';
+// import { FilmList } from './components/FilmListWithFormActionAttr.tsx';
+import { User } from './types/User.ts';
+import { ResponsiveNavBar } from './components/ResponsiveNavBar.tsx';
+import { Toaster } from 'react-hot-toast';
+
+const filmsPromise =
+  fetch("http://localhost:3008/films")
+    .then(res => res.text())
+    .then(json => ConvertFilm.toFilm(json));
+
+// fetch("http://localhost:3008/films")
+//   .then(res => res.text())
+//   .then(json => ConvertFilm.toFilm(json))
+//   .then(films => store.setFilms(films))
+//   .catch(console.error);
 
 export function App(): ReactElement {
   const store: State = useStore();
-  const user = {};
+  const user: User | undefined = store.user;
+  let films = store.films;
+  if (!films) {
+    films = use(filmsPromise)
+    store.setFilms(films)
+  }
 
   useEffect(() => {
     // Load initial data here
-    fetch("http://localhost:3008/films")
-      .then(res => res.text())
-      .then(json => ConvertFilm.toFilm(json))
-      .then(films => store.setFilms(films))
-      .catch(console.error);
+    // fetch("http://localhost:3008/films")
+    //   .then(res => res.text())
+    //   .then(json => ConvertFilm.toFilm(json))
+    //   .then(films => store.setFilms(films))
+    //   .catch(console.error);
 
     fetch("http://localhost:3008/theaters")
       .then(res => res.text())
       .then(json => ConvertTheater.toTheater(json))
-      .then(foo => (console.log(foo), foo))
       .then(theaters => store.setTheaters(theaters))
       .catch(console.error);
 
@@ -43,49 +64,16 @@ export function App(): ReactElement {
       .catch(console.error);
 
   }, []);
-
   return (
     <BrowserRouter>
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header className="mdl-layout__header">
-          <div className="mdl-layout__header-row">
-            <Link to="/" style={{ ...styles.navlink, ...styles.topMenuNavLink }} className="mdl-layout-title">Dinner and a Movie</Link>
-            <nav className="mdl-navigation mdl-layout--large-screen-only">
-              {user ?
-                <>
-                  <Link to="/account" className="mdl-layout__tab">My account</Link>
-                  <Link to="/logout" className="mdl-layout__tab">logout</Link>
-                  <Link to="/checkout" className="mdl-layout__tab"><i className="material-icons">shopping_cart</i></Link>
-                </>
-                :
-                <>
-                  <Link to="/login" className="mdl-layout__tab">Login</Link>
-                  <Link to="/register" className="mdl-layout__tab">Register</Link>
-                </>
-              }
-            </nav>
-          </div>
+        <header>
+          <Toaster position="top-right" reverseOrder={true} />
+          <ResponsiveNavBar user={user} />
         </header>
-        <div className="mdl-layout__drawer">
-          <Link to="/" style={{ ...styles.drawerNavLink, ...styles.navlink }} className="mdl-layout-title">Dinner and a Movie</Link>
-          <nav className="mdl-navigation">
-            {user ?
-              <>
-                <Link to="/account" className="mdl-layout__link">My account</Link>
-                <Link to="/logout" className="mdl-layout__link">logout</Link>
-                <Link to="/checkout" className="mdl-layout__link"><i className="material-icons">shopping_cart</i></Link>
-              </>
-              :
-              <>
-                <Link to="/login" className="mdl-layout__link">Login</Link>
-                <Link to="/register" className="mdl-layout__link">Register</Link>
-              </>
-            }
-          </nav>
-        </div>
         <main className="mdl-layout__content">
           <Suspense fallback={<h1>Loading. Please wait ...</h1>}>
-            <FilmList />
+            {/* <FilmList filmsPromise={filmsPromise} /> */}
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/account" element={<Account />} />
@@ -107,18 +95,3 @@ export function App(): ReactElement {
 }
 
 export default App
-
-const styles: { [P: string]: CSSProperties } = {
-  navlink: {
-    padding: '10px',
-    textTransform: 'uppercase',
-    textDecoration: 'none',
-  },
-  drawerNavLink: {
-    color: '#424242',
-  },
-  topMenuNavLink: {
-    color: 'white',
-  },
-}
-

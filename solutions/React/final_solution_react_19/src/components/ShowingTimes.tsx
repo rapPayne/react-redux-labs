@@ -17,9 +17,9 @@ export const ShowingTimes = ({ styles, showings, currentFilm, currentDate }: Pro
       <p style={styles.headline}>Showing times for {toShowingDateString(currentDate)}</p>
       <div style={styles.showingTimesWrapper}>
         {showingsForDateAndFilm.map(st => (
-          <span style={styles.tile} key={st.id}
-            onClick={() => navigate(`/pickseats/${st.id}`)}>
-            {toShowingTimeString(st.showing_time)}</span>
+          <button style={styles.tile} key={st.id}
+            onClick={(e) => { e.stopPropagation(); navigate(`/pickseats/${st.id}`) }}>
+            {toShowingTimeString(st.showing_time)}</button>
         )
         )}
       </div>
