@@ -1,0 +1,16 @@
+:root {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* CSS HEX */
+--dark-olive-green: #606c38ff;
+--kombu-green: #283618ff;
+--cornsilk: #fefae0ff;
+--fawn: rgba(221, 162, 94, 0.412);
+--liver-dogs: #bc6c25ff;
+}
+
+body {
+  background-color: var(--cornsilk);
+  color: var(--dark-olive-green);
+  padding: 20px 10px 30px;
+
+}
