@@ -64,3 +64,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid transparent;
+  border-top-color: currentColor;
+  /* uses text color for easy theming */
+  border-right-color: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  color: #0b6ff0;
+  /* change this to theme the spinner */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

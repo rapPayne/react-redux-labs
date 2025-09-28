@@ -1,16 +1,18 @@
 
 import { ReactElement, useEffect, useState } from 'react';
+import { Person } from './Person';
+import { Card } from './Card';
 
 const UseEffectUseState = (): ReactElement => {
-  const [users, setUsers] = useState<any[]>([]);
+  const [people, setPeople] = useState<Person[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3008/api/users')
-      .then(response => response.json())
-      .then(data => {
-        setUsers(data);
+    fetch(`http://localhost:3008/api/users`)
+      .then(res => res.json())
+      .then(ppl => {
+        setPeople(ppl);
         setLoading(false);
       })
       .catch(error => {
@@ -29,8 +31,10 @@ const UseEffectUseState = (): ReactElement => {
 
   return (
     <div>
-      <h1>Users (fetched with `useEffect and useState`)</h1>
-      <pre>{JSON.stringify(users, null, 2)}</pre>
+      <h1>Users (fetched with `useEffect` and `useState`)</h1>
+      <section id="cards">
+        {people && people.map((person: Person) => <Card person={person} />)}
+      </section>
     </div>
   );
 };
