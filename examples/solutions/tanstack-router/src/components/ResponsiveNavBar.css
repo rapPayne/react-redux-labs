@@ -1,0 +1,71 @@
+#ResponsiveNavBar {
+  display: grid;
+  grid-template-columns: min-content max-content auto;
+  align-items: center;
+  gap: 10px;
+  background-color: blue;
+
+  a,
+  i {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  #business-name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  /* Toggle button - a checkbox with a hamburger menu over it */
+  #menu-toggle {
+    input {
+      display: none;
+    }
+  }
+
+  /* Collapsable nav menu */
+  nav {
+    display: inline flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    & a {
+      padding: 5px 10px;
+      text-decoration: none;
+    }
+  }
+
+  /* Hamburger menu styles */
+  .hamburger-menu {
+    display: none;
+  }
+
+  /* Mobile styles */
+  @media (width < 768px) {
+    grid-template-columns: min-content max-content;
+    grid-template-areas: 'one two' 'three three';
+
+    nav {
+      display: block flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      grid-area: three;
+    }
+
+    .hamburger-menu {
+      display: block;
+      cursor: pointer;
+
+      & i {
+        font-size: 2em;
+      }
+    }
+
+    #menu-toggle:has(input:checked)~nav {
+      display: none;
+    }
+  }
+}
